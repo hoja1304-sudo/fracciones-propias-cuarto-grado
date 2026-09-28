@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fracciones propias cuarto año</title>
+<style>
+:root{
+  --bg:#fff7e8; --panel:#ffffff; --panel2:#fff1d6; --ink:#3a2618; --soft:#7a6250;
+  --accent:#e0562b; --accent2:#2f8f5b; --blue:#2f6fd6; --purple:#8a4fc9; --gold:#f5b82e;
+  --line:#e7d3b3; --shadow:0 6px 18px rgba(80,40,10,.18);
+}
+:root[data-theme="dark"]{
+  --bg:#171320; --panel:#241d30; --panel2:#2e2540; --ink:#f6ecde; --soft:#b9a994;
+  --accent:#ff7a4d; --accent2:#4fbf82; --blue:#6f9cff; --purple:#b184f0; --gold:#ffcf55;
+  --line:#43385a; --shadow:0 6px 18px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);
+  font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+body{overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+.screen{display:none;min-height:100vh;min-height:100dvh}
+.screen.active{display:flex}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;width:auto;flex:0 0 auto;
+  min-height:44px;min-width:44px;padding:.6em 1.3em;border:1px solid transparent;border-radius:999px;
+  font-weight:700;font-size:clamp(.95rem,1.9vw,1.08rem);letter-spacing:.01em;line-height:1.2;white-space:nowrap;
+  background-image:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,0));
+  box-shadow:0 1px 2px rgba(0,0,0,.08),0 4px 14px rgba(0,0,0,.08);
+  transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease,border-color .15s ease}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 2px 4px rgba(0,0,0,.1),0 10px 22px rgba(0,0,0,.12)}
+.btn:active:not(:disabled){transform:translateY(0) scale(.98);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.btn:focus-visible,.icon-btn:focus-visible,.ae-btn:focus-visible{outline:4px solid var(--gold);outline-offset:3px}
+.btn-ghost{background-color:var(--panel);background-image:none;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover:not(:disabled){border-color:var(--soft)}
+.icon-btn{min-width:48px;min-height:48px;border-radius:50%;border:1px solid var(--line);background:var(--panel);
+  font-size:1.35rem;display:inline-grid;place-items:center;box-shadow:var(--shadow);padding:0}
+.theme-toggle{position:fixed;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right));z-index:60}
+
+/* ---------- INICIO ---------- */
+#inicio{align-items:center;justify-content:center;padding:70px 16px 24px}
+.home-card{width:min(860px,100%);background:var(--panel);border-radius:28px;box-shadow:var(--shadow);
+  padding:clamp(20px,4vw,40px);text-align:center;border:3px solid var(--line)}
+.home-art{width:clamp(120px,24vw,180px);display:block;margin:0 auto 6px}
+.kicker{display:inline-block;background:var(--panel2);color:var(--accent);font-weight:800;border-radius:999px;
+  padding:.35em .9em;font-size:clamp(.85rem,1.8vw,1.05rem);letter-spacing:.02em}
+.home-card h1{font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:1.2;margin:.45em 0 .2em}
+.grade{color:var(--soft);font-weight:700;margin:0 0 1.3em;font-size:clamp(.95rem,2vw,1.15rem)}
+.ae-title{font-size:clamp(1.05rem,2.4vw,1.35rem);margin:0 0 .8em;color:var(--ink)}
+.ae-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;text-align:left}
+.ae-btn{--c:var(--accent);display:flex;align-items:center;gap:14px;min-height:96px;width:100%;
+  background:var(--panel);border:3px solid var(--c);border-left-width:10px;border-radius:18px;
+  padding:14px 16px;box-shadow:var(--shadow);transition:transform .12s,background .12s;
+  font-size:clamp(1rem,2.1vw,1.18rem);font-weight:700;line-height:1.3;text-align:left}
+.ae-btn:hover{background:var(--panel2)}
+.ae-btn:active{transform:scale(.98)}
+.ae-num{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:var(--c);color:#fff;
+  display:grid;place-items:center;font-weight:900;font-size:1.25rem}
+.ae-icon{flex:0 0 auto;width:54px;height:54px}
+.ae-1{--c:var(--accent)} .ae-2{--c:var(--blue)} .ae-3{--c:var(--accent2)} .ae-4{--c:var(--purple)}
+.autoria{margin-top:1.8em;font-size:clamp(.78rem,1.6vw,.92rem);color:var(--soft);line-height:1.45}
+.autoria strong{font-weight:600}
+@media (max-width:640px){
+  .ae-grid{grid-template-columns:1fr}
+  .ae-icon{width:44px;height:44px}
+}
+
+/* ---------- SECCIONES ---------- */
+.section{flex-direction:column;align-items:center;padding:70px 16px 24px}
+.topbar{width:min(860px,100%);display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.sec-card{width:min(860px,100%);background:var(--panel);border-radius:24px;box-shadow:var(--shadow);
+  border:3px solid var(--line);border-top:10px solid var(--c,var(--accent));padding:clamp(18px,4vw,34px)}
+.sec-card h2{margin:0 0 .4em;font-size:clamp(1.3rem,3.2vw,1.9rem);line-height:1.25}
+.sec-tag{display:inline-block;background:var(--panel2);color:var(--c,var(--accent));font-weight:800;
+  border-radius:999px;padding:.3em .85em;font-size:.95rem;margin-bottom:.6em}
+.pronto{color:var(--soft);font-size:clamp(1rem,2vw,1.15rem);margin:1em 0 0}
+.sec-sub{margin:0;color:var(--soft);font-weight:700;font-size:clamp(1.02rem,2.2vw,1.25rem);line-height:1.35}
+.sec-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.2em;align-items:center}
+.btn-big{background-color:var(--c,var(--accent));color:#fff;font-size:clamp(1.05rem,2.3vw,1.22rem);padding:.7em 1.6em}
+
+/* ---------- PROBLEMAS ---------- */
+.btn-main{background-color:var(--accent);color:#fff}
+.btn-alt{background-color:var(--accent2);color:#fff}
+.btn-purple{background-color:var(--purple);color:#fff}
+.btn:disabled{opacity:.4;cursor:default;box-shadow:none}
+.prob{width:min(860px,100%)}
+.prob h2{text-align:center;font-size:clamp(1.4rem,3.5vw,2.1rem);margin:.1em 0 .4em}
+.prob-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:10px}
+.prob-count{text-align:center;color:var(--soft);font-weight:700;margin:0 0 10px}
+.paper{background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif;font-size:clamp(16px,2.1vw,20px);line-height:1.5;
+  border-radius:14px;padding:clamp(16px,4vw,40px);box-shadow:var(--shadow);border:1px solid #ddd}
+.paper p{margin:0 0 .8em}
+.paper.a12{font-size:12pt;line-height:1.55}
+#grupoFig svg{width:min(380px,96%)}
+.paper .sol{margin:0;padding-left:1.3em}
+.paper .sol li{margin:.35em 0}
+
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;margin:0 .15em}
+.frac>span{padding:0 .2em}
+.frac>span:first-child{border-bottom:.09em solid currentColor}
+.popts{display:flex;flex-direction:column;gap:8px;margin-top:.6em}
+.popt{display:flex;align-items:center;gap:.8em;min-height:52px;text-align:left;background:#fafafa;border:2px solid #d9d9d9;
+  border-radius:12px;padding:.4em .8em;font:inherit;color:#111}
+.popt:hover:not(:disabled){border-color:var(--purple)}
+.popt:focus-visible{outline:4px solid var(--gold);outline-offset:2px}
+.popt .l{font-weight:700;min-width:1.6em}
+.popt:disabled{cursor:default}
+.popt.ok{border-color:#1f9d55;background:#e8f7ee}
+.popt.bad{border-color:#d8453a;background:#fdeceb}
+.prob-fb{margin-top:14px}
+.fb-head{font-weight:800;border-radius:14px;padding:.7em 1em;font-size:clamp(1rem,2.2vw,1.2rem)}
+.fb-head.ok{background:#e8f7ee;color:#156b3a;border:2px solid #1f9d55}
+.fb-head.bad{background:#fdeceb;color:#a3281f;border:2px solid #d8453a}
+:root[data-theme="dark"] .fb-head.ok{background:#16341f;color:#9ff0bf}
+:root[data-theme="dark"] .fb-head.bad{background:#3d1a18;color:#ffb3ab}
+.fb-win,.fb-lose{display:flex;align-items:center;gap:.6em}
+.fb-emoji{font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;animation:pop .6s cubic-bezier(.2,1.6,.4,1) both}
+.fb-x{flex:0 0 auto;width:1.9em;height:1.9em;border-radius:50%;background:#d8453a;color:#fff;display:grid;place-items:center;
+  font-size:clamp(1.1rem,3vw,1.4rem);animation:shake .45s ease both}
+@keyframes pop{0%{transform:scale(0) rotate(-20deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fx-canvas{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:200}
+@media (prefers-reduced-motion:reduce){.fb-emoji,.fb-x{animation:none}}
+.exp{background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:12px 16px;margin:10px 0;box-shadow:var(--shadow)}
+.exp h3{margin:0 0 .4em;font-size:clamp(1.05rem,2.4vw,1.3rem)}
+.exp ol{margin:0;padding-left:1.4em}
+.exp li{margin:.35em 0;font-size:clamp(.98rem,2vw,1.15rem);line-height:1.5}
+.exp-fig{display:flex;justify-content:center;margin:.6em 0 .2em}
+.exp-fig svg{width:min(300px,100%);height:auto}
+.paper-fig{display:flex;justify-content:center;margin:.4em 0 1em}
+.paper-fig svg{width:min(260px,80%);height:auto}
+.paper-fig svg[data-t="circulo"]{width:min(180px,55%)}
+
+
+/* ---------- TEORÍA LITERAL ---------- */
+.sound-toggle{position:fixed;top:max(10px,env(safe-area-inset-top));right:calc(max(10px,env(safe-area-inset-right)) + 58px);z-index:60}
+.doc-actions{margin:.2em 0 1.2em}
+.t-h{display:flex;align-items:center;gap:.55em;font-size:clamp(1.1rem,2.6vw,1.4rem);margin:1.6em 0 .7em}
+.t-n{flex:0 0 auto;width:32px;height:32px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-size:.95rem}
+.t-p{margin:0 0 .8em;color:var(--soft);font-size:clamp(1rem,2vw,1.1rem)}
+.lit b{color:var(--c)}
+.how{display:flex;gap:clamp(16px,4vw,36px);align-items:center;background:var(--panel2);border-radius:20px;padding:clamp(14px,3vw,24px)}
+.how-frac{display:flex;flex-direction:column;align-items:center;font-family:Arial,sans-serif;font-weight:700;
+  font-size:clamp(3rem,9vw,4.6rem);line-height:1;color:var(--c);flex:0 0 auto}
+.hf-bar{width:1.1em;height:.08em;background:currentColor;margin:.08em 0;border-radius:2px}
+.how-steps p{margin:.35em 0 .7em;font-size:clamp(1rem,2.1vw,1.15rem);line-height:1.5}
+.pill-n{display:inline-block;background:var(--c);color:#fff;border-radius:999px;padding:.1em .7em;font-size:.85em;font-weight:800;margin-right:.3em}
+.how-rec{color:var(--soft)}
+.how-ej{display:flex;align-items:center;flex-wrap:wrap;gap:.5em}
+.btn-say{padding:.3em .8em;min-height:44px;font-size:1.05rem}
+.tab-wrap{overflow-x:auto}
+.stab{width:100%;border-collapse:collapse;font-size:clamp(.98rem,2vw,1.1rem)}
+.stab th,.stab td{padding:.5em .8em;text-align:left;vertical-align:middle}
+.stab th{font-weight:800;color:var(--c)}
+.stab thead tr{border-top:2px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.stab tbody tr:last-child{border-bottom:2px solid var(--ink)}
+.stab tbody tr:nth-child(even){background:var(--panel2)}
+.stab td:first-child{font-weight:700;white-space:nowrap}
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rule{border:1px solid var(--line);border-radius:18px;padding:14px 16px;background:var(--panel)}
+.rule h4{margin:0 0 .4em;font-size:clamp(1rem,2.2vw,1.12rem)}
+.rule p{margin:.3em 0;line-height:1.7}
+.ex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.ex-card{border:1px solid var(--line);border-radius:18px;padding:12px;text-align:center;background:var(--panel);
+  display:flex;flex-direction:column;align-items:center;gap:6px}
+.ex-card svg{width:100%;max-width:150px;height:46px}
+.ex-frac{font-family:Arial,sans-serif;font-weight:700;font-size:1.7rem;color:var(--c)}
+.ex-read{font-weight:700;font-size:1.05rem}
+.flip-grid{display:flex;flex-wrap:wrap;gap:12px}
+.flip{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:150px;min-height:120px;
+  border:2px dashed var(--c);border-radius:20px;background:var(--panel);padding:12px 16px;font:inherit;color:var(--ink);cursor:pointer;
+  transition:background .15s}
+.flip:hover{background:var(--panel2)}
+.flip:focus-visible{outline:4px solid var(--gold);outline-offset:3px}
+.flip .ex-frac{font-size:2rem}
+.flip .hint{color:var(--soft);font-size:.9rem}
+.flip.open{border-style:solid;background:var(--panel2)}
+.flip.open .hint{color:var(--c);font-weight:800;font-size:1.05rem}
+.resumen{margin-top:1.6em;border-left:6px solid var(--c);background:var(--panel2);border-radius:14px;padding:12px 18px}
+.resumen h4{margin:0 0 .3em;font-size:1.1rem}
+.resumen ul{margin:0;padding-left:1.2em;line-height:1.7}
+@media (max-width:640px){
+  .how{flex-direction:column;align-items:flex-start}
+  .how-frac{align-self:center}
+  .rules{grid-template-columns:1fr}
+}
+
+/* ---------- TEORÍA GRÁFICA ---------- */
+.t-txt{margin:.4em 0 .8em;font-size:clamp(1rem,2.1vw,1.12rem);line-height:1.55}
+.fam-box{background:var(--panel2);border-radius:20px;padding:clamp(12px,3vw,22px);display:flex;flex-direction:column;align-items:center;gap:10px}
+.fam-fig svg{width:min(420px,100%);height:auto;display:block}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{min-height:44px;min-width:44px;padding:.45em 1.1em;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);
+  font-weight:700;font-size:1rem;transition:background .15s,border-color .15s,color .15s}
+.chip[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.chip:focus-visible{outline:4px solid var(--gold);outline-offset:3px}
+.fam-res{margin:0;font-size:clamp(1.05rem,2.3vw,1.25rem);font-weight:700;text-align:center}
+.how-rule{margin:12px 0 0;border:1px solid var(--line);border-radius:18px;padding:12px 18px}
+.how-rule p{margin:.3em 0;line-height:1.7}
+.how-rule ul{margin:.2em 0 .4em;padding-left:1.2em;line-height:1.7}
+.pz-pair{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:12px}
+.pz-card{margin:0;background:var(--panel2);border-radius:20px;padding:12px 16px;text-align:center;flex:1 1 200px;max-width:280px}
+.pz-card svg{width:min(170px,100%);height:auto}
+.pz-card figcaption{font-weight:700;line-height:1.6}
+.pz-card small{color:var(--soft);font-weight:600;font-size:.95rem}
+.eq-box{margin-top:14px;border-left:6px solid var(--gold);background:var(--panel2);border-radius:14px;padding:12px 18px}
+.eq-box h4{margin:0 0 .5em}
+.eq-row{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+.eq-row figure{margin:0;text-align:center}
+.eq-row svg{width:130px;height:auto}
+.eq-row figcaption{font-size:.95rem;line-height:1.4}
+.pz-lab{background:var(--panel2);border-radius:20px;padding:clamp(12px,3vw,22px)}
+.pz-lab-main{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center;margin-top:12px}
+#pzLab svg{width:min(280px,80vw);height:auto;display:block}
+.pz-instr{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:12px}
+.pz-aviso{color:var(--soft);font-weight:700;font-size:.95rem;min-height:1.2em;text-align:center}
+.pz-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px}
+.pz-cl{font-weight:800}
+.stepper{display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px;
+  box-shadow:0 1px 2px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.06)}
+.step-btn{width:44px;height:44px;border-radius:50%;border:0;background:var(--c);color:#fff;font-size:1.05rem;display:grid;place-items:center;
+  transition:transform .12s,opacity .12s}
+.step-btn:active:not(:disabled){transform:scale(.92)}
+.step-btn:disabled{opacity:.35;cursor:default}
+.step-btn:focus-visible{outline:4px solid var(--gold);outline-offset:2px}
+.step-val{min-width:2.2em;text-align:center;font-weight:900;font-size:1.5rem;font-family:Arial,sans-serif;color:var(--c)}
+.pz-plate{margin:0;text-align:center}
+.pz-plate figcaption{font-weight:700;color:var(--soft);margin-top:4px}
+.pz-slice{cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent;transform:translate(var(--ox),var(--oy))}
+.pz-slice:focus{outline:none}
+.pz-slice:focus-visible .crust,.pz-slice:focus-visible .hit{stroke:var(--gold);stroke-width:5;stroke-dasharray:none}
+.pz-cut .pz-slice{animation:pzSep .5s ease-out both}
+@keyframes pzSep{from{transform:translate(0,0)}to{transform:translate(var(--ox),var(--oy))}}
+.pz-slice.bite{animation:pzBite .45s ease-in forwards;transform-box:fill-box;transform-origin:center}
+@keyframes pzBite{to{opacity:0;transform:translate(calc(var(--ox)*5),calc(var(--oy)*5)) scale(.5)}}
+@media (prefers-reduced-motion:reduce){.pz-cut .pz-slice,.pz-slice.bite{animation:none}.pz-slice.bite{opacity:0}}
+.pz-out{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.pz-o{display:flex;align-items:center;gap:12px}
+.pz-l{font-weight:800;min-width:5.2em}
+/* ---------- LABORATORIO: PARTE DE UN GRUPO ---------- */
+.lab-top{display:flex;flex-wrap:wrap;gap:10px;margin:.4em 0 .2em}
+.lab-task{display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:var(--panel2);border-radius:18px;padding:12px 18px;margin:.6em 0 1em}
+.lab-task p{margin:0;font-weight:800;font-size:clamp(1.05rem,2.4vw,1.25rem)}
+.lab-frac{font-family:Arial,sans-serif;font-weight:700;font-size:2.2rem;color:var(--c)}
+.lab-h{margin:.4em 0 .5em;font-size:1.1rem}
+.lab-pal{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;background:var(--panel2);border-radius:18px;padding:12px}
+.pal-it{width:68px;height:68px;border-radius:18px;border:1px solid var(--line);background:var(--panel);padding:6px;cursor:grab;
+  touch-action:none;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.06),0 4px 10px rgba(0,0,0,.06);transition:transform .15s}
+.pal-it img{width:100%;height:100%;object-fit:contain;pointer-events:none;-webkit-user-drag:none;user-select:none}
+.pal-it:hover{transform:translateY(-2px)}
+.pal-it:focus-visible{outline:4px solid var(--gold);outline-offset:2px}
+.pal-it.pulse{animation:palPulse .5s ease}
+@keyframes palPulse{50%{transform:scale(1.18)}}
+.pizarra{position:relative;margin-top:14px;min-height:clamp(280px,48vh,440px);border-radius:18px;border:12px solid #8a5a2b;
+  background:radial-gradient(ellipse at 30% 20%,#2f6a50,#1d4a37 70%);box-shadow:inset 0 0 30px rgba(0,0,0,.45),0 6px 18px rgba(0,0,0,.2);
+  touch-action:none;user-select:none;overflow:visible}
+.pizarra-title{position:absolute;top:8px;left:14px;color:rgba(255,255,255,.85);font-family:"Comic Sans MS","Segoe Print",cursive;
+  font-size:clamp(.95rem,2vw,1.15rem);letter-spacing:.02em;pointer-events:none}
+.lab-it{position:absolute;width:clamp(44px,6.5vw,66px);height:clamp(44px,6.5vw,66px);transform:translate(-50%,-50%);cursor:grab;touch-action:none;
+  border-radius:50%;display:grid;place-items:center;outline:none}
+.lab-it img{width:86%;height:86%;object-fit:contain;pointer-events:none;-webkit-user-drag:none;user-select:none;filter:drop-shadow(0 3px 4px rgba(0,0,0,.4))}
+.lab-it.dragging{cursor:grabbing;z-index:5}
+.lab-it.sel{box-shadow:0 0 0 3px #ffe066 inset}
+.lab-it:focus-visible{box-shadow:0 0 0 4px var(--gold) inset}
+.lab-it.mark::after{content:"";position:absolute;inset:-7px;border:4px solid #3ddc84;border-radius:50%;box-shadow:0 0 10px rgba(61,220,132,.8)}
+.lab-ghost{position:fixed;width:68px;height:68px;pointer-events:none;z-index:300;transform:translate(-50%,-50%) scale(1.1);
+  filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
+.lab-ghost img{width:100%;height:100%;object-fit:contain}
+.lab-info{text-align:center;color:var(--soft);font-weight:700;margin:.6em 0 0}
+.lab-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+.ej-tabs{justify-content:flex-start;margin:.2em 0 1em}
+.ej-panel{border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin:.6em 0 1em;background:var(--panel)}
+.ej-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ej-head h3{margin:0;font-size:1.15rem}
+.ej-close{box-shadow:none}
+.ej-enun{font-family:Arial,Helvetica,sans-serif;font-size:12pt;margin:.5em 0}
+.pizarra-mini{min-height:0;padding:40px 14px 16px;margin-top:6px}
+.ej-board{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;min-height:90px}
+.ej-it{width:clamp(38px,7vw,54px);height:clamp(38px,7vw,54px);animation:ejIn .35s ease both}
+.ej-it img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 4px rgba(0,0,0,.4))}
+@keyframes ejIn{from{opacity:0;transform:scale(.4)}}
+.ej-grupo{display:flex;flex-wrap:wrap;gap:8px;padding:10px 14px;border:4px solid #3ddc84;border-radius:999px;box-shadow:0 0 12px rgba(61,220,132,.6)}
+.ej-frac{color:#fff;font-family:Arial,sans-serif;font-weight:700;font-size:1.6rem;margin-left:10px}
+.ej-paso{font-weight:700;line-height:1.55;margin:.7em 0}
+.ej-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.ej-count{color:var(--soft);font-weight:800}
+@media (prefers-reduced-motion:reduce){.ej-it,.pal-it.pulse{animation:none}}
+#labGrupo .topbar,#labGrupo .sec-card{width:min(1180px,100%)}
+.lab-box{background:var(--panel2);border:1px solid var(--line);border-radius:20px;padding:14px 16px}
+.lab-bt{margin:0 0 .5em;font-size:1.1rem}
+.lab-sub{margin:0 0 .7em;color:var(--soft);font-size:.92rem;line-height:1.4}
+.lab-ind .lab-task{background:var(--panel);margin:0 0 .6em}
+.lab-work{display:grid;grid-template-columns:minmax(170px,210px) 1fr;gap:14px;margin-top:14px;align-items:start}
+.lab-side .lab-pal{display:grid;grid-template-columns:repeat(2,1fr);background:none;padding:0;justify-items:center}
+.lab-main{padding:12px}
+.lab-main .pizarra{margin-top:0;min-height:clamp(320px,56vh,520px)}
+@media (max-width:760px){
+  .lab-work{grid-template-columns:1fr}
+  .lab-side .lab-pal{grid-template-columns:repeat(4,1fr)}
+}
+
+
+/* ---------- LABORATORIO: PARTE DE LA UNIDAD ---------- */
+:root{--uni-on:#e0562b}
+:root[data-theme="dark"]{--uni-on:#c4502a}
+#labUnidad .topbar,#labUnidad .sec-card{width:min(1180px,100%)}
+.uni-figs{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.uni-figs .chip{text-align:left}
+.uni-h{margin-top:1em}
+.uni-divrow{display:flex;align-items:center;gap:10px;margin-top:12px}
+.uni-div{flex:1 1 auto}
+.uni-mini{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px;padding:6px 10px;
+  background:var(--panel);border:2px solid var(--c);border-radius:14px}
+.uni-mini-l{font-size:.72rem;font-weight:800;color:var(--soft);text-transform:uppercase;letter-spacing:.04em}
+.uni-mini .lab-frac{font-size:1.5rem}
+.uni-tag{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.2em .8em;font-weight:800;font-size:.95rem;pointer-events:none}
+.uni-board{display:flex;align-items:center;justify-content:center;padding:44px 16px 50px}
+#uniFig{width:100%;display:flex;justify-content:center}
+#uniFig svg{width:min(560px,100%);height:auto;overflow:visible}
+.uni-p{cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent}
+.uni-p .pf{transition:fill .2s ease,stroke .2s ease}
+.uni-p:focus-visible .pf{stroke:var(--gold);stroke-width:5}
+@media (max-width:760px){ .uni-figs{flex-direction:row;flex-wrap:wrap} .uni-divrow{justify-content:flex-start} .uni-div{flex:0 0 auto} }
+
+/* ---------- Modo oscuro: botones de color más nítidos (texto blanco con buen contraste) ---------- */
+:root[data-theme="dark"] .btn-big,:root[data-theme="dark"] .step-btn,:root[data-theme="dark"] .t-n,:root[data-theme="dark"] .pill-n,
+:root[data-theme="dark"] .chip[aria-pressed="true"]{background-color:var(--cd,color-mix(in srgb,var(--c) 68%,#000));border-color:transparent}
+:root[data-theme="dark"] [style*="--c:var(--blue)"]{--cd:#2f62d9}
+:root[data-theme="dark"] [style*="--c:var(--accent)"]{--cd:#c4502a}
+:root[data-theme="dark"] [style*="--c:var(--accent2)"]{--cd:#23874f}
+:root[data-theme="dark"] [style*="--c:var(--purple)"]{--cd:#7d4cc4}
+:root[data-theme="dark"] .btn-main{background-color:#c4502a}
+:root[data-theme="dark"] .btn-alt{background-color:#23874f}
+:root[data-theme="dark"] .btn-purple{background-color:#7d4cc4}
+:root[data-theme="dark"] .ae-num{background:color-mix(in srgb,var(--c) 68%,#000)}
+:root[data-theme="dark"] .btn:not(.btn-ghost){background-image:none;border-color:rgba(255,255,255,.14);
+  box-shadow:0 1px 2px rgba(0,0,0,.5),0 4px 12px rgba(0,0,0,.35)}
+
+@media print{ .fam-box,.pz-card,.eq-box{background:none!important} }
+
+@media print{
+  @page{margin:2cm}
+  html,body{background:#fff!important;color:#000}
+  .theme-toggle,.topbar,.btn,.ae-btn,.prob-bar,.prob-count,.prob h2,.prob-fb{display:none!important}
+  .section{padding:0}
+  .paper{box-shadow:none;border:0;border-radius:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:12pt;color:#000}
+  .popt{background:none!important;border:0!important;padding:0;min-height:0;margin:.3em 0;font-size:12pt}
+  .popt .l{font-weight:400}
+  .sound-toggle,.no-print,.doc-actions,.btn-say{display:none!important}
+  .sec-card{box-shadow:none;border:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:12pt}
+  .sec-card h2,.t-h{font-size:14pt}
+  .how,.stab tbody tr:nth-child(even),.resumen{background:none!important}
+  .lit b,.stab th,.how-frac,.ex-frac{color:#000!important}
+  .t-n,.pill-n{background:none!important;color:#000!important;border:1px solid #000}
+  .ex-card,.rule{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo oscuro">🌙</button>
+<button class="icon-btn sound-toggle" id="soundToggle" type="button" aria-label="Desactivar audio" aria-pressed="true">🔊</button>
+
+<!-- ================= INICIO ================= -->
+<section class="screen active" id="inicio" aria-labelledby="tituloInicio">
+  <div class="home-card">
+    <svg class="home-art" viewBox="0 0 180 150" aria-hidden="true">
+      <!-- Pizza/círculo dividido en 4 partes, 3 sombreadas -->
+      <g transform="translate(62 75)">
+        <circle r="54" fill="var(--panel2)" stroke="var(--ink)" stroke-width="3"/>
+        <path d="M0 0 L0 -54 A54 54 0 0 1 54 0 Z" fill="var(--accent)"/>
+        <path d="M0 0 L54 0 A54 54 0 0 1 0 54 Z" fill="var(--gold)"/>
+        <path d="M0 0 L0 54 A54 54 0 0 1 -54 0 Z" fill="var(--accent2)"/>
+        <circle r="54" fill="none" stroke="var(--ink)" stroke-width="3"/>
+        <line x1="0" y1="-54" x2="0" y2="54" stroke="var(--ink)" stroke-width="3"/>
+        <line x1="-54" y1="0" x2="54" y2="0" stroke="var(--ink)" stroke-width="3"/>
+      </g>
+      <!-- Fracción 3/4 -->
+      <g font-family="Arial, sans-serif" font-weight="700" fill="var(--ink)" text-anchor="middle">
+        <text x="152" y="66" font-size="34">3</text>
+        <line x1="136" y1="76" x2="168" y2="76" stroke="var(--ink)" stroke-width="4"/>
+        <text x="152" y="108" font-size="34">4</text>
+      </g>
+    </svg>
+    <span class="kicker">Números · Cuarto año</span>
+    <h1 id="tituloInicio">Fracciones propias</h1>
+    <p class="grade">Cuarto año</p>
+
+    <h2 class="ae-title">Aprendizajes esperados</h2>
+    <div class="ae-grid">
+      <button class="ae-btn ae-1" type="button" data-go="ae1">
+        <span class="ae-num">1</span>
+        <svg class="ae-icon" viewBox="0 0 54 54" aria-hidden="true">
+          <rect x="3" y="12" width="30" height="30" rx="3" fill="var(--panel2)" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="3" y="12" width="15" height="30" rx="3" fill="var(--accent)"/>
+          <rect x="3" y="12" width="30" height="30" rx="3" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="18" y1="12" x2="18" y2="42" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="42" cy="16" r="5" fill="var(--accent)" stroke="var(--ink)" stroke-width="1.5"/>
+          <circle cx="42" cy="29" r="5" fill="var(--panel2)" stroke="var(--ink)" stroke-width="1.5"/>
+          <circle cx="42" cy="42" r="5" fill="var(--panel2)" stroke="var(--ink)" stroke-width="1.5"/>
+        </svg>
+        <span>Identificar las fracciones como parte de la unidad o parte de una colección de objetos</span>
+      </button>
+
+      <button class="ae-btn ae-2" type="button" data-go="ae2">
+        <span class="ae-num">2</span>
+        <svg class="ae-icon" viewBox="0 0 54 54" aria-hidden="true">
+          <circle cx="22" cy="22" r="16" fill="var(--panel2)" stroke="var(--ink)" stroke-width="2.5"/>
+          <g font-family="Arial, sans-serif" font-weight="700" font-size="12" fill="var(--ink)" text-anchor="middle">
+            <text x="22" y="19">2</text><text x="22" y="33">5</text>
+          </g>
+          <line x1="15" y1="22" x2="29" y2="22" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="34" y1="34" x2="48" y2="48" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <span>Analizar fracciones propias</span>
+      </button>
+
+      <button class="ae-btn ae-3" type="button" data-go="ae3">
+        <span class="ae-num">3</span>
+        <svg class="ae-icon" viewBox="0 0 54 54" aria-hidden="true">
+          <rect x="2" y="10" width="50" height="34" rx="10" fill="var(--panel2)" stroke="var(--ink)" stroke-width="2"/>
+          <text x="27" y="35" font-family="Arial, sans-serif" font-weight="700" font-size="19" fill="var(--ink)" text-anchor="middle">&lt; = &gt;</text>
+        </svg>
+        <span>Comparar las fracciones propias utilizando los símbolos &lt;, &gt; o =</span>
+      </button>
+
+      <button class="ae-btn ae-4" type="button" data-go="ae4">
+        <span class="ae-num">4</span>
+        <svg class="ae-icon" viewBox="0 0 54 54" aria-hidden="true">
+          <rect x="6" y="4" width="36" height="46" rx="4" fill="var(--panel2)" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="12" y1="14" x2="36" y2="14" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="12" y1="22" x2="36" y2="22" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="12" y1="30" x2="28" y2="30" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="40" cy="40" r="11" fill="var(--purple)"/>
+          <text x="40" y="45.5" font-family="Arial, sans-serif" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">?</text>
+        </svg>
+        <span>Plantear y resolver problemas que involucren fracciones propias</span>
+      </button>
+    </div>
+
+    <p class="autoria">Elaborado por: <strong>Alberto Jiménez Ruiz</strong> — Asesor Regional de Matemática ·
+      DAP-DRE-Cartago 2026</p>
+  </div>
+</section>
+
+<!-- ================= SECCIONES (contenido pendiente) ================= -->
+<section class="screen section" id="ae1" aria-labelledby="tAe1">
+  <div class="topbar"><button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button></div>
+  <div class="sec-card" style="--c:var(--accent)">
+    <span class="sec-tag">Aprendizaje esperado 1</span>
+    <h2 id="tAe1">Identificar las fracciones como parte de la unidad o parte de una colección de objetos</h2>
+    <div class="sec-buttons">
+      <button class="btn btn-big" type="button" data-go="ae1Teoria">📘 Teoría</button>
+      <button class="btn btn-big" type="button" data-go="ae1Practica">✏️ Práctica</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="ae1Teoria" aria-labelledby="tAe1Teo">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae1">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit" style="--c:var(--accent)">
+    <span class="sec-tag">Aprendizaje esperado 1 · Teoría</span>
+    <h2 id="tAe1Teo">Concepto de fracción: parte de un grupo y parte de la unidad</h2>
+    <div class="sec-buttons doc-actions">
+      <button class="btn btn-main" id="btnPdfGraf" type="button">⬇️ Descargar PDF</button>
+      <button class="btn btn-purple" id="btnPrintGraf" type="button">🖨️ Imprimir</button>
+    </div>
+
+    <h3 class="t-h"><span class="t-n">1</span> ¿Dónde encontramos fracciones?</h3>
+    <p class="t-txt">Una fracción representa una o varias partes de algo. La podemos ver en dos situaciones:</p>
+    <div class="rules">
+      <div class="rule"><h4>👨‍👩‍👧‍👦 Parte de un grupo</h4><p>Cuando tomamos algunos elementos de una <b>colección de objetos</b> o de un grupo de personas.</p></div>
+      <div class="rule"><h4>🍕 Parte de un objeto</h4><p>Cuando <b>un objeto</b> (la unidad) se divide en <b>partes iguales</b> y tomamos algunas de ellas.</p></div>
+    </div>
+    <p class="t-txt">Recuerda: el <b>numerador</b> es el número de arriba de la línea y el <b>denominador</b> es el número de abajo.</p>
+
+    <h3 class="t-h"><span class="t-n">2</span> Fracción como parte de un grupo</h3>
+    <p class="t-txt">La familia de Ana tiene <b>5 personas</b>: <b>2 adultos</b> (papá y mamá) y <b>3 niños</b> (los hermanos).</p>
+    <div class="fam-box">
+      <div class="fam-fig" id="famFig"></div>
+      <div class="chip-row no-print" role="group" aria-label="Elegir qué parte del grupo resaltar">
+        <button class="chip" type="button" data-fam="adultos" aria-pressed="true">Adultos</button>
+        <button class="chip" type="button" data-fam="ninos" aria-pressed="false">Niños</button>
+      </div>
+      <p class="fam-res" id="famRes" aria-live="polite"></p>
+    </div>
+    <div class="how-rule">
+      <p>📌 En un <b>grupo</b>:</p>
+      <ul>
+        <li>El <b>denominador</b> indica cuántos elementos hay en total en el grupo: <b>5</b> personas.</li>
+        <li>El <b>numerador</b> indica cuántos elementos se seleccionan: <b>2</b> adultos o <b>3</b> niños.</li>
+      </ul>
+      <p><span data-rich="[2/5]"></span> de la familia son adultos (dos quintos) &nbsp;·&nbsp; <span data-rich="[3/5]"></span> de la familia son niños (tres quintos).</p>
+    </div>
+
+    <h3 class="t-h"><span class="t-n">3</span> Fracción como parte de la unidad (un objeto)</h3>
+    <p class="t-txt">Una pizza se divide en <b>4 partes iguales</b> y se come <b>1 trozo</b>.</p>
+    <div class="pz-pair">
+      <figure class="pz-card"><div id="pz4a"></div><figcaption>Se comió <span data-rich="[1/4]"></span> de la pizza<br><small>un cuarto</small></figcaption></figure>
+      <figure class="pz-card"><div id="pz4b"></div><figcaption>Quedan <span data-rich="[3/4]"></span> de la pizza<br><small>tres cuartos</small></figcaption></figure>
+    </div>
+    <p class="t-txt">Otra pizza se divide en <b>6 partes iguales</b> y se comen <b>2 trozos</b>.</p>
+    <div class="pz-pair">
+      <figure class="pz-card"><div id="pz6a"></div><figcaption>Se comieron <span data-rich="[2/6]"></span> de la pizza<br><small>dos sextos</small></figcaption></figure>
+      <figure class="pz-card"><div id="pz6b"></div><figcaption>Quedan <span data-rich="[4/6]"></span> de la pizza<br><small>cuatro sextos</small></figcaption></figure>
+    </div>
+    <div class="how-rule">
+      <p>📌 En un <b>objeto</b>:</p>
+      <ul>
+        <li>El <b>denominador</b> indica en cuántas <b>partes iguales</b> está dividido el objeto.</li>
+        <li>El <b>numerador</b> indica cuántas partes se toman (o de cuántas partes se habla).</li>
+      </ul>
+    </div>
+    <div class="eq-box">
+      <h4>⚠️ Las partes deben ser iguales</h4>
+      <div class="eq-row">
+        <figure><div id="eqSi"></div><figcaption>✔ Sí representa cuartos:<br>4 partes iguales</figcaption></figure>
+        <figure><div id="eqNo"></div><figcaption>✖ No representa cuartos:<br>las partes no son iguales</figcaption></figure>
+      </div>
+    </div>
+
+    <h3 class="t-h no-print"><span class="t-n">4</span> ¡Explora! Come trozos de pizza</h3>
+    <div class="pz-lab no-print">
+      <div class="pz-instr">
+        <button class="btn btn-ghost" id="pzInstr" type="button">🔊 Escuchar instrucciones</button>
+        <span class="pz-aviso" id="pzAviso" role="status"></span>
+      </div>
+      <div class="pz-controls">
+        <span class="pz-cl">Partes iguales:</span>
+        <div class="stepper" role="group" aria-label="Número de partes iguales">
+          <button class="step-btn" id="pzMenos" type="button" aria-label="Menos partes">◀</button>
+          <output class="step-val" id="pzSel" aria-live="polite">4</output>
+          <button class="step-btn" id="pzMas" type="button" aria-label="Más partes">▶</button>
+        </div>
+        <button class="btn btn-main" id="pzDividir" type="button">🍕 Dividir la pizza</button>
+      </div>
+      <div class="pz-lab-main">
+        <figure class="pz-plate"><div id="pzLab"></div><figcaption id="pzCap"></figcaption></figure>
+        <div class="pz-out" aria-live="polite">
+          <div class="pz-o"><span class="pz-l">Se comió</span><span class="ex-frac" id="pzEat"></span><span class="ex-read" id="pzEatR"></span></div>
+          <div class="pz-o"><span class="pz-l">Queda</span><span class="ex-frac" id="pzLeft"></span><span class="ex-read" id="pzLeftR"></span></div>
+          <button class="btn btn-ghost" type="button" id="pzSay">🔊 Escuchar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="resumen">
+      <h4>📌 En resumen</h4>
+      <div class="tab-wrap">
+        <table class="stab">
+          <thead><tr><th></th><th>Parte de un grupo</th><th>Parte de un objeto</th></tr></thead>
+          <tbody>
+            <tr><td>Denominador</td><td>Total de elementos del grupo</td><td>Partes iguales en que se divide el objeto</td></tr>
+            <tr><td>Numerador</td><td>Elementos que se seleccionan</td><td>Partes que se toman</td></tr>
+            <tr><td>Ejemplo</td><td><span data-rich="[2/5]"></span> de la familia son adultos</td><td><span data-rich="[1/4]"></span> de la pizza se comió</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="ae1Practica" aria-labelledby="tAe1Pra">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae1">↩️ Volver</button>
+  </div>
+  <div class="sec-card" style="--c:var(--accent)">
+    <span class="sec-tag">Aprendizaje esperado 1 · Práctica</span>
+    <h2 id="tAe1Pra">✏️ Práctica</h2>
+    <p class="pronto">Contenido en preparación.</p>
+  </div>
+</section>
+
+<section class="screen section" id="ae2" aria-labelledby="tAe2">
+  <div class="topbar"><button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button></div>
+  <div class="sec-card" style="--c:var(--blue)">
+    <span class="sec-tag">Aprendizaje esperado 2</span>
+    <h2 id="tAe2">Analizar fracciones propias</h2>
+    <p class="sec-sub">Fracciones propias y sus diferentes representaciones</p>
+    <div class="sec-buttons">
+      <button class="btn btn-big" type="button" data-go="repGrafica">📊 Gráfica</button>
+      <button class="btn btn-big" type="button" data-go="repLiteral">🔤 Literal</button>
+      <button class="btn btn-big" type="button" data-go="repSimbolica">🔢 Simbólica</button>
+      <button class="btn btn-big" type="button" data-go="ae2Practica">✏️ Práctica</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="repGrafica" aria-labelledby="trepGrafica">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae2">↩️ Volver</button>
+  </div>
+  <div class="sec-card" style="--c:var(--blue)">
+    <span class="sec-tag">Fracciones propias y sus diferentes representaciones</span>
+    <h2 id="trepGrafica">📊 Representación gráfica</h2>
+        <div class="sec-buttons">
+      <button class="btn btn-big" type="button" data-go="grafGrupo">👨‍👩‍👧‍👦 Parte de un grupo</button>
+      <button class="btn btn-big" type="button" data-go="grafUnidad">🍕 Parte de la unidad</button>
+      <button class="btn btn-big" type="button" data-go="grafPractica">✏️ Práctica</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="grafGrupo" aria-labelledby="tgrafGrupo">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="repGrafica">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit" style="--c:var(--blue)">
+    <span class="sec-tag">Representación gráfica</span>
+    <h2 id="tgrafGrupo">👨‍👩‍👧‍👦 Parte de un grupo</h2>
+    <p class="t-txt">Cuando tomamos algunos elementos de una <b>colección de objetos</b> o de un grupo de personas.</p>
+    <div class="sec-buttons">
+      <button class="btn btn-big" type="button" data-go="labGrupo">🧪 Laboratorio</button>
+      <button class="btn btn-big" type="button" data-go="ejGrupo">📘 Ejemplos</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="ejGrupo" aria-labelledby="tEjGrupo">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="grafGrupo">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit" style="--c:var(--blue)">
+    <span class="sec-tag">Parte de un grupo · Ejemplos</span>
+    <h2 id="tEjGrupo">📘 Ejemplos</h2>
+    <div class="chip-row ej-tabs" role="group" aria-label="Elegir ejemplo">
+      <button class="chip" type="button" data-ejx="0" aria-pressed="true">Ejemplo 1</button>
+      <button class="chip" type="button" data-ejx="1" aria-pressed="false">Ejemplo 2</button>
+      <button class="chip" type="button" data-ejx="2" aria-pressed="false">Ejemplo 3</button>
+    </div>
+    <div id="ejBolitas">
+      <h3 class="t-h">Ejemplo 1</h3>
+    <article class="paper a12">
+      <p>En una bolsa hay 7 bolitas del mismo tamaño: 4 son rojas y 3 son azules.</p>
+      <div class="paper-fig" id="grupoFig"></div>
+      <p>¿Qué fracción del grupo de bolitas corresponde a las bolitas rojas?</p>
+      <p><strong>Solución:</strong></p>
+      <ul class="sol">
+        <li>El grupo tiene 7 bolitas en total, por eso el denominador es 7.</li>
+        <li>Las bolitas rojas son 4, por eso el numerador es 4.</li>
+        <li>Las bolitas rojas representan <span data-rich="[4/7]"></span> del grupo: cuatro séptimos.</li>
+        <li>De igual forma, las bolitas azules representan <span data-rich="[3/7]"></span> del grupo: tres séptimos.</li>
+      </ul>
+    </article>
+    </div>
+    <div class="ej-panel" id="ejPanel" hidden>
+      <h3 class="t-h" id="ejTitulo"></h3>
+      <p class="ej-enun" id="ejEnun"></p>
+      <div class="pizarra pizarra-mini"><span class="pizarra-title">Representación gráfica</span><div class="ej-board" id="ejBoard"></div></div>
+      <p class="ej-paso" id="ejPaso" aria-live="polite"></p>
+      <div class="ej-nav">
+        <button class="btn btn-ghost" id="ejPrev" type="button">◀ Paso anterior</button>
+        <span class="ej-count" id="ejCount"></span>
+        <button class="btn btn-alt" id="ejNext" type="button">Siguiente paso ▶</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="labGrupo" aria-labelledby="tLabGrupo">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="grafGrupo">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit lab" style="--c:var(--blue)">
+    <span class="sec-tag">Parte de un grupo · Laboratorio</span>
+    <h2 id="tLabGrupo">🧪 Laboratorio</h2>
+    <!-- 1. Indicación -->
+    <div class="lab-box lab-ind">
+      <h3 class="lab-bt">📝 Indicación</h3>
+      <div class="lab-task">
+        <p>Representa gráficamente la siguiente fracción como parte de un grupo:</p>
+        <span class="lab-frac" id="labFrac"></span>
+      </div>
+      <div class="lab-top">
+        <button class="btn btn-ghost" id="labOtra" type="button">🔄 Otra fracción</button>
+        <button class="btn btn-ghost" id="labInstr" type="button">🔊 Escuchar instrucciones</button>
+      </div>
+      <p class="pz-aviso" id="labAviso" role="status"></p>
+    </div>
+
+    <div class="lab-work">
+      <!-- 2. Imágenes para formar el grupo -->
+      <aside class="lab-box lab-side">
+        <h3 class="lab-bt">🖼️ Imágenes</h3>
+        <p class="lab-sub">Arrastra una imagen a la pizarra o tócala para agregarla.</p>
+        <div class="lab-pal" id="labPal" role="group" aria-label="Imágenes para arrastrar a la pizarra"></div>
+      </aside>
+      <!-- 3. Representación gráfica -->
+      <div class="lab-box lab-main">
+        <div class="pizarra" id="labBoard" role="group" aria-label="Pizarra: representación gráfica">
+          <span class="pizarra-title">Representación gráfica</span>
+        </div>
+        <p class="lab-info" id="labInfo" aria-live="polite"></p>
+        <div class="lab-actions">
+          <button class="btn btn-alt lab-marcar" id="labMarcar" type="button">⭕ Marcar</button>
+          <button class="btn btn-ghost" id="labLimpiar" type="button">🧽 Limpiar pizarra</button>
+          <button class="btn btn-main" id="labComprobar" type="button">✅ Comprobar</button>
+        </div>
+        <div class="prob-fb" id="labFb" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="grafUnidad" aria-labelledby="tgrafUnidad">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="repGrafica">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit" style="--c:var(--blue)">
+    <span class="sec-tag">Representación gráfica</span>
+    <h2 id="tgrafUnidad">🍕 Parte de la unidad</h2>
+    <p class="t-txt">Cuando <b>un objeto</b> (la unidad) se divide en <b>partes iguales</b> y tomamos algunas de ellas.</p>
+    <div class="sec-buttons">
+      <button class="btn btn-big" style="--c:var(--accent)" type="button" data-go="labUnidad">🧪 Laboratorio</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="labUnidad" aria-labelledby="tLabUnidad">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="grafUnidad">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit lab" style="--c:var(--accent)">
+    <span class="sec-tag">Parte de la unidad · Laboratorio</span>
+    <h2 id="tLabUnidad">🧪 Laboratorio</h2>
+
+    <!-- 1. Indicación -->
+    <div class="lab-box lab-ind">
+      <h3 class="lab-bt">📝 Indicación</h3>
+      <div class="lab-task">
+        <p>Representa gráficamente la siguiente fracción como parte de la unidad:</p>
+        <span class="lab-frac" id="uniFrac"></span>
+      </div>
+      <div class="lab-top">
+        <button class="btn btn-ghost" id="uniOtra" type="button">🔄 Otra fracción</button>
+        <button class="btn btn-ghost" id="uniInstr" type="button">🔊 Escuchar instrucciones</button>
+      </div>
+      <p class="pz-aviso" id="uniAviso" role="status"></p>
+    </div>
+
+    <div class="lab-work">
+      <!-- 2. Figura y división -->
+      <aside class="lab-box lab-side">
+        <h3 class="lab-bt">🔷 Figura</h3>
+        <div class="uni-figs" role="group" aria-label="Elegir figura">
+          <button class="chip uni-fig" type="button" data-uf="rect" aria-pressed="true">▭ Rectángulo horizontal</button>
+          <button class="chip uni-fig" type="button" data-uf="rectv" aria-pressed="false">▯ Rectángulo vertical</button>
+          <button class="chip uni-fig" type="button" data-uf="circ" aria-pressed="false">◯ Círculo</button>
+          <button class="chip uni-fig" type="button" data-uf="recta" aria-pressed="false">― Recta</button>
+        </div>
+        <h3 class="lab-bt uni-h">✂️ Partes iguales</h3>
+        <div class="stepper" role="group" aria-label="Número de partes iguales">
+          <button class="step-btn" id="uniMenos" type="button" aria-label="Menos partes">◀</button>
+          <output class="step-val" id="uniSel" aria-live="polite">2</output>
+          <button class="step-btn" id="uniMas" type="button" aria-label="Más partes">▶</button>
+        </div>
+        <div class="uni-divrow">
+          <button class="btn btn-main uni-div" id="uniDividir" type="button">✂️ Dividir la figura</button>
+          <div class="uni-mini" aria-label="Fracción solicitada"><span class="uni-mini-l">Fracción</span><span class="lab-frac" id="uniFrac2"></span></div>
+        </div>
+      </aside>
+      <!-- 3. Representación gráfica -->
+      <div class="lab-box lab-main">
+        <div class="pizarra uni-board" role="group" aria-label="Pizarra: representación gráfica">
+          <span class="pizarra-title">Representación gráfica</span>
+          <span class="uni-tag" id="uniTag"></span>
+          <div id="uniFig"></div>
+        </div>
+        <p class="lab-info" id="uniInfo" aria-live="polite"></p>
+        <div class="lab-actions">
+          <button class="btn btn-ghost" id="uniBorrar" type="button">🧽 Borrar lo pintado</button>
+          <button class="btn btn-main" id="uniComprobar" type="button">✅ Comprobar</button>
+        </div>
+        <div class="prob-fb" id="uniFb" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="grafPractica" aria-labelledby="tGrafPra">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="repGrafica">↩️ Volver</button>
+  </div>
+  <div class="sec-card" style="--c:var(--blue)">
+    <span class="sec-tag">Representación gráfica · Práctica</span>
+    <h2 id="tGrafPra">✏️ Práctica</h2>
+    <p class="pronto">Contenido en preparación.</p>
+  </div>
+</section>
+<section class="screen section" id="repLiteral" aria-labelledby="trepLiteral">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae2">↩️ Volver</button>
+  </div>
+  <div class="sec-card" style="--c:var(--blue)">
+    <span class="sec-tag">Fracciones propias y sus diferentes representaciones</span>
+    <h2 id="trepLiteral">🔤 Representación literal</h2>
+    <p class="sec-sub">¿Cómo se leen las fracciones?</p>
+    <div class="sec-buttons">
+      <button class="btn btn-big" type="button" data-go="litTeoria">📘 Teoría</button>
+      <button class="btn btn-big" type="button" data-go="litPractica">✏️ Práctica</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="litTeoria" aria-labelledby="tLitTeo">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="repLiteral">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit" style="--c:var(--blue)">
+    <span class="sec-tag">Representación literal · Teoría</span>
+    <h2 id="tLitTeo">¿Cómo se leen las fracciones?</h2>
+    <div class="sec-buttons doc-actions">
+      <button class="btn btn-main" id="btnPdfLit" type="button">⬇️ Descargar PDF</button>
+      <button class="btn btn-purple" id="btnPrintLit" type="button">🖨️ Imprimir</button>
+    </div>
+
+    <h3 class="t-h"><span class="t-n">1</span> Dos pasos para leer una fracción</h3>
+    <div class="how">
+      <div class="how-frac" aria-hidden="true">
+        <span class="hf-num">3</span><span class="hf-bar"></span><span class="hf-den">5</span>
+      </div>
+      <div class="how-steps">
+        <p class="how-rec">Recuerda: el <b>numerador</b> es el número de arriba y el <b>denominador</b> es el número de abajo de la barra de fracción.</p>
+        <p><span class="pill-n">Paso 1</span> Se lee el <b>numerador</b> como un número natural: uno, dos, tres, cuatro…</p>
+        <p><span class="pill-n">Paso 2</span> Se lee el <b>denominador</b> con el nombre especial que le corresponde en la <b>súper tabla</b>.</p>
+        <p class="how-ej"><span><b>3</b> se lee «tres» y <b>5</b> se lee «quintos» → <b>tres quintos</b>.</span>
+          <button class="btn btn-ghost btn-say" type="button" data-say="tres quintos" aria-label="Escuchar: tres quintos">🔊</button></p>
+      </div>
+    </div>
+
+    <h3 class="t-h"><span class="t-n">2</span> La súper tabla de los denominadores</h3>
+    <div class="tab-wrap">
+      <table class="stab">
+        <thead><tr><th>Denominador</th><th>Se lee</th><th>Ejemplo</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td>medios</td><td><span data-rich="[1/2]"></span> un medio</td></tr>
+          <tr><td>3</td><td>tercios</td><td><span data-rich="[2/3]"></span> dos tercios</td></tr>
+          <tr><td>4</td><td>cuartos</td><td><span data-rich="[3/4]"></span> tres cuartos</td></tr>
+          <tr><td>5</td><td>quintos</td><td><span data-rich="[3/5]"></span> tres quintos</td></tr>
+          <tr><td>6</td><td>sextos</td><td><span data-rich="[5/6]"></span> cinco sextos</td></tr>
+          <tr><td>7</td><td>séptimos</td><td><span data-rich="[5/7]"></span> cinco séptimos</td></tr>
+          <tr><td>8</td><td>octavos</td><td><span data-rich="[3/8]"></span> tres octavos</td></tr>
+          <tr><td>9</td><td>novenos</td><td><span data-rich="[7/9]"></span> siete novenos</td></tr>
+          <tr><td>10</td><td>décimos</td><td><span data-rich="[9/10]"></span> nueve décimos</td></tr>
+          <tr><td>Mayor que 10</td><td>número + <b>avos</b></td><td><span data-rich="[4/11]"></span> cuatro onceavos</td></tr>
+          <tr><td>100</td><td>centésimos</td><td><span data-rich="[3/100]"></span> tres centésimos</td></tr>
+          <tr><td>1000</td><td>milésimos</td><td><span data-rich="[27/1000]"></span> veintisiete milésimos</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="t-h"><span class="t-n">3</span> Reglas importantes</h3>
+    <div class="rules">
+      <div class="rule">
+        <h4>➕ Denominador mayor que 10: agrega «avos»</h4>
+        <p>Se dice el número del denominador y se le agrega la terminación <b>avos</b>:
+          11 → onceavos, 12 → doceavos, 13 → treceavos, 20 → veinteavos, 40 → cuarentavos, 90 → noventavos.</p>
+        <p>Excepto <b>100</b> y <b>1000</b>, que tienen nombre propio: <b>centésimos</b> y <b>milésimos</b>.</p>
+      </div>
+      <div class="rule">
+        <h4>1️⃣ Numerador igual a 1: se usa «un» y singular</h4>
+        <p><span data-rich="[1/2]"></span> un medio · <span data-rich="[1/3]"></span> un tercio ·
+          <span data-rich="[1/8]"></span> un octavo · <span data-rich="[1/12]"></span> un doceavo</p>
+      </div>
+    </div>
+
+    <h3 class="t-h"><span class="t-n">4</span> Ejemplos</h3>
+    <div class="ex-grid" id="litEjemplos"></div>
+
+    <h3 class="t-h no-print"><span class="t-n">5</span> ¡Ahora tú!</h3>
+    <p class="t-p no-print">Piensa cómo se lee cada fracción y toca la tarjeta para comprobarlo.</p>
+    <div class="flip-grid no-print" id="litAhora"></div>
+
+    <div class="resumen">
+      <h4>📌 En resumen</h4>
+      <ul>
+        <li>Primero el <b>numerador</b>: se lee como número.</li>
+        <li>Después el <b>denominador</b>: se lee con su nombre (medios, tercios, cuartos…).</li>
+        <li>Si el denominador es mayor que 10, se agrega <b>avos</b> (excepto 100 y 1000).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="litPractica" aria-labelledby="tLitPra">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="repLiteral">↩️ Volver</button>
+  </div>
+  <div class="prob">
+    <h2 id="tLitPra">✏️ Práctica: representación literal</h2>
+    <div class="prob-bar">
+      <button class="btn btn-ghost" id="litPrev" type="button">◀ Anterior</button>
+      <button class="btn btn-alt" id="litNext" type="button">Siguiente ▶</button>
+      <button class="btn btn-main" id="litPdf" type="button">⬇️ Descargar PDF</button>
+      <button class="btn btn-purple" id="litPrint" type="button">🖨️ Imprimir</button>
+    </div>
+    <p class="prob-count" id="litCount"></p>
+    <article class="paper" id="litPaper"></article>
+    <div class="prob-fb" id="litFb" aria-live="polite"></div>
+  </div>
+</section>
+<section class="screen section" id="repSimbolica" aria-labelledby="trepSimbolica">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae2">↩️ Volver</button>
+  </div>
+  <div class="sec-card" style="--c:var(--blue)">
+    <span class="sec-tag">Fracciones propias y sus diferentes representaciones</span>
+    <h2 id="trepSimbolica">🔢 Representación simbólica</h2>
+    <p class="pronto">Contenido en preparación.</p>
+  </div>
+</section>
+
+<section class="screen section" id="ae2Practica" aria-labelledby="tAe2Pra">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae2">↩️ Volver</button>
+  </div>
+  <div class="sec-card" style="--c:var(--blue)">
+    <span class="sec-tag">Analizar fracciones propias</span>
+    <h2 id="tAe2Pra">✏️ Práctica</h2>
+    <p class="pronto">Contenido en preparación.</p>
+  </div>
+</section>
+
+<section class="screen section" id="ae3" aria-labelledby="tAe3">
+  <div class="topbar"><button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button></div>
+  <div class="sec-card" style="--c:var(--accent2)">
+    <span class="sec-tag">Aprendizaje esperado 3</span>
+    <h2 id="tAe3">Comparar las fracciones propias utilizando los símbolos &lt;, &gt; o =</h2>
+    <p class="pronto">Contenido en preparación.</p>
+  </div>
+</section>
+
+<section class="screen section" id="ae4" aria-labelledby="tAe4">
+  <div class="topbar"><button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button></div>
+  <div class="sec-card" style="--c:var(--purple)">
+    <span class="sec-tag">Aprendizaje esperado 4</span>
+    <h2 id="tAe4">Plantear y resolver problemas que involucren fracciones propias</h2>
+    <div class="sec-buttons">
+      <button class="btn btn-big" type="button" data-go="problemas">📝 Problemas</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="problemas" aria-labelledby="tProb">
+  <div class="prob">
+    <div class="topbar">
+      <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+      <button class="btn btn-ghost" type="button" data-go="ae4">↩️ Volver</button>
+    </div>
+    <h2 id="tProb">📝 Problemas con fracciones propias</h2>
+    <div class="prob-bar">
+      <button class="btn btn-ghost" id="btnPrev" type="button">◀ Anterior</button>
+      <button class="btn btn-alt" id="btnNext" type="button">Siguiente ▶</button>
+      <button class="btn btn-main" id="btnPdfProb" type="button">⬇️ Descargar PDF</button>
+      <button class="btn btn-purple" id="btnPrintProb" type="button">🖨️ Imprimir</button>
+    </div>
+    <p class="prob-count" id="probCount"></p>
+    <article class="paper" id="paper"></article>
+    <div class="prob-fb" id="probFb" aria-live="polite"></div>
+  </div>
+</section>
+
+<script>
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+};
+
+/* ---------- Tema claro / oscuro ---------- */
+const themeBtn = document.getElementById('themeToggle');
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  const dark = t === 'dark';
+  themeBtn.textContent = dark ? '☀️' : '🌙';
+  themeBtn.setAttribute('aria-label', dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+}
+applyTheme(store.get('fracPropias4-theme') === 'dark' ? 'dark' : 'light');
+themeBtn.addEventListener('click', () => {
+  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(t); store.set('fracPropias4-theme', t);
+});
+
+/* ---------- Navegación ---------- */
+function show(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
+  window.scrollTo(0, 0);
+  const h = document.querySelector('#' + id + ' h1, #' + id + ' h2');
+  if (h){ h.setAttribute('tabindex', '-1'); h.focus({preventScroll:true}); }
+}
+document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => show(b.dataset.go)));
+document.querySelectorAll('[data-home]').forEach(b => b.addEventListener('click', () => show('inicio')));
+
+/* ---------- Problemas ---------- */
+// En los textos, [a/b] se muestra como fracción apilada (numerador sobre denominador).
+const PROBLEMAS = [
+  {
+    texto: 'Rita dividió un pastel en 8 partes iguales. Sus amigas se comieron 5 partes del pastel.',
+    pregunta: '¿Qué fracción representa lo que se comieron sus amigas?',
+    opciones: ['[3/8]', '[5/8]', '[8/5]'], ok: 1,
+    fig: {tipo:'circulo', n:8, k:5},
+    pasos: [
+      'El pastel se dividió en 8 partes iguales: ese es el total, el denominador es 8.',
+      'Las amigas se comieron 5 partes: esas son las partes que se toman, el numerador es 5.',
+      'La fracción que se comieron es [5/8].'
+    ]
+  },
+  {
+    texto: 'Daniel tiene una botella de agua con capacidad de 1 litro. Él consumió [2/5] de su capacidad.',
+    pregunta: 'De acuerdo con la información anterior, ¿cuántos mililitros de agua le quedan en la botella?',
+    opciones: ['400 mL', '200 mL', '600 mL'], ok: 2,
+    fig: {tipo:'barra', n:5, k:2},
+    pasos: [
+      '1 litro equivale a 1000 mL.',
+      'La botella se divide en 5 partes iguales: 1000 ÷ 5 = 200 mL en cada parte.',
+      'Daniel consumió 2 partes: 2 × 200 = 400 mL.',
+      'Le quedan 3 partes, es decir, [3/5] de la botella: 1000 − 400 = 600 mL.'
+    ]
+  },
+  {
+    texto: 'En una caja hay 7 lápices; 3 de ellos son rojos y los demás son azules.',
+    pregunta: '¿Qué fracción del total de lápices corresponde a los lápices rojos?',
+    opciones: ['[3/7]', '[4/7]', '[3/4]'], ok: 0,
+    fig: {tipo:'coleccion', n:7, k:3},
+    pasos: [
+      'El total de la colección es de 7 lápices: el denominador es 7.',
+      'Los lápices rojos son 3: el numerador es 3.',
+      'Los lápices rojos representan [3/7] del total.'
+    ]
+  },
+  {
+    texto: 'Ana tiene una cinta de 1 metro de longitud. Utilizó [3/4] de la cinta para decorar un regalo.',
+    pregunta: '¿Cuántos centímetros de cinta utilizó Ana?',
+    opciones: ['25 cm', '75 cm', '34 cm'], ok: 1,
+    fig: {tipo:'barra', n:4, k:3},
+    pasos: [
+      '1 metro equivale a 100 cm.',
+      'La cinta se divide en 4 partes iguales: 100 ÷ 4 = 25 cm en cada parte.',
+      'Ana utilizó 3 partes: 3 × 25 = 75 cm.'
+    ]
+  },
+  {
+    texto: 'En un grupo de cuarto año hay 12 estudiantes. De ellos, [1/3] prefiere jugar fútbol en el recreo.',
+    pregunta: '¿Cuántos estudiantes prefieren jugar fútbol?',
+    opciones: ['3', '8', '4'], ok: 2,
+    fig: {tipo:'coleccion', n:12, k:4},
+    pasos: [
+      'El grupo de 12 estudiantes se reparte en 3 partes iguales: 12 ÷ 3 = 4 estudiantes en cada parte.',
+      '[1/3] es una de esas partes: 1 × 4 = 4 estudiantes.'
+    ]
+  },
+  {
+    texto: 'Una pizza se dividió en 6 partes iguales. Pedro se comió 2 partes y su hermana se comió 3 partes.',
+    pregunta: '¿Qué fracción de la pizza se comieron entre los dos?',
+    opciones: ['[5/6]', '[5/12]', '[1/6]'], ok: 0,
+    fig: {tipo:'circulo', n:6, k:5},
+    pasos: [
+      'La pizza tiene 6 partes iguales: el denominador es 6.',
+      'Entre los dos se comieron 2 + 3 = 5 partes: el numerador es 5.',
+      'Se comieron [5/6] de la pizza. El denominador no se suma porque la pizza sigue teniendo 6 partes.'
+    ]
+  },
+  {
+    texto: 'Luis leyó [2/9] de un libro y Carla leyó [5/9] del mismo libro.',
+    pregunta: '¿Cuál de las siguientes expresiones compara correctamente las fracciones del libro que leyó cada uno?',
+    opciones: ['[2/9] > [5/9]', '[2/9] < [5/9]', '[2/9] = [5/9]'], ok: 1,
+    fig: {tipo:'barras', n:9, k:[2,5]},
+    pasos: [
+      'Las dos fracciones tienen el mismo denominador (9): el libro está dividido en partes del mismo tamaño.',
+      'Se comparan los numeradores: 2 < 5.',
+      'Por lo tanto, [2/9] < [5/9]: Carla leyó más que Luis.'
+    ]
+  },
+  {
+    texto: 'Doña Marta compró 1 kilogramo de arroz. Para preparar el almuerzo usó [3/10] del arroz.',
+    pregunta: '¿Cuántos gramos de arroz le quedan?',
+    opciones: ['300 g', '130 g', '700 g'], ok: 2,
+    fig: {tipo:'barra', n:10, k:3},
+    pasos: [
+      '1 kilogramo equivale a 1000 g.',
+      'El arroz se divide en 10 partes iguales: 1000 ÷ 10 = 100 g en cada parte.',
+      'Usó 3 partes: 3 × 100 = 300 g.',
+      'Le quedan 1000 − 300 = 700 g, es decir, [7/10] del arroz.'
+    ]
+  }
+];
+const LETRAS = ['A','B','C'];
+const $ = s => document.querySelector(s);
+const esc = t => String(t).replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+const FRAC_RE = /\[(\d+)\/(\d+)\]/g;
+const rich = s => esc(s).replace(FRAC_RE, (_, a, b) => `<span class="frac"><span>${a}</span><span>${b}</span></span>`);
+const plano = s => s.replace(FRAC_RE, '$1/$2');   // para lectores de pantalla
+let pIdx = 0;
+
+/* Figuras de la explicación */
+const SH = '#f5b82e', UN = '#ffffff';
+function figSVG(f, ink = 'var(--ink)'){
+  if(f.tipo === 'circulo'){
+    const cx = 90, cy = 90, r = 78; let s = '';
+    for(let i = 0; i < f.n; i++){
+      const a0 = -Math.PI/2 + i*2*Math.PI/f.n, a1 = a0 + 2*Math.PI/f.n;
+      const x0 = cx + r*Math.cos(a0), y0 = cy + r*Math.sin(a0), x1 = cx + r*Math.cos(a1), y1 = cy + r*Math.sin(a1);
+      s += `<path d="M${cx} ${cy} L${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)} Z" fill="${i < f.k ? SH : UN}" stroke="${ink}" stroke-width="2.5"/>`;
+    }
+    return `<svg data-t="circulo" viewBox="0 0 180 180" role="img" aria-label="Círculo dividido en ${f.n} partes iguales con ${f.k} sombreadas">${s}</svg>`;
+  }
+  if(f.tipo === 'barra' || f.tipo === 'barras'){
+    const ks = Array.isArray(f.k) ? f.k : [f.k], w = 300, h = 44, u = w/f.n; let s = '';
+    ks.forEach((k, j) => { for(let i = 0; i < f.n; i++)
+      s += `<rect x="${(4 + i*u).toFixed(2)}" y="${4 + j*(h + 14)}" width="${u.toFixed(2)}" height="${h}" fill="${i < k ? SH : UN}" stroke="${ink}" stroke-width="2.5"/>`; });
+    const H = ks.length*(h + 14) - 6;
+    return `<svg viewBox="0 0 308 ${H}" role="img" aria-label="Barra dividida en ${f.n} partes iguales">${s}</svg>`;
+  }
+  // colección de objetos
+  const por = 6, r = 16, d = 44, filas = Math.ceil(f.n/por); let s = '';
+  for(let i = 0; i < f.n; i++){
+    const cx = 24 + (i % por)*d, cy = 24 + Math.floor(i/por)*d;
+    s += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${i < f.k ? SH : UN}" stroke="${ink}" stroke-width="2.5"/>`;
+  }
+  return `<svg viewBox="0 0 ${Math.min(f.n, por)*d + 4} ${filas*d + 4}" role="img" aria-label="Colección de ${f.n} objetos con ${f.k} sombreados">${s}</svg>`;
+}
+
+function renderProblem(){
+  const p = PROBLEMAS[pIdx];
+  $('#probCount').textContent = `Problema ${pIdx + 1} de ${PROBLEMAS.length}`;
+  $('#paper').innerHTML = `<p>${rich(p.texto)}</p><p>${rich(p.pregunta)}</p>
+    <div class="popts">${p.opciones.map((o, i) => `<button class="popt" type="button" data-i="${i}" aria-label="${LETRAS[i]}) ${esc(plano(o))}"><span class="l">${LETRAS[i]})</span><span>${rich(o)}</span></button>`).join('')}</div>`;
+  $('#probFb').innerHTML = '';
+  document.querySelectorAll('#paper .popt').forEach(b => b.addEventListener('click', () => answerProblem(+b.dataset.i)));
+  $('#btnPrev').disabled = pIdx === 0;
+  $('#btnNext').disabled = pIdx === PROBLEMAS.length - 1;
+}
+/* Retroalimentación: acierto = emoji + fuegos artificiales; error = equis + paso a paso */
+const EMOJIS_OK = ['🎉','🌟','🏆','🥇','🎊','⭐'];
+const FRASES_OK = ['¡Excelente!','¡Muy bien!','¡Fantástico!','¡Lo lograste!','¡Genial!'];
+function mostrarFb(el, correcto, respHTML, pasosHTML){
+  if(correcto){
+    const k = Math.floor(Math.random()*FRASES_OK.length);
+    el.innerHTML = `<div class="fb-head ok fb-win"><span class="fb-emoji" aria-hidden="true">${EMOJIS_OK[Math.floor(Math.random()*EMOJIS_OK.length)]}</span>
+      <span>${FRASES_OK[k]} ¡Respuesta correcta!</span></div>`;
+    fuegosArtificiales();
+    decir(FRASES_OK[k] + ' Respuesta correcta.');
+  } else {
+    el.innerHTML = `<div class="fb-head bad fb-lose"><span class="fb-x" aria-hidden="true">✖</span>
+      <span>No es correcto. La respuesta correcta es ${respHTML}</span></div>
+      <div class="exp"><h3>Paso a paso</h3>${pasosHTML}</div>`;
+  }
+  el.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+function fuegosArtificiales(){
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cv = document.createElement('canvas'), g = cv.getContext('2d'), dpr = window.devicePixelRatio || 1;
+  cv.className = 'fx-canvas'; cv.setAttribute('aria-hidden', 'true');
+  const W = innerWidth, H = innerHeight;
+  cv.width = W*dpr; cv.height = H*dpr; g.scale(dpr, dpr);
+  document.body.appendChild(cv);
+  const colores = ['#e0562b','#f5b82e','#2f8f5b','#2f6fd6','#8a4fc9','#ff5fa2'], parts = [];
+  const estallido = (x, y) => { const c = colores[Math.floor(Math.random()*colores.length)];
+    for(let i = 0; i < 46; i++){ const a = Math.random()*Math.PI*2, v = 2 + Math.random()*4.5;
+      parts.push({x, y, vx:Math.cos(a)*v, vy:Math.sin(a)*v, life:1, c: Math.random() < .25 ? '#fff6c2' : c, r:2 + Math.random()*2}); } };
+  [[.25,.3,0],[.75,.28,260],[.5,.2,520],[.35,.45,780],[.68,.42,1000]].forEach(([fx, fy, t]) =>
+    setTimeout(() => estallido(W*fx, H*fy), t));
+  const t0 = performance.now();
+  (function paso(now){
+    g.clearRect(0, 0, W, H);
+    parts.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .07; p.vx *= .985; p.life -= .014;
+      if(p.life > 0){ g.globalAlpha = p.life; g.fillStyle = p.c; g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI*2); g.fill(); } });
+    if(now - t0 < 2600) requestAnimationFrame(paso); else cv.remove();
+  })(t0);
+}
+
+function answerProblem(i){
+  const p = PROBLEMAS[pIdx], btns = document.querySelectorAll('#paper .popt');
+  btns.forEach(b => b.disabled = true);
+  btns[p.ok].classList.add('ok');
+  if(i !== p.ok) btns[i].classList.add('bad');
+  const resp = `${LETRAS[p.ok]}) ${rich(p.opciones[p.ok])}`;
+  mostrarFb($('#probFb'), i === p.ok, resp,
+    `<div class="exp-fig">${figSVG(p.fig)}</div><ol>${p.pasos.map(s => `<li>${rich(s)}</li>`).join('')}</ol>`);
+}
+
+/* PDF en Arial 12, generado dentro del archivo (sin internet ni bibliotecas externas) */
+const arialW = {};
+function arialWidths(bold){
+  const k = bold ? 'b' : 'n';
+  if(arialW[k]) return arialW[k];
+  const g = document.createElement('canvas').getContext('2d');
+  g.font = (bold ? 'bold ' : '') + '1000px Arial, Helvetica, sans-serif';
+  const w = [];
+  for(let code = 32; code <= 255; code++){
+    const ch = (code < 127 || code >= 160) ? String.fromCharCode(code) : ' ';
+    w.push(Math.round(g.measureText(ch).width));
+  }
+  return arialW[k] = w;
+}
+const winText = s => s.replace(/[“”]/g,'"').replace(/[‘’]/g,"'").replace(/[–—−]/g,'-').replace(/→/g,'->').replace(/…/g,'...')
+  .replace(/[^\x20-\x7e\xa0-\xff]/g,'?');
+const pdfEsc = s => winText(s).replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
+function textW(s, size, bold){ const w = arialWidths(bold); let t = 0; for(const ch of winText(s)) t += w[ch.charCodeAt(0) - 32] || 500; return t * size / 1000; }
+
+// Documento PDF A4: d.para() escribe párrafos (con fracciones [a/b] apiladas) y salta de página solo
+function pdfDoc(){
+  const S = 12, LEAD = 18, TOP = 842 - 72, BOT = 72;
+  const d = {L:64, W:595 - 128, y:TOP, pages:[[]]};
+  const ops = () => d.pages[d.pages.length - 1];
+  d.need = h => { if(d.y - h < BOT){ d.pages.push([]); d.y = TOP; } };
+  d.txt = (x, yy, s, bold) => ops().push(`BT /${bold ? 'F2' : 'F1'} ${S} Tf ${x.toFixed(2)} ${yy.toFixed(2)} Td (${pdfEsc(s)}) Tj ET`);
+  d.rule = (x1, x2, yy, w) => ops().push(`${w} w ${x1.toFixed(2)} ${yy.toFixed(2)} m ${x2.toFixed(2)} ${yy.toFixed(2)} l S`);
+  const piezas = w => { const out = []; let last = 0; w.replace(FRAC_RE, (m, a, b, pos) => {
+      if(pos > last) out.push({t:w.slice(last, pos)});
+      out.push({a, b}); last = pos + m.length; });
+    if(last < w.length) out.push({t:w.slice(last)});
+    return out; };
+  const pw = (pc, bold) => pc.t !== undefined ? textW(pc.t, S, bold) : Math.max(textW(pc.a, S), textW(pc.b, S)) + 4;
+  // o: {x, w, bold, label, tall}; los renglones con fracción (o tall) son más altos
+  d.para = (s, o = {}) => {
+    const x0 = o.x ?? d.L, maxW = o.w ?? d.W, bold = !!o.bold;
+    const sp = textW(' ', S, bold), lines = []; let line = [], lw = 0;
+    String(s).split(' ').forEach(w => { const ww = piezas(w).reduce((t, pc) => t + pw(pc, bold), 0);
+      if(line.length && lw + sp + ww > maxW){ lines.push(line); line = []; lw = 0; }
+      lw += (line.length ? sp : 0) + ww; line.push(w); });
+    if(line.length) lines.push(line);
+    lines.forEach((ln, li) => {
+      const tall = o.tall || ln.some(w => /\[\d+\/\d+\]/.test(w));
+      d.need(LEAD + (tall ? 15 : 0));
+      if(tall) d.y -= 7;
+      if(li === 0 && o.label) d.txt(o.labelX ?? d.L, d.y, o.label, bold);
+      let x = x0;
+      ln.forEach((w, k) => {
+        if(k) x += sp;
+        piezas(w).forEach(pc => {
+          const wd = pw(pc, bold);
+          if(pc.t !== undefined) d.txt(x, d.y, pc.t, bold);
+          else {
+            const bar = d.y + 3.8;
+            d.txt(x + (wd - textW(pc.a, S))/2, bar + 2.6, pc.a);
+            d.txt(x + (wd - textW(pc.b, S))/2, bar - 11.2, pc.b);
+            d.rule(x + 1, x + wd - 1, bar, 0.8);
+          }
+          x += wd;
+        });
+      });
+      d.y -= LEAD + (tall ? 8 : 0);
+    });
+  };
+  d.gap = h => { d.y -= h; };
+  d.raw = str => ops().push(str);
+  d.blob = () => {
+    const font = (name, bold) => [
+      `<< /Type /Font /Subtype /TrueType /BaseFont /${name} /FirstChar 32 /LastChar 255 /Widths [${arialWidths(bold).join(' ')}] /Encoding /WinAnsiEncoding /FontDescriptor ${bold ? 6 : 4} 0 R >>`,
+      `<< /Type /FontDescriptor /FontName /${name} /Flags 32 /FontBBox [-665 -325 2000 1006] /ItalicAngle 0 /Ascent 905 /Descent -212 /CapHeight 716 /StemV ${bold ? 120 : 80} >>`];
+    const n = d.pages.length, kids = d.pages.map((_, i) => `${7 + 2*i} 0 R`).join(' ');
+    const objs = ['<< /Type /Catalog /Pages 2 0 R >>', `<< /Type /Pages /Kids [${kids}] /Count ${n} >>`,
+      ...font('Arial', false), ...font('Arial,Bold', true)];
+    d.pages.forEach((pg, i) => {
+      const stream = pg.join('\n');
+      objs.push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 5 0 R >> >> /Contents ${8 + 2*i} 0 R >>`);
+      objs.push(`<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`);
+    });
+    let out = '%PDF-1.4\n%\xe2\xe3\xcf\xd3\n'; const offs = [];
+    objs.forEach((o, i) => { offs.push(out.length); out += `${i+1} 0 obj\n${o}\nendobj\n`; });
+    const xref = out.length;
+    out += `xref\n0 ${objs.length+1}\n0000000000 65535 f \n` + offs.map(o => String(o).padStart(10,'0') + ' 00000 n \n').join('');
+    out += `trailer\n<< /Size ${objs.length+1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
+    return new Blob([Uint8Array.from(out, ch => ch.charCodeAt(0) & 255)], {type:'application/pdf'});
+  };
+  return d;
+}
+function downloadBlob(blob, name){
+  const url = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 2000);
+}
+
+function problemPDF(p){
+  const d = pdfDoc();
+  d.para(p.texto); d.gap(6);
+  d.para(p.pregunta); d.gap(10);
+  p.opciones.forEach((o, i) => { d.para(o, {x:d.L + 28, w:d.W - 28, label:LETRAS[i] + ')'}); d.gap(6); });
+  return d.blob();
+}
+
+$('#btnPrev').addEventListener('click', () => { if(pIdx > 0){ pIdx--; renderProblem(); } });
+$('#btnNext').addEventListener('click', () => { if(pIdx < PROBLEMAS.length - 1){ pIdx++; renderProblem(); } });
+$('#btnPrintProb').addEventListener('click', () => window.print());
+$('#btnPdfProb').addEventListener('click', () => downloadBlob(problemPDF(PROBLEMAS[pIdx]), `Fracciones propias - Problema ${pIdx + 1}.pdf`));
+renderProblem();
+
+/* ---------- Audio (solo voces en español) ---------- */
+const soundBtn = $('#soundToggle');
+let soundOn = store.get('fracPropias4-sound') !== 'off', voz = null;
+function elegirVoz(){
+  const vs = ('speechSynthesis' in window) ? speechSynthesis.getVoices() : [];
+  const pref = ['es-MX','es-US','es-419'];
+  voz = pref.map(l => vs.find(v => v.lang.replace('_','-') === l)).find(Boolean)
+     || vs.find(v => /^es[-_]/i.test(v.lang) || v.lang === 'es') || null;
+}
+if('speechSynthesis' in window){ elegirVoz(); speechSynthesis.addEventListener('voiceschanged', elegirVoz); }
+function paintSound(){
+  soundBtn.textContent = soundOn ? '🔊' : '🔇';
+  soundBtn.setAttribute('aria-pressed', String(soundOn));
+  soundBtn.setAttribute('aria-label', soundOn ? 'Desactivar audio' : 'Activar audio');
+}
+paintSound();
+soundBtn.addEventListener('click', () => {
+  soundOn = !soundOn; store.set('fracPropias4-sound', soundOn ? 'on' : 'off'); paintSound();
+  if(!soundOn && 'speechSynthesis' in window) speechSynthesis.cancel();
+});
+/* Botón "Escuchar instrucciones": primer toque habla, segundo toque detiene */
+var instrActual = null;
+function botonInstrucciones(btn, aviso, texto){
+  let hablando = false, tok = 0;
+  const listo = () => { hablando = false; btn.textContent = '🔊 Escuchar instrucciones'; btn.setAttribute('aria-pressed', 'false');
+    if(instrActual === listo) instrActual = null; };
+  btn.addEventListener('click', () => {
+    if(hablando){ speechSynthesis.cancel(); listo(); return; }
+    if(instrActual) instrActual();
+    const t = ++tok;
+    const ok = decir(texto, () => { if(hablando && t === tok) listo(); });
+    if(ok){ hablando = true; instrActual = listo; btn.textContent = '⏹️ Detener instrucciones'; btn.setAttribute('aria-pressed', 'true'); }
+    aviso.textContent = ok ? '' : (soundOn ? 'Este equipo no tiene una voz en español disponible.' : 'Activa el audio con el botón 🔇 de arriba para escuchar las instrucciones.');
+  });
+  $('#soundToggle').addEventListener('click', () => { if(soundOn) aviso.textContent = ''; else if(hablando) listo(); });
+}
+function decir(texto, alTerminar){
+  if(!soundOn || !('speechSynthesis' in window)) return false;
+  if(!voz) elegirVoz();
+  if(!voz) return false;                 // nunca leer con una voz de otro idioma
+  speechSynthesis.cancel();
+  if(instrActual && !alTerminar) instrActual();   // otro audio detiene las instrucciones
+  const u = new SpeechSynthesisUtterance(texto);
+  u.voice = voz; u.lang = voz.lang; u.rate = .9;
+  if(alTerminar){ u.onend = alTerminar; u.onerror = alTerminar; }
+  speechSynthesis.speak(u);
+  return true;
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-say]'); if(b) decir(b.dataset.say); });
+
+/* ---------- Teoría literal ---------- */
+document.querySelectorAll('[data-rich]').forEach(el => { el.innerHTML = rich(el.dataset.rich); });
+const LIT_EJ = [
+  {f:'[1/2]', r:'un medio', n:2, k:1}, {f:'[2/3]', r:'dos tercios', n:3, k:2}, {f:'[3/4]', r:'tres cuartos', n:4, k:3},
+  {f:'[5/7]', r:'cinco séptimos', n:7, k:5}, {f:'[3/8]', r:'tres octavos', n:8, k:3}, {f:'[9/13]', r:'nueve treceavos', n:13, k:9},
+  {f:'[7/90]', r:'siete noventavos'}, {f:'[3/100]', r:'tres centésimos'}, {f:'[27/1000]', r:'veintisiete milésimos'}
+];
+const LIT_AHORA = [['[1/8]','un octavo'], ['[7/40]','siete cuarentavos'], ['[19/100]','diecinueve centésimos'],
+  ['[4/9]','cuatro novenos'], ['[11/15]','once quinceavos']];
+function miniBar(n, k){
+  const u = 146/n; let s = '';
+  for(let i = 0; i < n; i++) s += `<rect x="${(2 + i*u).toFixed(2)}" y="4" width="${u.toFixed(2)}" height="38" fill="${i < k ? 'var(--blue)' : 'var(--panel)'}" stroke="var(--ink)" stroke-width="1.5"/>`;
+  return `<svg viewBox="0 0 150 46" aria-hidden="true">${s}</svg>`;
+}
+$('#litEjemplos').innerHTML = LIT_EJ.map(e => `<div class="ex-card">
+    ${e.n ? miniBar(e.n, e.k) : ''}
+    <span class="ex-frac">${rich(e.f)}</span>
+    <span class="ex-read">${esc(e.r)}</span>
+    <button class="btn btn-ghost btn-say" type="button" data-say="${esc(e.r)}" aria-label="Escuchar: ${esc(e.r)}">🔊</button>
+  </div>`).join('');
+$('#litAhora').innerHTML = LIT_AHORA.map(([f, r]) => `<button class="flip" type="button" data-r="${esc(r)}" aria-label="Fracción ${plano(f)}. Toca para ver cómo se lee">
+    <span class="ex-frac">${rich(f)}</span><span class="hint">Toca para ver</span></button>`).join('');
+document.querySelectorAll('#litAhora .flip').forEach(b => b.addEventListener('click', () => {
+  const open = b.classList.toggle('open');
+  b.querySelector('.hint').textContent = open ? b.dataset.r : 'Toca para ver';
+  if(open) decir(b.dataset.r);
+}));
+
+function literalPDF(){
+  const d = pdfDoc(), B = {bold:true};
+  d.para('Fracciones propias: representación literal', B);
+  d.para('¿Cómo se leen las fracciones?', B); d.gap(8);
+  d.para('1. Dos pasos para leer una fracción', B);
+  d.para('Recuerda: el numerador es el número de arriba y el denominador es el número de abajo de la barra de fracción.');
+  d.para('Paso 1. Se lee el numerador como un número natural: uno, dos, tres, cuatro...');
+  d.para('Paso 2. Se lee el denominador con el nombre especial que le corresponde en la súper tabla.');
+  d.para('Ejemplo: [3/5] se lee tres quintos.'); d.gap(8);
+
+  d.para('2. La súper tabla de los denominadores', B); d.gap(2);
+  const cx = [d.L + 4, d.L + 120, d.L + 280], cw = [110, 150, d.W - 220];
+  d.need(40); d.rule(d.L, d.L + d.W, d.y + 14, 1.2);
+  const fila = (cells, bold, tall) => {
+    d.need(tall ? 34 : 20);
+    const y0 = d.y; let yMin = y0;
+    cells.forEach((c, i) => { d.y = y0; d.para(c, {x:cx[i], w:cw[i], bold, tall}); yMin = Math.min(yMin, d.y); });
+    d.y = yMin;
+  };
+  fila(['Denominador', 'Se lee', 'Ejemplo'], true, false);
+  d.rule(d.L, d.L + d.W, d.y + 13, 0.8);
+  document.querySelectorAll('#litTeoria .stab tbody tr').forEach(tr => {
+    const td = tr.querySelectorAll('td');
+    fila([td[0].textContent.trim(), td[1].textContent.trim(),
+          td[2].querySelector('[data-rich]').dataset.rich + ' ' + td[2].lastChild.textContent.trim()], false, true);
+  });
+  d.rule(d.L, d.L + d.W, d.y + 12, 1.2); d.gap(10);
+
+  d.para('3. Reglas importantes', B);
+  d.para('Denominador mayor que 10: se dice el número del denominador y se le agrega la terminación "avos": 11 -> onceavos, 12 -> doceavos, 13 -> treceavos, 20 -> veinteavos, 40 -> cuarentavos, 90 -> noventavos. Excepto 100 y 1000, que se leen centésimos y milésimos.');
+  d.gap(4);
+  d.para('Numerador igual a 1: se usa "un" y el nombre en singular: [1/2] un medio, [1/3] un tercio, [1/8] un octavo, [1/12] un doceavo.');
+  d.gap(8);
+
+  d.para('4. Ejemplos', B);
+  for(let i = 0; i < LIT_EJ.length; i += 3){        // tres ejemplos por renglón
+    d.need(34); const y0 = d.y; let yMin = y0;
+    LIT_EJ.slice(i, i + 3).forEach((e, j) => { d.y = y0; d.para(`${e.f} ${e.r}`, {x:d.L + j*156, w:150, tall:true}); yMin = Math.min(yMin, d.y); });
+    d.y = yMin;
+  }
+  d.gap(8);
+  d.para('5. Ahora tú: escribe cómo se lee cada fracción.', B); d.gap(4);
+  LIT_AHORA.forEach(([f], i) => { d.para(`${f} ______________________________`, {x:d.L + 28, w:d.W - 28, label:'abcde'[i] + ')'}); d.gap(4); });
+  d.gap(8);
+  d.para('En resumen', B);
+  d.para('Primero se lee el numerador como número. Después se lee el denominador con su nombre (medios, tercios, cuartos...). Si el denominador es mayor que 10, se agrega "avos" (excepto 100 y 1000).');
+  d.gap(12);
+  d.para('Elaborado por: Alberto Jiménez Ruiz - Asesor Regional de Matemática · DAP-DRE-Cartago 2026');
+  return d.blob();
+}
+$('#btnPrintLit').addEventListener('click', () => window.print());
+$('#btnPdfLit').addEventListener('click', () => downloadBlob(literalPDF(), 'Fracciones propias - Cómo se leen las fracciones.pdf'));
+
+/* ---------- Práctica: representación literal ---------- */
+// t:'A' = de la lectura a la fracción; t:'B' = de la representación gráfica a la lectura
+const LIT_PRA = [
+  {t:'A', nt:'siete', dt:'quinceavos', n:7, d:15, opciones:['[7/15]', '[15/7]', '[7/5]'], ok:0},
+  {t:'B', fig:{tipo:'circulo', n:8, k:3}, nt:'tres', dt:'octavos', opciones:['cinco octavos', 'tres quintos', 'tres octavos'], ok:2},
+  {t:'A', nt:'cuatro', dt:'novenos', n:4, d:9, opciones:['[9/4]', '[4/9]', '[4/90]'], ok:1},
+  {t:'B', fig:{tipo:'barra', n:5, k:2}, nt:'dos', dt:'quintos', opciones:['dos quintos', 'tres quintos', 'dos tercios'], ok:0},
+  {t:'A', nt:'once', dt:'doceavos', n:11, d:12, opciones:['[12/11]', '[11/2]', '[11/12]'], ok:2},
+  {t:'B', fig:{tipo:'coleccion', n:6, k:5}, nt:'cinco', dt:'sextos', opciones:['un sexto', 'cinco sextos', 'seis quintos'], ok:1},
+  {t:'A', nt:'tres', dt:'décimos', n:3, d:10, opciones:['[3/10]', '[10/3]', '[3/100]'], ok:0},
+  {t:'B', fig:{tipo:'circulo', n:4, k:1}, nt:'un', dt:'cuarto', opciones:['tres cuartos', 'un tercio', 'un cuarto'], ok:2},
+  {t:'A', nt:'nueve', dt:'veinteavos', n:9, d:20, opciones:['[20/9]', '[9/20]', '[9/10]'], ok:1},
+  {t:'B', fig:{tipo:'barra', n:10, k:7}, nt:'siete', dt:'décimos', opciones:['siete décimos', 'tres décimos', 'siete tercios'], ok:0},
+  {t:'A', nt:'trece', dt:'centésimos', n:13, d:100, opciones:['[13/1000]', '[13/100]', '[100/13]'], ok:1},
+  {t:'B', fig:{tipo:'barra', n:12, k:5}, nt:'cinco', dt:'doceavos', opciones:['siete doceavos', 'cinco séptimos', 'cinco doceavos'], ok:2}
+];
+const LIT_B_TXT = 'Considere la siguiente representación gráfica que corresponde a una fracción:';
+const LIT_B_PREG = 'De acuerdo con la información anterior, ¿cuál es la representación literal de la fracción que se representa?';
+const litPreg = it => `¿Cuál es la fracción ${it.nt} ${it.dt}?`;
+function litPasos(it){
+  if(it.t === 'A'){
+    const avos = it.d > 10 && it.d !== 100 && it.d !== 1000;
+    return [`«${it.nt}» es el numerador: ${it.n}.`,
+      `«${it.dt}» indica el denominador: ${it.d}.` + (avos ? ' Como es mayor que 10, se lee agregando «avos».' : ''),
+      `Por lo tanto, ${it.nt} ${it.dt} se escribe [${it.n}/${it.d}].`];
+  }
+  const f = it.fig, todo = f.tipo === 'coleccion' ? `La colección tiene ${f.n} objetos iguales` : `La figura está dividida en ${f.n} partes iguales`;
+  return [`${todo}: el denominador es ${f.n} y se lee «${it.dt}».`,
+    `Hay ${f.k} ${f.tipo === 'coleccion' ? 'objetos sombreados' : 'partes sombreadas'}: el numerador es ${f.k} y se lee «${it.nt}».`,
+    `La fracción es [${f.k}/${f.n}] y se lee ${it.nt} ${it.dt}.`];
+}
+let litIdx = 0;
+function renderLit(){
+  const it = LIT_PRA[litIdx];
+  $('#litCount').textContent = `Ítem ${litIdx + 1} de ${LIT_PRA.length}`;
+  const enunciado = it.t === 'A' ? `<p>${esc(litPreg(it))}</p>`
+    : `<p>${esc(LIT_B_TXT)}</p><div class="paper-fig">${figSVG(it.fig, '#222')}</div><p>${esc(LIT_B_PREG)}</p>`;
+  $('#litPaper').innerHTML = enunciado + `<div class="popts">${it.opciones.map((o, i) =>
+    `<button class="popt" type="button" data-i="${i}" aria-label="${LETRAS[i]}) ${esc(plano(o))}"><span class="l">${LETRAS[i]})</span><span>${rich(o)}</span></button>`).join('')}</div>`;
+  $('#litFb').innerHTML = '';
+  document.querySelectorAll('#litPaper .popt').forEach(b => b.addEventListener('click', () => answerLit(+b.dataset.i)));
+  $('#litPrev').disabled = litIdx === 0;
+  $('#litNext').disabled = litIdx === LIT_PRA.length - 1;
+}
+function answerLit(i){
+  const it = LIT_PRA[litIdx], btns = document.querySelectorAll('#litPaper .popt');
+  btns.forEach(b => b.disabled = true);
+  btns[it.ok].classList.add('ok');
+  if(i !== it.ok) btns[i].classList.add('bad');
+  const resp = `${LETRAS[it.ok]}) ${rich(it.opciones[it.ok])}`;
+  mostrarFb($('#litFb'), i === it.ok, resp, `<ol>${litPasos(it).map(x => `<li>${rich(x)}</li>`).join('')}</ol>`);
+  if(i !== it.ok) decir(`La respuesta correcta es ${it.nt} ${it.dt}`);
+}
+// Figura vectorial en el PDF (gris = parte sombreada)
+function pdfFig(d, f){
+  const cx = d.L + d.W/2, fill = on => on ? (f.on || '0.72 g') : (f.off || '1 g'), out = [];
+  if(f.tipo === 'circulo'){
+    const r = 50; d.need(2*r + 20); const cy = d.y - r + 4;
+    for(let i = 0; i < f.n; i++){
+      const a0 = Math.PI/2 - i*2*Math.PI/f.n, steps = 24; let path = `${cx.toFixed(2)} ${cy.toFixed(2)} m`;
+      for(let s = 0; s <= steps; s++){ const a = a0 - s*(2*Math.PI/f.n)/steps; path += ` ${(cx + r*Math.cos(a)).toFixed(2)} ${(cy + r*Math.sin(a)).toFixed(2)} l`; }
+      out.push(`${fill(i < f.k)} 0 G 1 w ${path} h B`);
+    }
+    d.y = cy - r - 22;
+  } else if(f.tipo === 'barra'){
+    const w = 260, h = 36, u = w/f.n, x0 = cx - w/2; d.need(h + 20); const top = d.y + 6;
+    for(let i = 0; i < f.n; i++) out.push(`${fill(i < f.k)} 0 G 1 w ${(x0 + i*u).toFixed(2)} ${(top - h).toFixed(2)} ${u.toFixed(2)} ${h} re B`);
+    d.y = top - h - 22;
+  } else {
+    const por = f.por || 6, r = 12, gap = 34, filas = Math.ceil(f.n/por), ancho = Math.min(f.n, por)*gap;
+    d.need(filas*gap + 16); const top = d.y + 6, k = r*.5523;
+    for(let i = 0; i < f.n; i++){
+      const x = cx - ancho/2 + gap/2 + (i % por)*gap, y = top - gap/2 - Math.floor(i/por)*gap;
+      out.push(`${fill(i < f.k)} 0 G 1 w ${x+r} ${y} m ${x+r} ${y+k} ${x+k} ${y+r} ${x} ${y+r} c ${x-k} ${y+r} ${x-r} ${y+k} ${x-r} ${y} c `
+        + `${x-r} ${y-k} ${x-k} ${y-r} ${x} ${y-r} c ${x+k} ${y-r} ${x+r} ${y-k} ${x+r} ${y} c B`);
+    }
+    d.y = top - filas*gap - 18;
+  }
+  out.push('0 g'); out.forEach(d.raw);
+}
+function litPDF(it){
+  const d = pdfDoc();
+  if(it.t === 'A') d.para(litPreg(it));
+  else { d.para(LIT_B_TXT); d.gap(8); pdfFig(d, it.fig); d.para(LIT_B_PREG); }
+  d.gap(10);
+  it.opciones.forEach((o, i) => { d.para(o, {x:d.L + 28, w:d.W - 28, label:LETRAS[i] + ')'}); d.gap(6); });
+  return d.blob();
+}
+$('#litPrev').addEventListener('click', () => { if(litIdx > 0){ litIdx--; renderLit(); } });
+$('#litNext').addEventListener('click', () => { if(litIdx < LIT_PRA.length - 1){ litIdx++; renderLit(); } });
+$('#litPrint').addEventListener('click', () => window.print());
+$('#litPdf').addEventListener('click', () => downloadBlob(litPDF(LIT_PRA[litIdx]), `Fracciones propias - Representación literal ${litIdx + 1}.pdf`));
+renderLit();
+
+/* ---------- Teoría gráfica ---------- */
+const NUM_TXT = ['cero','un','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce','trece','catorce','quince'];
+const DEN_TXT = {1:['entero','enteros'],2:['medio','medios'],3:['tercio','tercios'],4:['cuarto','cuartos'],5:['quinto','quintos'],6:['sexto','sextos'],7:['séptimo','séptimos'],8:['octavo','octavos'],9:['noveno','novenos'],10:['décimo','décimos'],11:['onceavo','onceavos'],12:['doceavo','doceavos'],13:['treceavo','treceavos'],14:['catorceavo','catorceavos'],15:['quinceavo','quinceavos']};
+const lectura = (k, n) => k === 0 ? 'cero ' + DEN_TXT[n][1] : `${NUM_TXT[k]} ${DEN_TXT[n][k === 1 ? 0 : 1]}`;
+
+// Pizza: comidos = conjunto de índices de trozos comidos
+function pizzaSVG(n, comidos, interactiva){
+  const c = 100, r = 90; let s = `<circle cx="${c}" cy="${c}" r="${r + 4}" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="5 5"/>`;
+  for(let i = 0; i < n; i++){
+    const a0 = -Math.PI/2 + i*2*Math.PI/n, a1 = a0 + 2*Math.PI/n, am = (a0 + a1)/2;
+    const P = a => `${(c + r*Math.cos(a)).toFixed(2)} ${(c + r*Math.sin(a)).toFixed(2)}`;
+    const d = `M${c} ${c} L${P(a0)} A${r} ${r} 0 ${n === 1 ? 1 : 0} 1 ${P(a1)} Z`;
+    const comido = comidos.has(i);
+    const attrs = interactiva ? ` class="pz-slice" tabindex="0" role="button" data-i="${i}" aria-pressed="${comido}" aria-label="Trozo ${i + 1}${comido ? ', comido' : ''}"` : '';
+    s += `<g${attrs}>`;
+    if(comido) s += `<path d="${d}" fill="var(--panel)" fill-opacity=".35" stroke="var(--soft)" stroke-width="2" stroke-dasharray="6 5"/>`;
+    else {
+      s += `<path d="${d}" fill="#f2b441" stroke="#b86b1f" stroke-width="3" stroke-linejoin="round"/>`;
+      s += `<path d="${d}" fill="#f7d774" stroke="none" transform="translate(${c} ${c}) scale(.86) translate(${-c} ${-c})"/>`;
+      [[.55, 0], [.33, .28], [.33, -.28]].forEach(([rr, da]) => {
+        const aa = am + da*(2*Math.PI/n)/1.6, rad = rr*r;
+        s += `<circle cx="${(c + rad*Math.cos(aa)).toFixed(2)}" cy="${(c + rad*Math.sin(aa)).toFixed(2)}" r="${Math.max(4, 11 - n)}" fill="#d9442b"/>`;
+      });
+    }
+    s += `</g>`;
+  }
+  return `<svg viewBox="0 0 200 200" role="img" aria-label="Pizza dividida en ${n} partes iguales, ${comidos.size} comidas">${s}</svg>`;
+}
+const rango = k => new Set([...Array(k).keys()]);
+// En la figura estática "se comió" se sombrea la parte comida; "quedan" muestra los trozos que siguen
+$('#pz4a').innerHTML = pizzaSVG(4, new Set([1,2,3]), false).replace('4 partes iguales, 3 comidas', '4 partes iguales, se resalta 1 trozo comido');
+$('#pz4b').innerHTML = pizzaSVG(4, rango(1), false);
+$('#pz6a').innerHTML = pizzaSVG(6, new Set([2,3,4,5]), false).replace('6 partes iguales, 4 comidas', '6 partes iguales, se resaltan 2 trozos comidos');
+$('#pz6b').innerHTML = pizzaSVG(6, rango(2), false);
+
+// Partes iguales y no iguales
+$('#eqSi').innerHTML = `<svg viewBox="0 0 120 80" aria-hidden="true">${[0,1,2,3].map(i => `<rect x="${4 + i*28}" y="10" width="28" height="60" fill="${i === 0 ? 'var(--blue)' : 'var(--panel)'}" stroke="var(--ink)" stroke-width="2"/>`).join('')}</svg>`;
+$('#eqNo').innerHTML = `<svg viewBox="0 0 120 80" aria-hidden="true">${[[4,14],[18,50],[68,22],[90,26]].map(([x, w], i) => `<rect x="${x}" y="10" width="${w}" height="60" fill="${i === 0 ? 'var(--blue)' : 'var(--panel)'}" stroke="var(--ink)" stroke-width="2"/>`).join('')}</svg>`;
+
+// Familia de Ana: 2 adultos y 3 niños
+function personaSVG(x, adulto, color, on){
+  const h = adulto ? 118 : 84, top = 150 - h, head = adulto ? 15 : 13, bw = adulto ? 34 : 28;
+  return `<g opacity="${on ? 1 : .32}">
+    ${on ? `<rect x="${x - bw/2 - 8}" y="${top - 8}" width="${bw + 16}" height="${h + 14}" rx="18" fill="none" stroke="var(--c)" stroke-width="3"/>` : ''}
+    <circle cx="${x}" cy="${top + head}" r="${head}" fill="#f1c7a0" stroke="var(--ink)" stroke-width="2"/>
+    <rect x="${x - bw/2}" y="${top + 2*head + 3}" width="${bw}" height="${h*.42}" rx="${bw/2.6}" fill="${color}" stroke="var(--ink)" stroke-width="2"/>
+    <rect x="${x - bw/2 + 4}" y="${top + 2*head + 3 + h*.42 - 4}" width="${bw/2 - 6}" height="${150 - (top + 2*head + h*.42)}" rx="4" fill="#3d4b6b" stroke="var(--ink)" stroke-width="1.5"/>
+    <rect x="${x + 2}" y="${top + 2*head + 3 + h*.42 - 4}" width="${bw/2 - 6}" height="${150 - (top + 2*head + h*.42)}" rx="4" fill="#3d4b6b" stroke="var(--ink)" stroke-width="1.5"/>
+  </g>`;
+}
+let famSel = 'adultos';
+function renderFam(){
+  const P = [[40, true, '#6c8fd6'], [100, true, '#5fb37c'], [165, false, '#e0703f'], [220, false, '#39a6c9'], [275, false, '#c77bd6']];
+  $('#famFig').innerHTML = `<svg viewBox="0 0 315 160" role="img" aria-label="Familia de 5 personas: 2 adultos y 3 niños">
+    ${P.map(([x, ad, col]) => personaSVG(x, ad, col, famSel === 'adultos' ? ad : !ad)).join('')}</svg>`;
+  $('#famRes').innerHTML = famSel === 'adultos'
+    ? `${rich('[2/5]')} de la familia son adultos: 2 de 5 personas.`
+    : `${rich('[3/5]')} de la familia son niños: 3 de 5 personas.`;
+  document.querySelectorAll('[data-fam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.fam === famSel)));
+}
+document.querySelectorAll('[data-fam]').forEach(b => b.addEventListener('click', () => {
+  famSel = b.dataset.fam; renderFam();
+  decir(famSel === 'adultos' ? 'Dos quintos de la familia son adultos' : 'Tres quintos de la familia son niños');
+}));
+renderFam();
+
+// Laboratorio de pizza: dividir en 1 a 12 partes iguales y tocar los trozos para comerlos
+let pzSel = 4, pzN = 1, pzComidos = new Set(), pzBite = -1, pzAnim = false;
+function pizzaLabSVG(){
+  const c = 110, r = 92, n = pzN, sep = n > 1 ? 4 : 0;
+  const tops = n <= 6 ? 3 : n <= 9 ? 2 : 1, pr = Math.max(4.5, 10.5 - n*.5);
+  let s = `<circle cx="${c}" cy="${c}" r="106" fill="var(--panel)" stroke="var(--line)" stroke-width="2"/>
+    <circle cx="${c}" cy="${c}" r="98" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 5"/>`;
+  for(let i = 0; i < n; i++){
+    const a0 = -Math.PI/2 + i*2*Math.PI/n, a1 = a0 + 2*Math.PI/n, am = (a0 + a1)/2;
+    const P = (a, rr = r) => `${(c + rr*Math.cos(a)).toFixed(2)} ${(c + rr*Math.sin(a)).toFixed(2)}`;
+    const d = n === 1 ? `M${c - r} ${c} A${r} ${r} 0 1 1 ${c + r} ${c} A${r} ${r} 0 1 1 ${c - r} ${c} Z`
+                      : `M${c} ${c} L${P(a0)} A${r} ${r} 0 0 1 ${P(a1)} Z`;
+    const di = n === 1 ? `M${c - r*.84} ${c} A${r*.84} ${r*.84} 0 1 1 ${c + r*.84} ${c} A${r*.84} ${r*.84} 0 1 1 ${c - r*.84} ${c} Z`
+                       : `M${c} ${c} L${P(a0, r*.84)} A${r*.84} ${r*.84} 0 0 1 ${P(a1, r*.84)} Z`;
+    const comido = pzComidos.has(i), mostrar = !comido || i === pzBite;
+    const ox = (sep*Math.cos(am)).toFixed(2), oy = (sep*Math.sin(am)).toFixed(2);
+    s += `<g class="pz-slice${i === pzBite ? ' bite' : ''}" style="--ox:${ox}px;--oy:${oy}px" tabindex="0" role="button" data-i="${i}"
+      aria-pressed="${comido}" aria-label="Trozo ${i + 1}${comido ? ', ya te lo comiste; toca para devolverlo' : ''}">`;
+    if(mostrar){
+      s += `<path class="crust" d="${d}" fill="#e9a23b" stroke="#8f4f12" stroke-width="2.5" stroke-linejoin="round"/>`;
+      s += `<path d="${di}" fill="#f8d66d"/>`;
+      for(let t = 0; t < tops; t++){
+        const rr = tops === 1 ? .55 : [.62, .34, .38][t], da = tops === 1 ? 0 : [0, .26, -.26][t];
+        const aa = am + da*(2*Math.PI/n), rad = rr*r*(n === 1 ? .9 : 1);
+        if(n === 1){ [0, 1, 2, 3, 4, 5].forEach(j => { const b = j*Math.PI/3 + .4;
+          s += `<circle cx="${(c + .5*r*Math.cos(b)).toFixed(2)}" cy="${(c + .5*r*Math.sin(b)).toFixed(2)}" r="10" fill="#d23c26"/>`; }); break; }
+        s += `<circle cx="${(c + rad*Math.cos(aa)).toFixed(2)}" cy="${(c + rad*Math.sin(aa)).toFixed(2)}" r="${pr}" fill="#d23c26"/>`;
+      }
+    } else {
+      // trozo comido: invisible, pero se puede tocar de nuevo para devolverlo
+      s += `<path class="hit" d="${d}" fill="transparent" stroke="none"/>`;
+    }
+    s += `</g>`;
+  }
+  return `<svg class="${pzAnim ? 'pz-cut' : ''}" viewBox="0 0 220 220" role="group" aria-label="Pizza dividida en ${n} ${n === 1 ? 'parte' : 'partes iguales'}">${s}</svg>`;
+}
+function renderPz(focusI){
+  $('#pzLab').innerHTML = pizzaLabSVG();
+  pzAnim = false; pzBite = -1;
+  const k = pzComidos.size, q = pzN - k;
+  $('#pzCap').textContent = pzN === 1 ? 'Pizza entera (sin dividir)' : `Pizza dividida en ${pzN} partes iguales`;
+  $('#pzEat').innerHTML = rich(`[${k}/${pzN}]`); $('#pzEatR').textContent = lectura(k, pzN);
+  $('#pzLeft').innerHTML = rich(`[${q}/${pzN}]`); $('#pzLeftR').textContent = q === 0 ? '¡nada, se comió toda la pizza!' : lectura(q, pzN);
+  $('#pzSel').textContent = pzSel;
+  $('#pzMenos').disabled = pzSel <= 1; $('#pzMas').disabled = pzSel >= 12;
+  document.querySelectorAll('#pzLab .pz-slice').forEach(g => {
+    const tog = porTeclado => { const i = +g.dataset.i;
+      if(pzComidos.has(i)) pzComidos.delete(i); else { pzComidos.add(i); pzBite = i; }
+      renderPz(porTeclado ? i : undefined); };
+    g.addEventListener('click', e => tog(e.detail === 0));
+    g.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); tog(true); } });
+  });
+  if(focusI !== undefined){ const el = document.querySelector(`#pzLab .pz-slice[data-i="${focusI}"]`); if(el) el.focus(); }
+}
+const PZ_INSTR = 'Con las flechas elige en cuántas partes iguales quieres dividir la pizza, de una a doce partes. '
+  + 'Luego toca el botón Dividir la pizza y después toca los trozos que te vas a comer. '
+  + 'Si tocas otra vez el botón Dividir la pizza, la pizza se regenera con todas sus partes. '
+  + 'También puedes elegir otro número de partes iguales con las flechas para hacer una nueva división.';
+botonInstrucciones($('#pzInstr'), $('#pzAviso'), PZ_INSTR);
+$('#pzMenos').addEventListener('click', () => { if(pzSel > 1){ pzSel--; renderPz(); } });
+$('#pzMas').addEventListener('click', () => { if(pzSel < 12){ pzSel++; renderPz(); } });
+$('#pzDividir').addEventListener('click', () => {
+  pzN = pzSel; pzComidos = new Set(); pzAnim = true; renderPz();
+  decir(pzN === 1 ? 'La pizza queda entera' : `Pizza dividida en ${pzN} partes iguales`);
+});
+$('#pzSay').addEventListener('click', () => {
+  const k = pzComidos.size, q = pzN - k;
+  decir(`Se comió ${lectura(k, pzN)}. ` + (q === 0 ? 'Se comió toda la pizza.' : `Queda ${lectura(q, pzN)}.`));
+});
+renderPz();
+
+function graficaPDF(){
+  const d = pdfDoc(), B = {bold:true};
+  d.para('Fracciones propias - Aprendizaje esperado 1', B);
+  d.para('Concepto de fracción: parte de un grupo y parte de la unidad', B); d.gap(8);
+  d.para('1. ¿Dónde encontramos fracciones?', B);
+  d.para('Una fracción representa una o varias partes de algo. La podemos ver como parte de un grupo (una colección de objetos o personas) o como parte de un objeto (la unidad) dividido en partes iguales.');
+  d.para('Recuerda: el numerador es el número de arriba de la línea y el denominador es el número de abajo.'); d.gap(8);
+  d.para('2. Fracción como parte de un grupo', B);
+  d.para('La familia de Ana tiene 5 personas: 2 adultos (papá y mamá) y 3 niños (los hermanos). Los adultos están sombreados:');
+  d.gap(6); pdfFig(d, {tipo:'coleccion', n:5, k:2});
+  d.para('El denominador indica cuántos elementos hay en total en el grupo (5 personas) y el numerador cuántos elementos se seleccionan.');
+  d.para('[2/5] de la familia son adultos (dos quintos) y [3/5] de la familia son niños (tres quintos).'); d.gap(8);
+  d.para('3. Fracción como parte de un objeto', B);
+  d.para('Una pizza se divide en 4 partes iguales y se come 1 trozo (parte sombreada):');
+  d.gap(6); pdfFig(d, {tipo:'circulo', n:4, k:1});
+  d.para('Se comió [1/4] de la pizza (un cuarto) y quedan [3/4] (tres cuartos).');
+  d.para('Si una pizza se divide en 6 partes iguales y se comen 2 trozos, se comieron [2/6] (dos sextos) y quedan [4/6] (cuatro sextos).');
+  d.para('El denominador indica en cuántas partes iguales está dividido el objeto y el numerador cuántas partes se toman. ¡Las partes deben ser iguales!');
+  d.gap(8);
+  d.para('En resumen', B);
+  d.para('En un grupo, el denominador es el total de elementos y el numerador los elementos seleccionados. En un objeto, el denominador es el número de partes iguales y el numerador las partes que se toman.');
+  d.gap(12);
+  d.para('Elaborado por: Alberto Jiménez Ruiz - Asesor Regional de Matemática · DAP-DRE-Cartago 2026');
+  return d.blob();
+}
+$('#btnPrintGraf').addEventListener('click', () => window.print());
+$('#btnPdfGraf').addEventListener('click', () => downloadBlob(graficaPDF(), 'Fracciones propias - Concepto de fracción.pdf'));
+
+/* ---------- Representación gráfica: parte de un grupo ---------- */
+$('#grupoFig').innerHTML = (() => {
+  const cols = ['#e0453a','#e0453a','#e0453a','#e0453a','#2f6fd6','#2f6fd6','#2f6fd6'];
+  const g = cols.map((c, i) => `<g transform="translate(${30 + i*46} 32)">
+      <circle r="18" fill="${c}" stroke="#222" stroke-width="2"/>
+      <circle cx="-6" cy="-7" r="5" fill="#fff" opacity=".55"/></g>`).join('');
+  return `<svg viewBox="0 0 334 64" role="img" aria-label="Grupo de 7 bolitas: 4 rojas y 3 azules">${g}</svg>`;
+})();
+
+/* ---------- Laboratorio: parte de un grupo ---------- */
+// Imágenes de la carpeta "imagenes representacion concreta" (fondo quitado, reducidas) + sombra de persona
+const LAB_FIGS = {
+  persona:{nombre:"persona", plural:"personas", src:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='24.8' y='40' width='6.6' height='23' rx='2.6' fill='%23111111' stroke='%23d9d9d9' stroke-width='1.4'/><rect x='32.6' y='40' width='6.6' height='23' rx='2.6' fill='%23111111' stroke='%23d9d9d9' stroke-width='1.4'/><rect x='22.5' y='19' width='19' height='25' rx='7.3' fill='%23111111' stroke='%23d9d9d9' stroke-width='1.6'/><circle cx='32' cy='9.4' r='8' fill='%23111111' stroke='%23d9d9d9' stroke-width='1.6'/></svg>"},
+  tortuga:{nombre:"tortuga", plural:"tortugas", src:"data:image/webp;base64,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"},
+  manzana:{nombre:"manzana", plural:"manzanas", src:"data:image/webp;base64,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"},
+  balon:{nombre:"balón", plural:"balones", src:"data:image/webp;base64,UklGRjYSAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSOcFAAAB8EVrt2nbtm39KaXabQ/btm3bnLZt27bNYdu2bVudJaX0PzTUWkvN+T0iJgAtV+sohi616b7Hf/w7vznlymuvverk/578u+9//q07rTAGALRjgkKLCQBM2+S4H170xAJ278/d+If3bz0NAExLpAZg2f2/cNojyWEzukwO++hJn9x5OiBWGDEF5r3zrBc41N0z2X1muHPoIz/bChAriQHY4HtPkgz3SPYzwz3JOHsvQKwUJpC9/7eIdE+2M5zkuXsBqiVQBQ6+lKQnW5ye5Lk7AzZwYsDOZ5PpybZ7Mn6zAkQHy4BN/5UM50A6+cx7ARsgVcz4zgLSOajp5OmrQGVQDDj8HtKTA5zOZ44HbCBEscKfSU8OuJO/nQMbAANOeJIRHPwM3rUdTFomhok/I51lbPjGiRBtlQBbXMkIljLIrwDWIoV+ZiGdBc3gf+bAWmOYcRIZLGo679wUnZYYlrmaTbK0zhf3h7XCsPqdbFhg58ITYC1QLHULGxY5yHfC+qZY6jo2LHQEj0anT4LJl7JhsSPn7wTri8jY09mw4MHH14L2QQy/Y8OiB+9fHto7w6fZsPDOKyar9Mqwk3uWjg1/BuuRYsYdDBY/PfeE9UR0wnl0VjDy0ZWhvTD8mA2rGLx0vEp3hr3Ssw5s+BloVyLjb2GwkhkvrSjajeE4Bqvp/DasC5Hxt9Qk8ulZoqMzHMdgRYOfh41KZNq9WZWMNzaCjkbxDQar6jzHRqNYb35kXRjcDTaav9NZWecpkBEUGyzKrE3mog2gI/2Izuo6vwsbRjDrCUZ9gg9PhQwxnMBghYNHwIYIzkyvkfMkKADFyq8xa5R8cVkoYHgXg1UOngADFKem18nzb1Ao5j3LrFPwgckQw55MVjpjG1gHX6HXyvlRdATn1+xfUEx/glGr4K1jgE2cWavkK8sDxzFY7eTOwPfo9XK+Bzijbr/C2FsYNTsH8x5n1it489hVXqjbvZM3XVCz5JPLbLOkbgs2OoA1Ty7a/ODabbazM+u22cLabbW4bos33+D1us3fcMXn6vb8Sks9XrfHl5pwB6NewTsn4GJ6vZwXAX+t29+Br9XtW8AJdXsrsD0rntwNWOFVZq2Sb6wCjLuLUavgneOg+D+9Vs7/QDv4ZM0+jo5hF2atMnaAKeY+w6xT8OEpEAjOptfJ+W8oYHhfrYLvgAGKNeYza5ScvwYUgMgF9Bp5XiACAIYPVIofhA1RrPQKsz7J11aFDoHgtPT6OE+CYljDEYz6BA+CDSeYdE9GbSLvnAgZDoaP02vj/DgMIyqWfymzLpFPLSUyEhTfp9fF+UUYRiMrvpxZk8hnlhYdDRTfodfE+WkYRiezH82oR+T900RGB8Nb6PVwHgdDl6J2DqMWzos6Kt1AscH8yDpkvLoeFN0bvk2vQ/C9MPRQZe6TGTUIXt1R6QUMb6dXIGPJtlD0VFTPoJfP+QMYeqxY8WlG6Zw3TFLpFQwH07Nska9uAEXvDd9gU7R0HgtDH8XsZDYlc34Jhr4KplzBplwNfweT/kCx/H30UjU8yVTQb8NaD9DL1PDMyVD037D+o/QSNTxzMhRtNKx5M7042fDMSVC007DULWwKk8FTJ0PRVsMK17EpSpDf7kDRXsNSV7HJcjgXvhkQtFkx7T/MKEQ6H98NJmi3Qj4f9CIEecGqMLReBPs/woiBS2fz9TEwDKAYlv836TlYTt60E6AYTAOOeYD0HJh08o2vT4EJBlUFs772Muk5EOkkT9oIMAyyAat9/WnSo3Xp5JKTdwJMMNhiwHJffZYMzxZlOJknbQ6IYvDVgJW+/ghJ98g2hDvJV/64DaCGMooBM084/WWSdM/sR4YnySVXf3IVQBTlVAOw0lv+cHNDkuEe2VVGuDtJPvG3t28kgCrKKiYAxmzy0bOf5fAZo+aID//tgFkAYIoCqxkAzNvskK+fevdr7DJffvDms37y9s2nAlBTQalFO4Khk9fd6y1f/MX///m9r/z1mov/88N377r6jLEYqiZoOQBWUDggKAwAAFA2AJ0BKoAAgAA+YSqRRiQioaEmli14gAwJaQDOyaawqrTAN4Yv4D0J+NX5DxJ8xXs35p/4Gcn/FH6fiX+NuoF624TcAX6H/av974Zurd4C81v/leUB4LXlXsAfyz+kf9v/H/i79Lv9X+z/nr/OP8L/4/878An8r/qP+5/wv5IfNt7LP2w9kD9em/PuQQFoPYIiGzdTYex5a7zh86JerQ5Yil5KoXfdW+eQywtTUb44iDj0CkzWaC/yU5et0Fjm07YHNlKAIb77Nslw3IBP6OMwkJ364v9OTAnhHn/SILLGmf5Esp5T5RvdCddZE2M2VrlzrviOQrzrbRPFBj9yv2cteGn4TiUNpe/eV7oeOf+DgFe4Bqto2b7LF/ZLDRrvUBzMzUT9Au37z3d+d4yag3qq7qfl8hsLO05S/ALZ09LOgVHUE+oYWZ75GlxJj8Qc8gy8b6S0ehFYPvMLzgDNZBPMlVBe9LomuA9auCOW9ziyRzLycydihRHfnKPhLfLAQLSp32BdU5UjPDoTL/O/WoLh/7stPrBFUQ1C4jwnQDfqXrDJFcQTUnPE1bQ8cYeRGZT5XIOx+p3UV7gAAP7+fJcL2F3+SakNuFC2286FXAXrY8f7UmaT8DV3u0NyPw9sYwgSQfikIV68tiZd0Puprjj1ehaYUWQkQs30lnnWB368BAglk2U2GJT98xTKae148tRmZ1nCNvrmy/AKdOMcHikeCfaJyW4pwJFlXL55/93K03D5sSL5fYUp4aZJactPXtlPzxhgH1VnUszokLPPQTtUq3rhSumvhWOvT7xvvze7El/Gvgjak+r5/rZcjPi/4Hr4Z9apLuywpbdCoGVZHUdzSUJB0EVzmF9HRw1UY+TAADhNu0SPu6HWLdqZxQr6+wIKUBiQJB9sUqQIPAIHlDYuDbQLWmHgdC6tlwA8l7qn37lJQrMlJ/SSHfwwU4qqOTE5oUxD4/k76yenomXgD1Xg45jjDFL4K/tphXL1FyGw0j7zT036cwYAhS2Jnl3iOr8Q6EISpjjMof/EXKBjLtD1ViE3D7P3ETVNg5OFx57i26Wvd5bOa3AeBlYbUg68VBLK+xEuZEy3fOvQFIB6y7NN1PSd/6bYB/Btl/ncQ9qoCkptz863994XacDxg401/O3uyxpmyT9pf9egm26PME3sDjwv+gB0+I4qpFQv3/yr+m+jT91E+sqNcvPYWRfKn/DL7uXovLV9/JGvHROru3RIe+ynSFSO5ovGJlPHUbJwljBS8VmQm4wuVtk0FbFEpuuMMIwdZDzeWwSKqSgvJDcLK7tXZdwVO03vE3buNL7eos9/if9o9JgeMz5kMzv0yAuqTLkNTN1JZxjCS+AWPahlCKNHJl2+fc+c58O1gvjlDDmGjXwZeCexHr8DEbAnWsChg39e3BeAlEL/gpC6nspKHEg5AocThNDO51VPbKNwFuQmeE97G+QZMeun3QQ4zR0ih299uIqTAoSSwznC6EVNYG66AI6N3UK1bD4NxCCBFt+4cNGtT71D+67T/oTaF/vvfHu4gVm87/zcctVwzU5q394t/96kcJyXfybfDZYCvQaT+9a0JntShrfRrtA7ciRU/lg0UBNilfUXsNsGcKXNyZ42NZpC3/kxNI1ifZv4PaFhzjKnngbj1jlK5fhNqDQTcSZR9jfTFGX8pXX6eKlL2zmeSfTSrhpkZFxsXQ+0pMpngstrvLj0fEruRAbKWjdN8yLsahYQsWdyudlo/Rd6dJkVqe7YI/PzAJqKlRoP0Ebi2q6v3M3TkwSF1bKR3nB4enU/lElF1h3d1WmUuo7wtFwbu8cfa8vVfk9WD3+K6Wzz9c6quLGc45TdFtLUQBi3nFze8H9N1LE1TQYBQxCwZbAQIL0jgeXZ1qlu3hdo0UoOswI55+xf1MQotkzG/+qCWX+Wg9JW4QBljNzXz2Kb6dBX3+jDPMgNQ/dPilHAhRH9AVf0axCee+I3BBkFULdHWSjI4t4GMaEljCuQApJ6PtZyySoIo6ayf7NW+mB9UzIoxY1KZ8vvPYYZqLLPf+LnK5tFb//RHW0WlksUtnAJf7iU7oh7jJAb2+4T5t5Ohg+C2xXjKEMAMQJdnIxnNThD69TWXiKbabZNvfUlRuYQejSUC1d/7+tSIOAF67ePX81+cSqNN1huNOv1ZpBcGkJcENhBSayIs/OG3RgNmjVLz1RW3mGSwqUnxMTD03excbzEG/wqNNNK8sWAr1rq6v0jyhGXhigWDCqdBvSxHPDd4PXqqnBivssGE+uYhEB3CVSxT1VUYLxn4SKxI0ttJZd2Y8HbUM0hXTIKSi0ZKPKrWnJkq2fEOMnusQurhgr3sX3cTFVxyuEuBWd4HnDOwF+waq7dZxQzuYr68lwWeCyS3J2W1bfIDwlkc2E9j4WIPqPnf5WHxAQ9W8H8tWT09NqdTKh6luA9L/cnLuQDK7NW/8z2AY/ClaJUTuIyPDE7mbiVNx1IwAXNwAFq/c6ThUDH8bxmCszzfqQdvD0banBr/EfIDoyWUCmeNsR4u53T1vZYavaxkHo6zkmMoC/bKzfvlExvPeo5ePkL4svRTb2R4ZmI6gWGSho6ksG7l0Mt3bbkbSOtOeqpTnY5iBYlAPDljE5WaCXcxw+t7gAtCihiCGyVfOj45K3t2BpRxpM9okzV6nLrp/NMmYGfhElX3p1B6ryj8iYYZ8zF4t7eaMt/UnvnoXWSWrISo7Z1OcJKxKeYJNM6oXe/tCErs678g13vblrzMXQhglwj34KjCqGGjqq/+O73FPMzlg9LJlRkBbm7/qGbnz56uRfuCgKNXInwm/m5aSuAvCd4xyv/cI316LPkLF2j1DIWB6GcVhpKI4UaKDWfiuvb+u1caTDymh+/6CD+kaSitP58yAipsSmkNgR1FuVeEihjCm/ZLuXHHZQ0JPUr8hLiZONIysgtLeGdhVh0yRzsF0GwKIH1N9QriG6rsKWaaoeqxi/IjcPKhTQSoQtlklGtQ2oJwr2qqdGCi2BwWTkumrWcyiwVQO0F3F3nRtZJQeYIfxwJ1gbmkBdIlbe4hBBuMPfJr4Tz1M8rQgzh3PKyNP0fGpHUquztPU7g2b44rk9GiA15+DxIMdrAc8oTy3HJ469tjo4jZGNUCFr/GD3o/vDxVTIEz25KCwPQlJigdha+hiF8LjLudG0l4FuMgxtDmajZdUFzRdNlaKG4YlN4q6d0b4SxMGHFJQmNqmJEkuUb3pHyuJ7JON9rzc0k20L+l8zUabljUrSjosqp5Woafxvjg19ujii3R6+HGReKPTvzZcCb1Rl65DvsENI0EQsrI7br8s6AcOMxFzC4Xcu/0xjM9Ew89RsS4zueW2/6beXPzEBJd3mvgWXoXxLl4XuC2VqKIXb+//6TsTH8f87N/5/49doJUgYYmHGfy5O2dXsy47Zr1gI/PnLJ5lLs23glZODsRhtYxmjKYTfIomjvtkdloSrmbiXobfcV1Z/HzBV32uo1n3oQlikt9tKnxP3+mTKJNhhs4U/X/MkOF2PLnsZBeX66a/eChXh8iw4Pv+myr/U/H7XvPjA7w0x3/IzkS6d04skZ/x8EE/QUoL3YJa7JRJ369CSXyI6mqwrYN/l9L7DRB2CsTYVA4Up8iU26rQrFO8sl56hH+r960UzXPHDjc75Y1RSDzTNJ+qQGGUyDPPWoxDZOR1dozZfe7D69fZMly0gW9G64Qn+AUGv09cR4+vZwrlEjTmF/z6UnnUY3FCVYY16FRR6fkOV2Uyhd49pCxAi+14SDBrEJvN2kzKUNAgHTJs62boBMih+iAnJC3P6Tj0uwnW9TkTu8b0dZOcQA9s4MXvkKGaZLH2bL7kX9gL+pQWjc4XnJazFPcc34WF2H6AZ6TFxJUnH1yLdb8TS/Tv8G/ACwo/VJLwSpYf/m6Sv3qA/sVPnbvASfNNgjEzdGL/YvDH1wLuhhayyPxA4NmG5BouP+qmeuBBNUpJ1RIBVLR2+6CNn2X4A2ul749TmYrAl+KelDaCC9avrKSv+cAOXY8S5QIzWEV7iYdWJXlWbXJqJO64EkZDnuR29EuIuNGuVFyaJU4yZoZ6z7Vfppbmo4lpaYzGxyHRba9T4P8pH/IPJJY18jKWBDguh25xgNcbXWZq/+mLAAAAA="},
+  naranja:{nombre:"naranja", plural:"naranjas", src:"data:image/webp;base64,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"},
+  abeja:{nombre:"abeja", plural:"abejas", src:"data:image/webp;base64,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"},
+  pina:{nombre:"piña", plural:"piñas", src:"data:image/webp;base64,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"},
+  cuadrado:{nombre:"cuadrado negro", plural:"cuadrados", src:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='12' y='12' width='40' height='40' fill='%23111111' stroke='%23d9d9d9' stroke-width='1.4'/></svg>"}
+};
+
+const LAB_INSTR = 'Mira la fracción que debes representar. '
+  + 'Arrastra con el mouse o con el dedo las imágenes hasta la pizarra Representación gráfica: coloca tantos objetos como indica el denominador. '
+  + 'Puedes mover los objetos dentro de la pizarra. Si sacas un objeto de la pizarra, regresa a la sección de imágenes. '
+  + 'Luego toca un objeto para seleccionarlo y toca el botón Marcar para encerrarlo en un círculo verde; marca tantos objetos como indica el numerador. '
+  + 'Al final toca el botón Comprobar.';
+botonInstrucciones($('#labInstr'), $('#labAviso'), LAB_INSTR);
+
+const board = $('#labBoard');
+let labObj = {a:3, b:5}, labItems = [], labSel = null, labUid = 0;
+function nuevaFraccion(){
+  let b, a;
+  do { b = 2 + Math.floor(Math.random()*14); a = 1 + Math.floor(Math.random()*(b - 1)); } while(b === labObj.b && a === labObj.a);
+  labObj = {a, b};
+  $('#labFrac').innerHTML = rich(`[${a}/${b}]`);
+  $('#labFb').innerHTML = '';
+}
+// Paleta
+$('#labPal').innerHTML = Object.entries(LAB_FIGS).map(([k, f]) =>
+  `<button class="pal-it" type="button" data-fig="${k}" aria-label="Agregar ${f.nombre} a la pizarra" title="${f.nombre}"><img src="${f.src}" alt=""></button>`).join('');
+
+function labInfo(){
+  const m = labItems.filter(it => it.mark).length;
+  $('#labInfo').textContent = `Objetos en la pizarra: ${labItems.length} · Marcados: ${m}`;
+}
+function renderItem(it){
+  let el = board.querySelector(`[data-uid="${it.uid}"]`);
+  if(!el){
+    el = document.createElement('div');
+    el.className = 'lab-it'; el.dataset.uid = it.uid; el.tabIndex = 0; el.setAttribute('role', 'button');
+    el.innerHTML = `<img src="${LAB_FIGS[it.fig].src}" alt="">`;
+    board.appendChild(el); enganchar(el, it);
+  }
+  el.style.left = it.x + '%'; el.style.top = it.y + '%';
+  el.classList.toggle('mark', it.mark); el.classList.toggle('sel', labSel === it.uid);
+  el.setAttribute('aria-label', `${LAB_FIGS[it.fig].nombre}${it.mark ? ', marcado' : ''}${labSel === it.uid ? ', seleccionado' : ''}`);
+}
+function lugarLibre(){
+  const cols = 6, rows = 5;
+  for(let r = 0; r < rows; r++) for(let c = 0; c < cols; c++){
+    const x = 10 + c*(80/(cols - 1)), y = 22 + r*(68/(rows - 1));
+    if(!labItems.some(it => Math.abs(it.x - x) < 7 && Math.abs(it.y - y) < 10)) return {x, y};
+  }
+  return {x:15 + Math.random()*70, y:25 + Math.random()*60};
+}
+function agregar(fig, pos){
+  if(labItems.length >= 24){ $('#labAviso').textContent = 'La pizarra ya está llena.'; return; }
+  const it = {uid:++labUid, fig, mark:false, ...(pos || lugarLibre())};
+  labItems.push(it); renderItem(it); labInfo(); $('#labFb').innerHTML = '';
+}
+function quitar(it){
+  labItems = labItems.filter(x => x !== it);
+  const el = board.querySelector(`[data-uid="${it.uid}"]`); if(el) el.remove();
+  if(labSel === it.uid) labSel = null;
+  const pal = document.querySelector(`.pal-it[data-fig="${it.fig}"]`);   // regresa a la sección de imágenes
+  if(pal){ pal.classList.remove('pulse'); void pal.offsetWidth; pal.classList.add('pulse'); }
+  labInfo(); $('#labFb').innerHTML = '';
+}
+function seleccionar(uid){
+  const prev = labSel; labSel = labSel === uid ? null : uid;
+  labItems.filter(it => it.uid === prev || it.uid === uid).forEach(renderItem);
+}
+const dentro = (x, y) => { const r = board.getBoundingClientRect(); return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom; };
+const aPct = (x, y) => { const r = board.getBoundingClientRect();
+  return {x:Math.min(95, Math.max(5, (x - r.left)/r.width*100)), y:Math.min(93, Math.max(12, (y - r.top)/r.height*100))}; };
+
+// Arrastrar desde la paleta (un toque sin arrastrar también agrega la figura)
+document.querySelectorAll('#labPal .pal-it').forEach(btn => {
+  let ghost = null, x0 = 0, y0 = 0, moved = false;
+  btn.addEventListener('pointerdown', e => {
+    if(e.button > 0) return;
+    e.preventDefault(); btn.setPointerCapture(e.pointerId);
+    x0 = e.clientX; y0 = e.clientY; moved = false;
+  });
+  btn.addEventListener('pointermove', e => {
+    if(!btn.hasPointerCapture(e.pointerId)) return;
+    if(!moved && Math.hypot(e.clientX - x0, e.clientY - y0) > 6){
+      moved = true; ghost = document.createElement('div'); ghost.className = 'lab-ghost';
+      ghost.innerHTML = `<img src="${LAB_FIGS[btn.dataset.fig].src}" alt="">`; document.body.appendChild(ghost);
+    }
+    if(ghost){ ghost.style.left = e.clientX + 'px'; ghost.style.top = e.clientY + 'px'; }
+  });
+  const fin = e => {
+    if(!btn.hasPointerCapture(e.pointerId)) return;
+    btn.releasePointerCapture(e.pointerId);
+    if(ghost){ ghost.remove(); ghost = null; if(e.type === 'pointerup' && dentro(e.clientX, e.clientY)) agregar(btn.dataset.fig, aPct(e.clientX, e.clientY)); }
+    else if(e.type === 'pointerup') agregar(btn.dataset.fig);
+  };
+  btn.addEventListener('pointerup', fin); btn.addEventListener('pointercancel', fin);
+  btn.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); agregar(btn.dataset.fig); } });
+});
+
+// Mover, seleccionar y sacar objetos de la pizarra
+function enganchar(el, it){
+  let x0 = 0, y0 = 0, moved = false;
+  el.addEventListener('pointerdown', e => {
+    if(e.button > 0) return;
+    e.preventDefault(); el.setPointerCapture(e.pointerId); x0 = e.clientX; y0 = e.clientY; moved = false;
+  });
+  el.addEventListener('pointermove', e => {
+    if(!el.hasPointerCapture(e.pointerId)) return;
+    if(!moved && Math.hypot(e.clientX - x0, e.clientY - y0) > 6){ moved = true; el.classList.add('dragging'); }
+    if(moved){ const r = board.getBoundingClientRect();
+      el.style.left = ((e.clientX - r.left)/r.width*100) + '%'; el.style.top = ((e.clientY - r.top)/r.height*100) + '%'; }
+  });
+  const fin = e => {
+    if(!el.hasPointerCapture(e.pointerId)) return;
+    el.releasePointerCapture(e.pointerId); el.classList.remove('dragging');
+    if(!moved){ if(e.type === 'pointerup') seleccionar(it.uid); return; }
+    if(e.type === 'pointerup' && !dentro(e.clientX, e.clientY)){ quitar(it); return; }
+    Object.assign(it, aPct(e.clientX, e.clientY)); renderItem(it);
+  };
+  el.addEventListener('pointerup', fin); el.addEventListener('pointercancel', fin);
+  el.addEventListener('keydown', e => {
+    const paso = {ArrowLeft:[-3,0], ArrowRight:[3,0], ArrowUp:[0,-4], ArrowDown:[0,4]}[e.key];
+    if(paso){ e.preventDefault(); it.x = Math.min(95, Math.max(5, it.x + paso[0])); it.y = Math.min(93, Math.max(12, it.y + paso[1])); renderItem(it); }
+    else if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); seleccionar(it.uid); }
+    else if(e.key === 'Delete' || e.key === 'Backspace'){ e.preventDefault(); quitar(it); }
+  });
+}
+$('#labMarcar').addEventListener('click', () => {
+  const it = labItems.find(x => x.uid === labSel);
+  if(!it){ $('#labAviso').textContent = 'Primero toca un objeto de la pizarra para seleccionarlo.'; return; }
+  $('#labAviso').textContent = '';
+  it.mark = !it.mark; labSel = null; renderItem(it); labInfo(); $('#labFb').innerHTML = '';
+});
+$('#labLimpiar').addEventListener('click', () => {
+  labItems.forEach(it => { const el = board.querySelector(`[data-uid="${it.uid}"]`); if(el) el.remove(); });
+  labItems = []; labSel = null; labInfo(); $('#labFb').innerHTML = '';
+});
+$('#labOtra').addEventListener('click', () => { $('#labLimpiar').click(); nuevaFraccion(); });
+$('#labComprobar').addEventListener('click', () => {
+  const {a, b} = labObj, n = labItems.length, m = labItems.filter(it => it.mark).length;
+  const pasos = [];
+  pasos.push(n === b ? `Colocaste ${n} objetos en la pizarra: ¡bien! El denominador ${b} indica el total del grupo.`
+                     : `Colocaste ${n} objeto${n === 1 ? '' : 's'}, pero el denominador es ${b}: el grupo debe tener ${b} objetos en total.`);
+  pasos.push(m === a ? `Marcaste ${m} objeto${m === 1 ? '' : 's'}: ¡bien! El numerador ${a} indica cuántos se encierran en el círculo.`
+                     : `Marcaste ${m} objeto${m === 1 ? '' : 's'}, pero el numerador es ${a}: debes encerrar en un círculo verde ${a} objeto${a === 1 ? '' : 's'}.`);
+  pasos.push(`Así, [${a}/${b}] representa ${a} de ${b} objetos del grupo.`);
+  mostrarFb($('#labFb'), n === b && m === a, `colocar ${b} objetos y marcar ${a} de ellos.`,
+    `<ol>${pasos.map(x => `<li>${rich(x)}</li>`).join('')}</ol>`);
+});
+
+// Ejemplos paso a paso
+const LAB_EJ = [
+  {titulo:'Ejemplo 2', fig:'tortuga', a:4, b:7, enun:'Represente gráficamente la fracción [4/7] de un grupo de tortugas.',
+   final:'[4/7] del grupo de tortugas.'},
+  {titulo:'Ejemplo 3', fig:'persona', a:3, b:10, enun:'Represente gráficamente la fracción: [3/10] de las personas no ven partidos de fútbol.',
+   final:'[3/10] de las personas no ven partidos de fútbol.'}
+];
+let ejI = 0, ejP = 0;
+function renderEj(){
+  const e = LAB_EJ[ejI], f = LAB_FIGS[e.fig], img = `<span class="ej-it"><img src="${f.src}" alt=""></span>`;
+  $('#ejTitulo').textContent = e.titulo; $('#ejEnun').innerHTML = rich(e.enun);
+  const pasos = [
+    `Paso 1: Usando la representación como parte de un grupo, se colocan ${e.b} imágenes de ${f.plural}. El denominador ${e.b} indica el total del grupo.`,
+    `Paso 2: Se encierran en un círculo ${e.a} de esas ${e.b} ${f.plural}. El numerador ${e.a} indica cuántos se seleccionan.`,
+    `Paso 3: Representación gráfica: ${e.final}`];
+  let tablero;
+  if(ejP === 0) tablero = img.repeat(e.b);
+  else tablero = `<span class="ej-grupo">${img.repeat(e.a)}</span>${img.repeat(e.b - e.a)}` + (ejP === 2 ? `<span class="ej-frac">${rich(`[${e.a}/${e.b}]`)}</span>` : '');
+  $('#ejBoard').innerHTML = tablero;
+  $('#ejBoard').setAttribute('aria-label', `${e.b} ${f.plural}${ejP > 0 ? `, ${e.a} encerradas en un círculo` : ''}`);
+  $('#ejPaso').innerHTML = rich(pasos[ejP]);
+  $('#ejCount').textContent = `Paso ${ejP + 1} de 3`;
+  $('#ejPrev').disabled = ejP === 0; $('#ejNext').disabled = ejP === 2;
+  decir(pasos[ejP].replace(/\[(\d+)\/(\d+)\]/g, (m, a, b) => lectura(+a, +b)));
+}
+document.querySelectorAll('[data-ejx]').forEach(b => b.addEventListener('click', () => {
+  const n = +b.dataset.ejx;
+  document.querySelectorAll('[data-ejx]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  $('#ejBolitas').hidden = n !== 0; $('#ejPanel').hidden = n === 0;
+  if('speechSynthesis' in window && !instrActual) speechSynthesis.cancel();
+  if(n > 0){ ejI = n - 1; ejP = 0; renderEj(); }
+}));
+$('#ejPrev').addEventListener('click', () => { if(ejP > 0){ ejP--; renderEj(); } });
+$('#ejNext').addEventListener('click', () => { if(ejP < 2){ ejP++; renderEj(); } });
+nuevaFraccion(); labInfo();
+
+/* ---------- Laboratorio: parte de la unidad ---------- */
+const UNI_INSTR = 'Mira la fracción que debes representar. '
+  + 'Primero elige una figura: rectángulo horizontal, rectángulo vertical, círculo o recta. '
+  + 'Luego usa las flechas para indicar en cuántas partes iguales se divide la figura y toca el botón Dividir la figura. '
+  + 'Después toca las partes para pintarlas; si tocas otra vez una parte pintada, regresa a su color original. '
+  + 'Al final toca el botón Comprobar.';
+botonInstrucciones($('#uniInstr'), $('#uniAviso'), UNI_INSTR);
+const UNI_ON = 'var(--uni-on)', UNI_OFF = '#f7f4ec', UNI_LINE = '#1f1f1f';
+let uniObj = {a:3, b:10}, uniFig = 'rect', uniSel = 2, uniN = 1, uniPint = new Set();
+function uniNueva(){
+  let a, b;
+  do { b = 2 + Math.floor(Math.random()*14); a = 1 + Math.floor(Math.random()*(b - 1)); } while(b === uniObj.b && a === uniObj.a);
+  uniObj = {a, b}; $('#uniFrac').innerHTML = $('#uniFrac2').innerHTML = rich(`[${a}/${b}]`); $('#uniFb').innerHTML = '';
+}
+function uniSVG(){
+  const n = uniN; let s = '';
+  const parte = (i, forma) => { const on = uniPint.has(i);
+    return `<g class="uni-p" tabindex="0" role="button" data-i="${i}" aria-pressed="${on}" aria-label="Parte ${i + 1} de ${n}${on ? ', pintada' : ''}">${forma(on)}</g>`; };
+  if(uniFig === 'rect'){
+    const x0 = 20, y0 = 40, W = 360, H = 130, u = W/n;
+    for(let i = 0; i < n; i++) s += parte(i, on => `<rect class="pf" x="${(x0 + i*u).toFixed(2)}" y="${y0}" width="${u.toFixed(2)}" height="${H}" fill="${on ? UNI_ON : UNI_OFF}" stroke="${UNI_LINE}" stroke-width="2.5"/>`);
+    return `<svg viewBox="0 0 400 210">${s}</svg>`;
+  }
+  if(uniFig === 'rectv'){
+    const x0 = 10, y0 = 10, W = 130, H = 320, u = H/n;
+    for(let i = 0; i < n; i++) s += parte(i, on => `<rect class="pf" x="${x0}" y="${(y0 + i*u).toFixed(2)}" width="${W}" height="${u.toFixed(2)}" fill="${on ? UNI_ON : UNI_OFF}" stroke="${UNI_LINE}" stroke-width="2.5"/>`);
+    return `<svg viewBox="0 0 150 340" style="width:min(190px,60%)">${s}</svg>`;
+  }
+  if(uniFig === 'circ'){
+    const c = 110, r = 100;
+    for(let i = 0; i < n; i++){
+      const a0 = -Math.PI/2 + i*2*Math.PI/n, a1 = a0 + 2*Math.PI/n;
+      const P = a => `${(c + r*Math.cos(a)).toFixed(2)} ${(c + r*Math.sin(a)).toFixed(2)}`;
+      const d = n === 1 ? `M${c - r} ${c} A${r} ${r} 0 1 1 ${c + r} ${c} A${r} ${r} 0 1 1 ${c - r} ${c} Z` : `M${c} ${c} L${P(a0)} A${r} ${r} 0 0 1 ${P(a1)} Z`;
+      s += parte(i, on => `<path class="pf" d="${d}" fill="${on ? UNI_ON : UNI_OFF}" stroke="${UNI_LINE}" stroke-width="2.5" stroke-linejoin="round"/>`);
+    }
+    return `<svg viewBox="0 0 220 220" style="width:min(340px,100%)">${s}</svg>`;
+  }
+  // recta numérica de 0 a 1 dividida en n partes iguales
+  const x0 = 30, x1 = 370, y = 90, u = (x1 - x0)/n;
+  for(let i = 0; i < n; i++){
+    const xa = x0 + i*u, xb = xa + u;
+    s += parte(i, on => `<rect x="${xa.toFixed(2)}" y="${y - 30}" width="${u.toFixed(2)}" height="60" fill="transparent"/>
+      <line class="pf" x1="${xa.toFixed(2)}" y1="${y}" x2="${xb.toFixed(2)}" y2="${y}" stroke="${on ? UNI_ON : UNI_OFF}" stroke-width="${on ? 14 : 6}" stroke-linecap="butt"/>`);
+  }
+  for(let i = 0; i <= n; i++){
+    const x = x0 + i*u, ext = i === 0 || i === n;
+    s += `<line x1="${x.toFixed(2)}" y1="${y - (ext ? 18 : 12)}" x2="${x.toFixed(2)}" y2="${y + (ext ? 18 : 12)}" stroke="#ffffff" stroke-width="${ext ? 3.5 : 2.5}" pointer-events="none"/>`;
+  }
+  s += `<text x="${x0}" y="${y + 44}" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle">0</text>
+        <text x="${x1}" y="${y + 44}" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle">1</text>`;
+  return `<svg viewBox="0 0 400 150">${s}</svg>`;
+}
+function uniRender(focusI){
+  $('#uniFig').innerHTML = uniSVG();
+  $('#uniSel').textContent = uniSel;
+  $('#uniTag').textContent = `${uniN} ${uniN === 1 ? 'parte' : 'partes'} · ${uniPint.size} ${uniPint.size === 1 ? 'pintada' : 'pintadas'}`;
+  $('#uniMenos').disabled = uniSel <= 1; $('#uniMas').disabled = uniSel >= 15;
+  const nom = {rect:'Rectángulo dividido', rectv:'Rectángulo dividido', circ:'Círculo dividido', recta:'Recta dividida'}[uniFig];
+  $('#uniInfo').textContent = `${nom} en ${uniN} ${uniN === 1 ? 'parte' : 'partes iguales'} · Partes pintadas: ${uniPint.size}`;
+  document.querySelectorAll('.uni-fig').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.uf === uniFig)));
+  document.querySelectorAll('#uniFig .uni-p').forEach(g => {
+    const tog = teclado => { const i = +g.dataset.i; uniPint.has(i) ? uniPint.delete(i) : uniPint.add(i); $('#uniFb').innerHTML = ''; uniRender(teclado ? i : undefined); };
+    g.addEventListener('click', e => tog(e.detail === 0));
+    g.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); tog(true); } });
+  });
+  if(focusI !== undefined){ const el = document.querySelector(`#uniFig .uni-p[data-i="${focusI}"]`); if(el) el.focus(); }
+}
+document.querySelectorAll('.uni-fig').forEach(b => b.addEventListener('click', () => { uniFig = b.dataset.uf; uniPint = new Set(); $('#uniFb').innerHTML = ''; uniRender(); }));
+$('#uniMenos').addEventListener('click', () => { if(uniSel > 1){ uniSel--; uniRender(); } });
+$('#uniMas').addEventListener('click', () => { if(uniSel < 15){ uniSel++; uniRender(); } });
+$('#uniDividir').addEventListener('click', () => { uniN = uniSel; uniPint = new Set(); $('#uniFb').innerHTML = ''; uniRender(); });
+$('#uniBorrar').addEventListener('click', () => { uniPint = new Set(); $('#uniFb').innerHTML = ''; uniRender(); });
+$('#uniOtra').addEventListener('click', () => { uniNueva(); uniN = 1; uniSel = 2; uniPint = new Set(); uniRender(); });
+$('#uniComprobar').addEventListener('click', () => {
+  const {a, b} = uniObj, n = uniN, k = uniPint.size, fig = {rect:'el rectángulo', rectv:'el rectángulo', circ:'el círculo', recta:'la recta'}[uniFig];
+  const pasos = [
+    n === b ? `Dividiste ${fig} en ${n} partes iguales: ¡bien! El denominador ${b} indica en cuántas partes iguales se divide la unidad.`
+            : `Dividiste ${fig} en ${n} ${n === 1 ? 'parte' : 'partes'}, pero el denominador es ${b}: debes dividir la unidad en ${b} partes iguales.`,
+    k === a ? `Pintaste ${k} ${k === 1 ? 'parte' : 'partes'}: ¡bien! El numerador ${a} indica cuántas partes se toman.`
+            : `Pintaste ${k} ${k === 1 ? 'parte' : 'partes'}, pero el numerador es ${a}: debes pintar ${a} ${a === 1 ? 'parte' : 'partes'}.`,
+    `Así, [${a}/${b}] representa ${a} de ${b} partes iguales de la unidad.`];
+  mostrarFb($('#uniFb'), n === b && k === a, `dividir la figura en ${b} partes iguales y pintar ${a} de ellas.`,
+    `<ol>${pasos.map(x => `<li>${rich(x)}</li>`).join('')}</ol>`);
+});
+uniNueva(); uniRender();
+</script>
+</body>
+</html>
