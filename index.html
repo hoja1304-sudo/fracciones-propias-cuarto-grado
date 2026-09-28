@@ -300,6 +300,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 }
 
 
+.sim-ej{margin:.4em 0 .6em;display:flex;justify-content:center;background:var(--panel2);border-radius:20px;padding:12px}
+.sim-ej svg{width:min(460px,100%);height:auto;overflow:visible}
+.btn-big.btn-teoria{background-color:#f5b82e;color:#2b1d10;border-color:rgba(0,0,0,.08)}
+:root[data-theme="dark"] .btn-big.btn-teoria{background-color:#f2b01e;color:#1e1408}
 /* ---------- LABORATORIO: PARTE DE LA UNIDAD ---------- */
 :root{--uni-on:#e0562b}
 :root[data-theme="dark"]{--uni-on:#c4502a}
@@ -321,6 +325,63 @@ button{font:inherit;color:inherit;cursor:pointer}
 .uni-p .pf{transition:fill .2s ease,stroke .2s ease}
 .uni-p:focus-visible .pf{stroke:var(--gold);stroke-width:5}
 @media (max-width:760px){ .uni-figs{flex-direction:row;flex-wrap:wrap} .uni-divrow{justify-content:flex-start} .uni-div{flex:0 0 auto} }
+
+/* ---------- REPRESENTACIÓN SIMBÓLICA ---------- */
+.sim-parts{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.sim-big{display:flex;flex-direction:column;align-items:center;font-family:Arial,sans-serif;font-weight:700;font-size:clamp(3.2rem,9vw,4.6rem);line-height:1;flex:0 0 auto;padding:0 10px}
+.sim-big .sb-n{color:var(--accent)} .sim-big .sb-d{color:var(--blue)}
+.sim-big .sb-bar{width:1.1em;height:.08em;background:var(--ink);margin:.08em 0;border-radius:2px}
+.sim-rules{flex:1 1 300px;grid-template-columns:1fr}
+.sim-rn h4{color:var(--accent)} .sim-rd h4{color:var(--blue)}
+.sim-ex{display:flex;flex-wrap:wrap;gap:16px;align-items:center;background:var(--panel2);border-radius:20px;padding:14px}
+.sim-ex-fig{background:#fff;border-radius:16px;padding:10px;flex:0 1 260px;display:flex;justify-content:center}
+.sim-ex-fig svg{width:min(200px,100%);height:auto}
+.sim-ex-txt{flex:1 1 240px}
+.sim-ex-txt p{margin:.35em 0;line-height:1.55}
+.sim-ex-res{font-weight:800;font-size:1.15rem}
+.sim-fig{display:flex;justify-content:center;margin:.5em 0 1em}
+.sim-fig svg{width:min(240px,80%);height:auto}
+.sim-fig svg.sim-wide{width:min(380px,95%)}
+.sim-fig svg.sim-tall{width:min(130px,40%)}
+.sim-grupo{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:420px}
+.sim-g-it{position:relative;width:50px;height:50px;display:grid;place-items:center}
+.sim-g-it img{width:88%;height:88%;object-fit:contain}
+.sim-g-it.mark::after{content:"";position:absolute;inset:-5px;border:3.5px solid #22b35e;border-radius:50%}
+.sim-ans{display:flex;flex-direction:column;align-items:center;gap:8px;margin:16px auto 6px;background:var(--panel2);border-radius:20px;padding:14px 18px;width:fit-content;max-width:100%}
+.sim-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.sim-lbl{font-weight:800;min-width:7.2em;text-align:right}
+.sim-mini{order:0}
+#simLab .lab-actions{align-items:center}
+.sim-line{width:min(300px,90%);height:4px;border-radius:2px;background:var(--ink)}
+@media (max-width:480px){ .sim-lbl{min-width:0;text-align:center;width:100%} }
+
+/* ---------- PRÁCTICA MIXTA (APRENDIZAJE 2) ---------- */
+.prac-head{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:12px}
+.globo-box{display:flex;flex-direction:column;align-items:center;min-width:130px;flex:0 0 auto}
+.globo{width:84px;height:112px;flex:0 0 auto}
+.prac-bar{align-items:center}
+.globo svg{width:100%;height:100%;overflow:visible}
+.globo-msg{margin:.2em 0 0;min-height:1.3em;font-weight:800;color:var(--accent);font-size:.95rem}
+@media (max-width:600px){ .globo{width:74px;height:98px} .prac-bar .btn{font-size:.9rem;padding:.5em .9em} }
+.prac-meta{flex:1 1 260px}
+.prac-count{margin:0;font-weight:800;font-size:1.1rem}
+.prac-score{margin:.2em 0 .6em;color:var(--soft);font-weight:700}
+.prac .prob-bar{justify-content:flex-start}
+.popts.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.popts.figs .popt{flex-direction:column;align-items:flex-start;padding:.6em .8em}
+.popt-fig{align-self:center;display:flex;justify-content:center;width:100%}
+.popt-fig svg{width:min(150px,100%);height:auto}
+.popt-fig svg.sim-wide{width:min(220px,100%)}
+.popt-fig svg.sim-tall{width:min(70px,40%)}
+.popt-fig .sim-grupo{gap:6px;max-width:230px}
+.popt-fig .sim-g-it{width:32px;height:32px}
+.popt-fig .sim-g-it.mark::after{inset:-3px;border-width:2.5px}
+.fb-check{flex:0 0 auto;width:1.9em;height:1.9em;border-radius:50%;background:#1f9d55;color:#fff;display:grid;place-items:center;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);animation:pop .6s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes globoPum{0%{transform:scale(.4);opacity:1}70%{transform:scale(1.15);opacity:1}100%{transform:scale(1.3);opacity:0}}
+.globo .pum{transform-origin:60px 80px;animation:globoPum 1.2s ease-out forwards}
+@media print{ .prac-head{display:none!important} }
+@media (prefers-reduced-motion:reduce){ .globo .pum,.fb-check{animation:none} }
 
 /* ---------- Modo oscuro: botones de color más nítidos (texto blanco con buen contraste) ---------- */
 :root[data-theme="dark"] .btn-big,:root[data-theme="dark"] .step-btn,:root[data-theme="dark"] .t-n,:root[data-theme="dark"] .pill-n,
@@ -450,7 +511,7 @@ button{font:inherit;color:inherit;cursor:pointer}
     <span class="sec-tag">Aprendizaje esperado 1</span>
     <h2 id="tAe1">Identificar las fracciones como parte de la unidad o parte de una colección de objetos</h2>
     <div class="sec-buttons">
-      <button class="btn btn-big" type="button" data-go="ae1Teoria">📘 Teoría</button>
+      <button class="btn btn-big btn-teoria" type="button" data-go="ae1Teoria">📘 Teoría</button>
       <button class="btn btn-big" type="button" data-go="ae1Practica">✏️ Práctica</button>
     </div>
   </div>
@@ -616,7 +677,7 @@ button{font:inherit;color:inherit;cursor:pointer}
     <h2 id="tgrafGrupo">👨‍👩‍👧‍👦 Parte de un grupo</h2>
     <p class="t-txt">Cuando tomamos algunos elementos de una <b>colección de objetos</b> o de un grupo de personas.</p>
     <div class="sec-buttons">
-      <button class="btn btn-big" type="button" data-go="labGrupo">🧪 Laboratorio</button>
+      <button class="btn btn-big" style="--c:var(--accent)" type="button" data-go="labGrupo">🧪 Laboratorio</button>
       <button class="btn btn-big" type="button" data-go="ejGrupo">📘 Ejemplos</button>
     </div>
   </div>
@@ -808,7 +869,7 @@ button{font:inherit;color:inherit;cursor:pointer}
     <h2 id="trepLiteral">🔤 Representación literal</h2>
     <p class="sec-sub">¿Cómo se leen las fracciones?</p>
     <div class="sec-buttons">
-      <button class="btn btn-big" type="button" data-go="litTeoria">📘 Teoría</button>
+      <button class="btn btn-big btn-teoria" type="button" data-go="litTeoria">📘 Teoría</button>
       <button class="btn btn-big" type="button" data-go="litPractica">✏️ Práctica</button>
     </div>
   </div>
@@ -921,7 +982,126 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="sec-card" style="--c:var(--blue)">
     <span class="sec-tag">Fracciones propias y sus diferentes representaciones</span>
     <h2 id="trepSimbolica">🔢 Representación simbólica</h2>
-    <p class="pronto">Contenido en preparación.</p>
+    <figure class="sim-ej">
+      <svg viewBox="0 0 410 180" role="img" aria-label="Fracción tres quintos: el 3 es el numerador y el 5 es el denominador">
+        <defs>
+          <marker id="flechaNum" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+          <marker id="flechaDen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--blue)"/></marker>
+        </defs>
+        <g font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">
+          <text x="95" y="76" font-size="68" fill="var(--accent)">3</text>
+          <line x1="62" y1="96" x2="128" y2="96" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+          <text x="95" y="166" font-size="68" fill="var(--blue)">5</text>
+        </g>
+        <path d="M132 50 C170 40 190 38 222 42" fill="none" stroke="var(--accent)" stroke-width="3.5" marker-end="url(#flechaNum)"/>
+        <path d="M132 142 C170 150 190 152 222 148" fill="none" stroke="var(--blue)" stroke-width="3.5" marker-end="url(#flechaDen)"/>
+        <g font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">
+          <text x="232" y="50" fill="var(--accent)">Numerador</text>
+          <text x="232" y="156" fill="var(--blue)">Denominador</text>
+        </g>
+      </svg>
+    </figure>
+    <div class="sec-buttons">
+      <button class="btn btn-big btn-teoria" type="button" data-go="simTeoria">📘 Teoría</button>
+      <button class="btn btn-big" style="--c:var(--accent)" type="button" data-go="simLab">🧪 Laboratorio</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="simTeoria" aria-labelledby="tSimTeo">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="repSimbolica">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit" style="--c:var(--blue)">
+    <span class="sec-tag">Representación simbólica · Teoría</span>
+    <h2 id="tSimTeo">¿Qué es la representación simbólica de una fracción?</h2>
+    <div class="sec-buttons doc-actions">
+      <button class="btn btn-main" id="btnPdfSim" type="button">⬇️ Descargar PDF</button>
+      <button class="btn btn-purple" id="btnPrintSim" type="button">🖨️ Imprimir</button>
+    </div>
+    <p class="t-txt">Es la forma de escribir una fracción <b>con números</b>: un número arriba, una línea y un número abajo.</p>
+    <div class="sim-parts">
+      <div class="sim-big" aria-hidden="true"><span class="sb-n">5</span><span class="sb-bar"></span><span class="sb-d">8</span></div>
+      <div class="rules sim-rules">
+        <div class="rule sim-rn"><h4>⬆️ Numerador (número de arriba)</h4><p>Indica <b>cuántas partes se toman</b> o cuántos elementos se seleccionan.</p></div>
+        <div class="rule sim-rd"><h4>⬇️ Denominador (número de abajo)</h4><p>Indica <b>en cuántas partes iguales se divide la unidad</b> o cuántos elementos tiene el grupo.</p></div>
+        <div class="rule"><h4>➖ Barra de fracción</h4><p>Es la línea que separa el numerador del denominador.</p></div>
+      </div>
+    </div>
+
+    <h3 class="t-h"><span class="t-n">1</span> Ejemplo con una figura (parte de la unidad)</h3>
+    <div class="sim-ex">
+      <div class="sim-ex-fig" id="simTeoFig1"></div>
+      <div class="sim-ex-txt">
+        <p>El círculo está dividido en <b>8 partes iguales</b> → el denominador es <b>8</b>.</p>
+        <p>Hay <b>5 partes pintadas</b> → el numerador es <b>5</b>.</p>
+        <p class="sim-ex-res">Representación simbólica: <span data-rich="[5/8]"></span></p>
+      </div>
+    </div>
+
+    <h3 class="t-h"><span class="t-n">2</span> Ejemplo con un grupo de objetos</h3>
+    <div class="sim-ex">
+      <div class="sim-ex-fig" id="simTeoFig2"></div>
+      <div class="sim-ex-txt">
+        <p>El grupo tiene <b>5 personas</b> → el denominador es <b>5</b>.</p>
+        <p>Hay <b>2 personas marcadas</b> → el numerador es <b>2</b>.</p>
+        <p class="sim-ex-res">Representación simbólica: <span data-rich="[2/5]"></span></p>
+      </div>
+    </div>
+
+    <div class="resumen">
+      <h4>📌 En resumen</h4>
+      <ul>
+        <li>Abajo va el <b>denominador</b>: el total de partes iguales o de elementos.</li>
+        <li>Arriba va el <b>numerador</b>: las partes que se toman o los elementos seleccionados.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="screen section" id="simLab" aria-labelledby="tSimLab">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="repSimbolica">↩️ Volver</button>
+  </div>
+  <div class="sec-card lit" style="--c:var(--accent)">
+    <span class="sec-tag">Representación simbólica · Laboratorio</span>
+    <h2 id="tSimLab">🧪 Laboratorio</h2>
+    <div class="lab-top">
+      <button class="btn btn-ghost" id="simInstr" type="button">🔊 Escuchar instrucciones</button>
+    </div>
+    <p class="pz-aviso" id="simAviso" role="status"></p>
+    <article class="paper a12 sim-paper">
+      <p>Considera la siguiente figura:</p>
+      <div class="sim-fig" id="simFig"></div>
+      <p>¿Cuál es la representación simbólica de la fracción que representa la figura anterior?</p>
+    </article>
+    <div class="sim-ans" role="group" aria-label="Escribe la fracción">
+      <div class="sim-row">
+        <span class="sim-lbl">Numerador</span>
+        <div class="stepper">
+          <button class="step-btn" id="simNumMenos" type="button" aria-label="Bajar numerador">◀</button>
+          <output class="step-val" id="simNum" aria-live="polite">0</output>
+          <button class="step-btn" id="simNumMas" type="button" aria-label="Subir numerador">▶</button>
+        </div>
+      </div>
+      <div class="sim-line" aria-hidden="true"></div>
+      <div class="sim-row">
+        <span class="sim-lbl">Denominador</span>
+        <div class="stepper">
+          <button class="step-btn" id="simDenMenos" type="button" aria-label="Bajar denominador">◀</button>
+          <output class="step-val" id="simDen" aria-live="polite">1</output>
+          <button class="step-btn" id="simDenMas" type="button" aria-label="Subir denominador">▶</button>
+        </div>
+      </div>
+    </div>
+    <div class="lab-actions">
+      <button class="btn btn-main" id="simComprobar" type="button">✅ Comprobar</button>
+      <div class="uni-mini sim-mini" aria-live="polite" aria-label="Fracción formada"><span class="uni-mini-l">Tu fracción</span><span class="lab-frac" id="simFrac"></span></div>
+      <button class="btn btn-ghost" id="simOtro" type="button">🔄 Otro ítem</button>
+    </div>
+    <div class="prob-fb" id="simFb" aria-live="polite"></div>
   </div>
 </section>
 
@@ -930,10 +1110,24 @@ button{font:inherit;color:inherit;cursor:pointer}
     <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
     <button class="btn btn-ghost" type="button" data-go="ae2">↩️ Volver</button>
   </div>
-  <div class="sec-card" style="--c:var(--blue)">
-    <span class="sec-tag">Analizar fracciones propias</span>
-    <h2 id="tAe2Pra">✏️ Práctica</h2>
-    <p class="pronto">Contenido en preparación.</p>
+  <div class="sec-card lit prac" style="--c:var(--blue)">
+    <span class="sec-tag">Aprendizaje esperado 2 · Práctica</span>
+    <h2 id="tAe2Pra">✏️ Práctica: representaciones de una fracción</h2>
+    <div class="prac-head">
+      <div class="prac-meta">
+        <p class="prac-count" id="pracCount"></p>
+        <p class="prac-score" id="pracScore"></p>
+        <div class="prob-bar prac-bar">
+          <button class="btn btn-alt" id="pracOtro" type="button">🔄 Otro ítem</button>
+          <div class="globo" id="globo" aria-hidden="true"></div>
+          <button class="btn btn-main" id="pracPdf" type="button">⬇️ Descargar PDF</button>
+          <button class="btn btn-purple" id="pracPrint" type="button">🖨️ Imprimir</button>
+        </div>
+        <p class="globo-msg" id="globoMsg" role="status"></p>
+      </div>
+    </div>
+    <article class="paper a12" id="pracPaper"></article>
+    <div class="prob-fb" id="pracFb" aria-live="polite"></div>
   </div>
 </section>
 
@@ -1148,10 +1342,10 @@ function renderProblem(){
 /* Retroalimentación: acierto = emoji + fuegos artificiales; error = equis + paso a paso */
 const EMOJIS_OK = ['🎉','🌟','🏆','🥇','🎊','⭐'];
 const FRASES_OK = ['¡Excelente!','¡Muy bien!','¡Fantástico!','¡Lo lograste!','¡Genial!'];
-function mostrarFb(el, correcto, respHTML, pasosHTML){
+function mostrarFb(el, correcto, respHTML, pasosHTML, conCheck){
   if(correcto){
     const k = Math.floor(Math.random()*FRASES_OK.length);
-    el.innerHTML = `<div class="fb-head ok fb-win"><span class="fb-emoji" aria-hidden="true">${EMOJIS_OK[Math.floor(Math.random()*EMOJIS_OK.length)]}</span>
+    el.innerHTML = `<div class="fb-head ok fb-win">${conCheck ? '<span class="fb-check" aria-hidden="true">✔</span>' : `<span class="fb-emoji" aria-hidden="true">${EMOJIS_OK[Math.floor(Math.random()*EMOJIS_OK.length)]}</span>`}
       <span>${FRASES_OK[k]} ¡Respuesta correcta!</span></div>`;
     fuegosArtificiales();
     decir(FRASES_OK[k] + ' Respuesta correcta.');
@@ -1497,6 +1691,10 @@ function pdfFig(d, f){
       out.push(`${fill(i < f.k)} 0 G 1 w ${path} h B`);
     }
     d.y = cy - r - 22;
+  } else if(f.tipo === 'barrav'){
+    const w = 46, h = 150, u = h/f.n, x0 = cx - w/2; d.need(h + 20); const top = d.y + 6;
+    for(let i = 0; i < f.n; i++) out.push(`${fill(i < f.k)} 0 G 1 w ${x0.toFixed(2)} ${(top - (i + 1)*u).toFixed(2)} ${w} ${u.toFixed(2)} re B`);
+    d.y = top - h - 22;
   } else if(f.tipo === 'barra'){
     const w = 260, h = 36, u = w/f.n, x0 = cx - w/2; d.need(h + 20); const top = d.y + 6;
     for(let i = 0; i < f.n; i++) out.push(`${fill(i < f.k)} 0 G 1 w ${(x0 + i*u).toFixed(2)} ${(top - h).toFixed(2)} ${u.toFixed(2)} ${h} re B`);
@@ -1978,6 +2176,283 @@ $('#uniComprobar').addEventListener('click', () => {
     `<ol>${pasos.map(x => `<li>${rich(x)}</li>`).join('')}</ol>`);
 });
 uniNueva(); uniRender();
+
+/* ---------- Representación simbólica: figuras, teoría y laboratorio ---------- */
+const SIM_ON = '#f08a3c', SIM_OFF = '#ffffff', SIM_LINE = '#222';
+function simFigHTML(f){
+  if(f.tipo === 'grupo'){
+    const src = LAB_FIGS[f.fig].src;
+    return `<div class="sim-grupo" role="img" aria-label="Grupo de ${f.b} ${LAB_FIGS[f.fig].plural}, ${f.a} marcados">${
+      [...Array(f.b).keys()].map(i => `<span class="sim-g-it${f.sel.includes(i) ? ' mark' : ''}"><img src="${src}" alt=""></span>`).join('')}</div>`;
+  }
+  const pint = i => f.sel.includes(i) ? SIM_ON : SIM_OFF;
+  let s = '';
+  if(f.tipo === 'circ'){
+    const c = 110, r = 100;
+    for(let i = 0; i < f.b; i++){
+      const a0 = -Math.PI/2 + i*2*Math.PI/f.b, a1 = a0 + 2*Math.PI/f.b;
+      const P = a => `${(c + r*Math.cos(a)).toFixed(2)} ${(c + r*Math.sin(a)).toFixed(2)}`;
+      s += `<path d="M${c} ${c} L${P(a0)} A${r} ${r} 0 0 1 ${P(a1)} Z" fill="${pint(i)}" stroke="${SIM_LINE}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    }
+    return `<svg viewBox="0 0 220 220" role="img" aria-label="Círculo dividido en ${f.b} partes iguales, ${f.a} pintadas">${s}</svg>`;
+  }
+  if(f.tipo === 'rect'){
+    const u = 360/f.b;
+    for(let i = 0; i < f.b; i++) s += `<rect x="${(10 + i*u).toFixed(2)}" y="10" width="${u.toFixed(2)}" height="110" fill="${pint(i)}" stroke="${SIM_LINE}" stroke-width="2.5"/>`;
+    return `<svg class="sim-wide" viewBox="0 0 380 130" role="img" aria-label="Rectángulo dividido en ${f.b} partes iguales, ${f.a} pintadas">${s}</svg>`;
+  }
+  const u = 300/f.b;
+  for(let i = 0; i < f.b; i++) s += `<rect x="10" y="${(10 + i*u).toFixed(2)}" width="110" height="${u.toFixed(2)}" fill="${pint(i)}" stroke="${SIM_LINE}" stroke-width="2.5"/>`;
+  return `<svg class="sim-tall" viewBox="0 0 130 320" role="img" aria-label="Rectángulo dividido en ${f.b} partes iguales, ${f.a} pintadas">${s}</svg>`;
+}
+const azar = (a, b) => a + Math.floor(Math.random()*(b - a + 1));
+function elegirSel(b, a){ const idx = [...Array(b).keys()]; for(let i = b - 1; i > 0; i--){ const j = azar(0, i); [idx[i], idx[j]] = [idx[j], idx[i]]; } return idx.slice(0, a); }
+
+// Teoría
+$('#simTeoFig1').innerHTML = simFigHTML({tipo:'circ', a:5, b:8, sel:[0,1,2,3,4]});
+$('#simTeoFig2').innerHTML = simFigHTML({tipo:'grupo', fig:'persona', a:2, b:5, sel:[0,1]});
+function simbolicaPDF(){
+  const d = pdfDoc(), B = {bold:true};
+  d.para('Representación simbólica de una fracción', B); d.gap(6);
+  d.para('Es la forma de escribir una fracción con números: un número arriba, una línea y un número abajo.');
+  d.para('El numerador (número de arriba) indica cuántas partes se toman o cuántos elementos se seleccionan.');
+  d.para('El denominador (número de abajo) indica en cuántas partes iguales se divide la unidad o cuántos elementos tiene el grupo.');
+  d.para('La barra de fracción es la línea que separa el numerador del denominador.'); d.gap(8);
+  d.para('Ejemplo 1: figura (parte de la unidad)', B); d.gap(4);
+  pdfFig(d, {tipo:'circulo', n:8, k:5});
+  d.para('El círculo está dividido en 8 partes iguales: el denominador es 8. Hay 5 partes pintadas: el numerador es 5. Representación simbólica: [5/8]');
+  d.gap(8);
+  d.para('Ejemplo 2: grupo de objetos', B); d.gap(4);
+  pdfFig(d, {tipo:'coleccion', n:5, k:2});
+  d.para('El grupo tiene 5 personas: el denominador es 5. Hay 2 personas marcadas (sombreadas): el numerador es 2. Representación simbólica: [2/5]');
+  d.gap(8);
+  d.para('En resumen', B);
+  d.para('Abajo va el denominador: el total de partes iguales o de elementos. Arriba va el numerador: las partes que se toman o los elementos seleccionados.');
+  d.gap(12);
+  d.para('Elaborado por: Alberto Jiménez Ruiz - Asesor Regional de Matemática · DAP-DRE-Cartago 2026');
+  return d.blob();
+}
+$('#btnPrintSim').addEventListener('click', () => window.print());
+$('#btnPdfSim').addEventListener('click', () => downloadBlob(simbolicaPDF(), 'Fracciones propias - Representación simbólica.pdf'));
+
+// Laboratorio
+const SIM_INSTR = 'Observa la figura. Cuenta en cuántas partes iguales está dividida o cuántos objetos tiene el grupo: ese número es el denominador. '
+  + 'Luego cuenta las partes pintadas o los objetos marcados con un círculo verde: ese número es el numerador. '
+  + 'Usa las flechas para escribir cada número y toca el botón Comprobar. Con Otro ítem aparece una figura nueva.';
+botonInstrucciones($('#simInstr'), $('#simAviso'), SIM_INSTR);
+let simIt = null, simNum = 0, simDen = 1;
+function simNuevo(){
+  const tipos = ['circ', 'rect', 'rectv', 'grupo'];
+  let t, b, a;
+  do { t = tipos[azar(0, 3)]; b = azar(2, t === 'grupo' ? 12 : 12); a = azar(1, b - 1); }
+  while(simIt && simIt.tipo === t && simIt.a === a && simIt.b === b);
+  const figs = Object.keys(LAB_FIGS);
+  simIt = {tipo:t, a, b, fig:figs[azar(0, figs.length - 1)], sel: t === 'grupo' ? elegirSel(b, a) : (Math.random() < .5 ? [...Array(a).keys()] : elegirSel(b, a))};
+  simNum = 0; simDen = 1;
+  $('#simFig').innerHTML = simFigHTML(simIt);
+  $('#simFb').innerHTML = ''; simPintar();
+}
+function simPintar(){
+  $('#simNum').textContent = simNum; $('#simDen').textContent = simDen;
+  $('#simFrac').innerHTML = rich(`[${simNum}/${simDen}]`);
+  $('#simNumMenos').disabled = simNum <= 0; $('#simNumMas').disabled = simNum >= 15;
+  $('#simDenMenos').disabled = simDen <= 1; $('#simDenMas').disabled = simDen >= 15;
+}
+const simCambia = fn => () => { fn(); $('#simFb').innerHTML = ''; simPintar(); };
+$('#simNumMenos').addEventListener('click', simCambia(() => { if(simNum > 0) simNum--; }));
+$('#simNumMas').addEventListener('click', simCambia(() => { if(simNum < 15) simNum++; }));
+$('#simDenMenos').addEventListener('click', simCambia(() => { if(simDen > 1) simDen--; }));
+$('#simDenMas').addEventListener('click', simCambia(() => { if(simDen < 15) simDen++; }));
+$('#simOtro').addEventListener('click', simNuevo);
+$('#simComprobar').addEventListener('click', () => {
+  const {a, b, tipo} = simIt, g = tipo === 'grupo';
+  const pasos = [
+    g ? `El grupo tiene ${b} objetos: el denominador es ${b}.` : `La figura está dividida en ${b} partes iguales: el denominador es ${b}.`,
+    g ? `Hay ${a} ${a === 1 ? 'objeto marcado' : 'objetos marcados'} con un círculo verde: el numerador es ${a}.`
+      : `Hay ${a} ${a === 1 ? 'parte pintada' : 'partes pintadas'}: el numerador es ${a}.`,
+    `La representación simbólica es [${a}/${b}].`];
+  if(simDen !== b) pasos.unshift(`Escribiste ${simDen} en el denominador, pero ${g ? 'el grupo tiene' : 'la figura tiene'} ${b} ${g ? 'objetos' : 'partes iguales'}.`);
+  else if(simNum !== a) pasos.unshift(`Escribiste ${simNum} en el numerador, pero ${g ? 'hay' : 'hay'} ${a} ${g ? 'marcados' : 'pintadas'}.`);
+  mostrarFb($('#simFb'), simNum === a && simDen === b, rich(`[${a}/${b}]`), `<ol>${pasos.map(x => `<li>${rich(x)}</li>`).join('')}</ol>`);
+});
+simNuevo();
+
+/* ---------- Práctica mixta: representaciones de una fracción ---------- */
+const PR_GRUPO = [
+  {fig:'persona', t1:f => `En una encuesta, ${f} de las personas entrevistadas indicaron que prefieren ver otra actividad de entretenimiento que el fútbol nacional.`,
+   t2:'La siguiente figura representa las personas de un grupo que practican natación (personas marcadas):', q2:'las personas que practican natación'},
+  {fig:'tortuga', t1:f => `De un grupo de tortugas que llegó a una playa de Guanacaste, ${f} depositaron sus huevos.`,
+   t2:'La siguiente figura representa las tortugas de un grupo que ya regresaron al mar (tortugas marcadas):', q2:'las tortugas que regresaron al mar'},
+  {fig:'manzana', t1:f => `De las manzanas de un canasto, ${f} ya están maduras.`,
+   t2:'La siguiente figura representa las manzanas de un canasto que ya se vendieron (manzanas marcadas):', q2:'las manzanas vendidas'},
+  {fig:'balon', t1:f => `De los balones de una escuela, ${f} son nuevos.`,
+   t2:'La siguiente figura representa los balones de una escuela que están desinflados (balones marcados):', q2:'los balones desinflados'}
+];
+const PR_UNIDAD = [
+  {tipo:'circ', t1:f => `Daniel se comió ${f} de una pizza.`,
+   t2:'La siguiente figura representa la cantidad de porciones de pizza que se comió Daniel (partes pintadas):', q2:'la cantidad de pizza comida'},
+  {tipo:'rect', t1:f => `Andrea pintó ${f} de una pared.`,
+   t2:'La siguiente figura representa la parte de una pared que pintó Andrea (partes pintadas):', q2:'la parte de la pared pintada'},
+  {tipo:'rectv', t1:f => `Sofía sembró flores en ${f} de un terreno.`,
+   t2:'La siguiente figura representa la parte de un terreno que se sembró con maíz (partes pintadas):', q2:'la parte del terreno sembrada'}
+];
+const TIPOS_FIG = ['circ', 'rect', 'rectv', 'grupo'];
+const mezclar = arr => { const x = [...arr]; for(let i = x.length - 1; i > 0; i--){ const j = azar(0, i); [x[i], x[j]] = [x[j], x[i]]; } return x; };
+const propia = ([a, b]) => a >= 1 && a < b && b <= 15;
+function figDe(base, a, b){ return {...base, a, b, sel: elegirSel(b, a)}; }
+function distrFig(a, b, grupo){
+  const max = grupo ? 12 : 15, out = [];
+  const cand = [[b - a, b], [a, b + 1], [a, b - 1], [a + 1, b], [a - 1, b], [a, b + 2], [a + 1, b + 1], [b - a, b + 1], [a + 2, b + 3]];
+  for(const c of cand){ if(propia(c) && c[1] <= max && !(c[0] === a && c[1] === b) && !out.some(o => o[0] === c[0] && o[1] === c[1])) out.push(c); }
+  return [out[0], out[1 + azar(0, Math.min(2, out.length - 2))]];
+}
+function distrSim(a, b){
+  const c = [`[${b - a}/${b}]`, `[${b}/${a}]`, `[${a}/${b + 1}]`].filter(x => x !== `[${a}/${b}]`);
+  return mezclar([...new Set(c)]).slice(0, 2);
+}
+function distrLit(a, b){
+  const par = [[b - a, b], [a, b + 1], [a, b - 1], [a + 1, b], [a - 1, b], [a, b + 2], [a + 1, b + 1]];
+  const c = [...new Set(par.filter(x => propia(x) && !(x[0] === a && x[1] === b)).map(([x, y]) => lectura(x, y)))];
+  return [c[0], ...mezclar(c.slice(1)).slice(0, 1)];
+}
+const partesTxt = (a, b) => ({num: NUM_TXT[a], den: DEN_TXT[b][a === 1 ? 0 : 1]});
+
+function nuevoPrac(){
+  const tipo = ['ctx-graf', 'graf-sim', 'lit-graf', 'lit-sim', 'sim-lit', 'graf-lit'][azar(0, 5)];
+  const usaGrupo = Math.random() < .45;
+  const b = azar(2, usaGrupo ? 12 : 15), a = azar(1, b - 1);
+  let it = {tipo, a, b, frac:`[${a}/${b}]`, lect: lectura(a, b)};
+  const ctxG = PR_GRUPO[azar(0, PR_GRUPO.length - 1)], ctxU = PR_UNIDAD[azar(0, PR_UNIDAD.length - 1)];
+  const ctx = usaGrupo ? ctxG : ctxU;
+  const base = usaGrupo ? {tipo:'grupo', fig:ctxG.fig} : {tipo:ctxU.tipo};
+  if(tipo === 'ctx-graf' || tipo === 'lit-graf'){
+    const baseOp = tipo === 'lit-graf' ? (Math.random() < .45 && b <= 12 ? {tipo:'grupo', fig:Object.keys(LAB_FIGS)[azar(0, Object.keys(LAB_FIGS).length - 1)]} : {tipo:TIPOS_FIG[azar(0, 2)]}) : base;
+    const grupo = baseOp.tipo === 'grupo';
+    const ops = [[a, b], ...distrFig(a, b, grupo)].map(([x, y]) => ({fig: figDe(baseOp, x, y), ok: x === a && y === b}));
+    it.grupo = grupo;
+    it.enun = tipo === 'ctx-graf' ? [ctx.t1(it.frac), 'De acuerdo con la información anterior, ¿cuál es la representación gráfica de dicha fracción?']
+                                  : [`¿Cuál es la representación gráfica de la fracción ${it.lect}?`];
+    it.ops = mezclar(ops);
+  } else if(tipo === 'graf-sim' || tipo === 'graf-lit'){
+    it.grupo = usaGrupo; it.fig = figDe(base, a, b);
+    const q = tipo === 'graf-sim' ? 'simbólica' : 'literal';
+    it.enun = [ctx.t2, '__FIG__', `De acuerdo con la información anterior, ¿cuál es la representación ${q} de la fracción que representa ${ctx.q2}?`];
+    const dis = tipo === 'graf-sim' ? distrSim(a, b) : distrLit(a, b);
+    it.ops = mezclar([{txt: tipo === 'graf-sim' ? it.frac : it.lect, ok:true}, ...dis.map(t => ({txt:t, ok:false}))]);
+  } else if(tipo === 'lit-sim'){
+    it.enun = [`¿Cuál es la representación simbólica de la fracción ${it.lect}?`];
+    it.ops = mezclar([{txt:it.frac, ok:true}, ...distrSim(a, b).map(t => ({txt:t, ok:false}))]);
+  } else {
+    it.enun = [`¿Cuál es la representación literal de la fracción ${it.frac}?`];
+    it.ops = mezclar([{txt:it.lect, ok:true}, ...distrLit(a, b).map(t => ({txt:t, ok:false}))]);
+  }
+  return it;
+}
+function pasosPrac(it){
+  const {a, b} = it, pt = partesTxt(a, b), g = it.grupo, L = LETRAS[it.ops.findIndex(o => o.ok)];
+  const den = g ? `el grupo tiene ${b} elementos` : `la unidad se divide en ${b} partes iguales`;
+  const num = g ? `se marcan ${a} ${a === 1 ? 'elemento' : 'elementos'}` : `se pintan ${a} ${a === 1 ? 'parte' : 'partes'}`;
+  switch(it.tipo){
+    case 'ctx-graf': case 'lit-graf':
+      return [`La fracción ${it.frac} se lee «${it.lect}».`, `El denominador ${b} indica que ${den}.`, `El numerador ${a} indica que ${num}.`, `Por eso la respuesta correcta es la opción ${L}.`];
+    case 'graf-sim': case 'graf-lit':
+      return [`${g ? `El grupo tiene ${b} elementos` : `La figura está dividida en ${b} partes iguales`}: el denominador es ${b}.`,
+        `${g ? `Hay ${a} ${a === 1 ? 'elemento marcado' : 'elementos marcados'}` : `Hay ${a} ${a === 1 ? 'parte pintada' : 'partes pintadas'}`}: el numerador es ${a}.`,
+        `La fracción es ${it.frac} y se lee «${it.lect}». La respuesta correcta es la opción ${L}.`];
+    case 'lit-sim':
+      return [`«${pt.num}» es el numerador: ${a}.`, `«${pt.den}» indica el denominador: ${b}.`, `Por eso se escribe ${it.frac}: opción ${L}.`];
+    default:
+      return [`El numerador ${a} se lee «${pt.num}».`, `El denominador ${b} se lee «${pt.den}».`, `Por eso ${it.frac} se lee «${it.lect}»: opción ${L}.`];
+  }
+}
+let prIt = null, prN = 0, prOk = 0, prTot = 0;
+function renderPrac(){
+  prIt = nuevoPrac(); prN++;
+  $('#pracCount').textContent = `Ítem ${prN}`;
+  $('#pracScore').textContent = `Aciertos: ${prOk} de ${prTot}`;
+  const enun = prIt.enun.map(t => t === '__FIG__' ? `<div class="sim-fig">${simFigHTML(prIt.fig)}</div>` : `<p>${rich(t)}</p>`).join('');
+  const conFig = prIt.ops[0].fig;
+  $('#pracPaper').innerHTML = enun + `<div class="popts${conFig ? ' figs' : ''}">${prIt.ops.map((o, i) =>
+    `<button class="popt" type="button" data-i="${i}" aria-label="Opción ${LETRAS[i]}${o.txt ? ': ' + esc(plano(o.txt)) : ''}"><span class="l">${LETRAS[i]})</span>${
+      o.fig ? `<span class="popt-fig">${simFigHTML(o.fig)}</span>` : `<span>${rich(o.txt)}</span>`}</button>`).join('')}</div>`;
+  $('#pracFb').innerHTML = '';
+  document.querySelectorAll('#pracPaper .popt').forEach(bt => bt.addEventListener('click', () => responderPrac(+bt.dataset.i)));
+  globoIniciar();
+}
+function responderPrac(i){
+  const btns = document.querySelectorAll('#pracPaper .popt'), ok = prIt.ops.findIndex(o => o.ok);
+  btns.forEach(b => b.disabled = true);
+  btns[ok].classList.add('ok'); if(i !== ok) btns[i].classList.add('bad');
+  globoParar();
+  prTot++; if(i === ok) prOk++;
+  $('#pracScore').textContent = `Aciertos: ${prOk} de ${prTot}`;
+  const o = prIt.ops[ok];
+  const resp = `la opción ${LETRAS[ok]}` + (o.txt ? `) ${rich(o.txt)}` : '');
+  mostrarFb($('#pracFb'), i === ok, resp.replace('la opción ' + LETRAS[ok] + ')', LETRAS[ok] + ')'),
+    `<ol>${pasosPrac(prIt).map(x => `<li>${rich(x)}</li>`).join('')}</ol>`, true);
+}
+
+// Globo: se infla durante 20 segundos y explota; si no se ha respondido, vuelve a inflarse
+const GLOBO_T = 20;
+let gEst = 'parado', gTiempo = 0, gUlt = null, gId = 0;
+function globoDibujar(){
+  const f = Math.min(1, gTiempo/GLOBO_T), esc = .55 + .45*f, hue = Math.round(130 - 130*f), resta = Math.max(0, Math.ceil(GLOBO_T - gTiempo));
+  $('#globo').innerHTML = `<svg viewBox="0 0 120 170" role="img" aria-label="Tiempo restante: ${resta} segundos">
+    <g style="transform-origin:60px 168px;transform:scale(${esc.toFixed(3)})">
+      <path d="M60 136 C54 146 66 152 58 168" fill="none" stroke="var(--soft)" stroke-width="2"/>
+      <path d="M60 10 C95 10 110 40 110 70 C110 105 80 128 60 132 C40 128 10 105 10 70 C10 40 25 10 60 10Z" fill="hsl(${hue} 75% 50%)" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+      <ellipse cx="40" cy="45" rx="10" ry="18" fill="#fff" opacity=".35" transform="rotate(20 40 45)"/>
+      <path d="M54 131 L66 131 L60 139 Z" fill="hsl(${hue} 75% 40%)"/>
+      <text x="60" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="36" fill="#fff">${resta}</text>
+    </g></svg>`;
+}
+function globoLoop(ts, id){
+  if(gEst !== 'inflando' || id !== gId) return;   // un solo temporizador activo
+  if(gUlt === null || !$('#ae2Practica').classList.contains('active')) gUlt = ts;   // en pausa si la sección no está visible
+  gTiempo += (ts - gUlt)/1000; gUlt = ts;
+  globoDibujar();
+  if(gTiempo >= GLOBO_T){ globoExplotar(); return; }
+  requestAnimationFrame(t => globoLoop(t, id));
+}
+function globoArrancar(){ const id = ++gId; gEst = 'inflando'; gTiempo = 0; gUlt = null; globoDibujar(); requestAnimationFrame(t => globoLoop(t, id)); }
+function globoIniciar(){ $('#globoMsg').textContent = ''; globoArrancar(); }
+function globoParar(){ gEst = 'parado'; gId++; $('#globoMsg').textContent = ''; }
+function sonidoPum(){
+  if(!soundOn) return;
+  try{
+    const C = window.AudioContext || window.webkitAudioContext; if(!C) return;
+    const ctx = sonidoPum.ctx || (sonidoPum.ctx = new C()), len = Math.floor(ctx.sampleRate*.25);
+    const buf = ctx.createBuffer(1, len, ctx.sampleRate), dat = buf.getChannelData(0);
+    for(let i = 0; i < len; i++) dat[i] = (Math.random()*2 - 1)*Math.pow(1 - i/len, 3);
+    const src = ctx.createBufferSource(), g = ctx.createGain(); g.gain.value = .6;
+    src.buffer = buf; src.connect(g); g.connect(ctx.destination); src.start();
+  }catch(e){}
+}
+function globoExplotar(){
+  gEst = 'pum'; const idPum = ++gId; sonidoPum();
+  const pts = [...Array(16).keys()].map(i => { const r = i % 2 ? 26 : 58, an = i*Math.PI/8; return `${(60 + r*Math.cos(an)).toFixed(1)},${(80 + r*Math.sin(an)).toFixed(1)}`; }).join(' ');
+  $('#globo').innerHTML = `<svg viewBox="0 0 120 170" aria-hidden="true"><g class="pum"><polygon points="${pts}" fill="#ffd23f" stroke="#e0562b" stroke-width="3"/>
+    <text x="60" y="88" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22" fill="#e0562b">¡PUM!</text></g></svg>`;
+  $('#globoMsg').textContent = '⏰ ¡Se acabó el tiempo! Aún puedes responder.';
+  setTimeout(() => { if(gEst === 'pum' && idPum === gId) globoArrancar(); }, 1400);
+}
+
+// PDF del ítem
+function pracPDF(it){
+  const d = pdfDoc();
+  const pf = f => f.tipo === 'grupo' ? {tipo:'coleccion', n:f.b, k:f.a} : {tipo:{circ:'circulo', rect:'barra', rectv:'barrav'}[f.tipo], n:f.b, k:f.a};
+  it.enun.forEach(t => { if(t === '__FIG__'){ d.gap(4); pdfFig(d, pf(it.fig)); } else { d.para(t); d.gap(6); } });
+  if(it.grupo && (it.fig || it.ops[0].fig)) { d.para('(Los elementos sombreados son los marcados.)'); d.gap(6); }
+  it.ops.forEach((o, i) => {
+    if(o.fig){ d.para(LETRAS[i] + ')'); pdfFig(d, pf(o.fig)); }
+    else { d.para(o.txt, {x:d.L + 28, w:d.W - 28, label:LETRAS[i] + ')'}); d.gap(6); }
+  });
+  return d.blob();
+}
+$('#pracOtro').addEventListener('click', renderPrac);
+$('#pracPrint').addEventListener('click', () => window.print());
+$('#pracPdf').addEventListener('click', () => downloadBlob(pracPDF(prIt), `Fracciones propias - Práctica ítem ${prN}.pdf`));
+renderPrac();
 </script>
 </body>
 </html>
