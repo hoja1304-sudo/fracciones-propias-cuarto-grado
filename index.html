@@ -415,8 +415,94 @@ button{font:inherit;color:inherit;cursor:pointer}
   .t-n,.pill-n{background:none!important;color:#000!important;border:1px solid #000}
   .ex-card,.rule{break-inside:avoid}
 }
-</style>
-<script>/* voz en espanol neutro (seseo) - regla AGENTS */(function(){if(!window.SpeechSynthesisUtterance||window.__seseo)return;window.__seseo=1;function s(t){return t==null?t:(""+t).replace(/z/g,"s").replace(/Z/g,"S").replace(/c(?=[eiéíEIÉÍ])/g,"s").replace(/C(?=[eiéíEIÉÍ])/g,"S");}try{var p=SpeechSynthesisUtterance.prototype,d=Object.getOwnPropertyDescriptor(p,"text");if(d&&d.set&&d.get){Object.defineProperty(p,"text",{configurable:true,enumerable:d.enumerable,get:d.get,set:function(v){d.set.call(this,s(v));}});}}catch(e){}var O=window.SpeechSynthesisUtterance;function N(t){return arguments.length?new O(s(t)):new O();}N.prototype=O.prototype;try{window.SpeechSynthesisUtterance=N;}catch(e){}})();</script>
+/* Método gráfico: comparación en una cuadrícula común */
+#ae3Teoria .sec-card{min-width:0}
+.cg-text,.cg-steps{font-size:clamp(1rem,2vw,1.18rem);line-height:1.6}
+.cg-steps{padding-left:1.4em}
+.cg-steps li{margin:.65em 0}
+.cg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0}
+.cg-figure{margin:0;min-width:0;padding:16px;border:2px solid var(--line);border-radius:18px;text-align:center;background:var(--panel)}
+.cg-figure h3{font-size:clamp(1rem,2vw,1.25rem);line-height:1.5;margin:0 0 12px}
+.cg-figure svg{display:block;width:100%;max-width:340px;height:auto;margin:auto}
+.cg-figure figcaption{font-size:clamp(1rem,2vw,1.2rem);line-height:1.6;margin-top:12px}
+.cg-conclusion{padding:16px;border-radius:18px;background:var(--panel2);font-size:clamp(1rem,2vw,1.2rem);line-height:1.5}
+.cg-conclusion h3{margin-top:0}
+.cg-equation{text-align:center;font-size:clamp(2rem,6vw,3rem);font-weight:800;color:var(--accent2);margin:18px 0}
+@media(max-width:600px){.cg-grid{grid-template-columns:1fr}}.cg-equation{display:flex;align-items:flex-end;justify-content:center;gap:.35em;flex-wrap:wrap}
+.cg-symbol{display:inline-flex;flex-direction:column;align-items:center;line-height:1.1}
+.cg-croc{display:block;width:clamp(64px,14vw,96px);height:auto;margin-bottom:4px}
+.cg-croc-right{transform:scaleX(-1)}/* Laboratorio de comparación */
+.lc-board{position:relative;aspect-ratio:5/6;max-width:360px;margin:0 auto;isolation:isolate}
+.lc-board svg{display:block;width:100%;height:100%;max-width:none}
+.lc-overlay{position:absolute;inset:0;display:grid}
+.lc-overlay.cols{grid-template-columns:repeat(5,minmax(0,1fr))}
+.lc-overlay.rows{grid-template-rows:repeat(6,minmax(0,1fr))}
+.lc-stripe{width:100%;height:100%;min-width:0;min-height:44px;padding:0;background:transparent;border:0;border-radius:0;cursor:crosshair}
+.lc-stripe:hover{background:rgba(47,143,91,.12)}
+.lc-stripe:focus-visible{outline:4px solid #e0562b;outline-offset:-5px}
+.lc-answer{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:16px;font-size:clamp(1.8rem,5vw,2.6rem);margin:20px 0}
+.lc-answer select{font:700 1.05rem "Segoe UI",sans-serif;max-width:100%;min-width:80px;min-height:52px;padding:8px;border:2px solid var(--accent2);border-radius:12px;color:var(--ink);background:var(--panel)}
+.lc-answer select:focus-visible{outline:4px solid var(--gold);outline-offset:3px}
+.labcmp-controls .btn{white-space:normal;flex:1 1 190px}
+.lc-feedback{margin-top:18px;font-size:clamp(1rem,2vw,1.2rem);line-height:1.6}
+.lc-gridline{stroke-dasharray:1;stroke-dashoffset:1;animation:lcDraw .8s ease forwards}
+.lc-fill{animation:lcFill .4s ease both}
+@keyframes lcDraw{to{stroke-dashoffset:0}}
+@keyframes lcFill{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.lc-gridline{animation:none;stroke-dashoffset:0}.lc-fill{animation:none}}.lc-who{min-width:0;margin:20px 0;padding:16px;border:2px solid var(--line);border-radius:16px}
+.lc-who[hidden]{display:none}
+.lc-who legend{font-weight:700;padding:0 6px;font-size:1.1rem}
+#ae3Laboratorio button:not(.lc-stripe)[aria-pressed="true"]{background:var(--accent2);color:white;border-color:var(--accent2)}
+@media(max-width:600px){#ae3Laboratorio .cg-grid{grid-template-columns:1fr}}/* Las franjas son controles transparentes: la cuadrícula siempre queda visible. */
+#ae3Laboratorio .lc-stripe,
+#ae3Laboratorio .lc-stripe[aria-pressed="true"],
+#ae3Laboratorio .lc-stripe:hover{background:transparent;border:0}
+/* Cuadrículas más compactas sin reducir los controles táctiles. */
+#ae3Laboratorio .lc-board{width:100%;max-width:360px}
+@media(min-width:601px){
+ #ae3Laboratorio .lc-board{max-width:280px}
+}
+#ae3Laboratorio .cg-grid{gap:14px;margin:16px 0}
+#ae3Laboratorio .cg-figure{padding:12px}
+#ae3Laboratorio .cg-figure h3{margin-bottom:8px}
+#ae3Laboratorio .cg-figure figcaption{margin-top:8px}/* Figuras compactas y botones de pintura accesibles. */
+#ae3Laboratorio .lc-board{max-width:210px;min-height:0}
+#ae3Laboratorio .lc-stripe{min-height:0}
+.lc-paint-tools[hidden]{display:none}
+.lc-paint-tools p{font-size:.95rem;margin:8px 0 5px}
+.lc-paint-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.lc-paint-buttons button{min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-weight:700}
+.lc-paint-buttons button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media(max-width:600px){#ae3Laboratorio .lc-board{max-width:200px}}/* Práctica imprimible: Arial 12, carta y tres espacios iguales. */
+.cp-sheet{width:min(190mm,100%);background:white;color:black;font:12pt Arial,Helvetica,sans-serif;padding:6mm;box-shadow:var(--shadow);line-height:1.2}
+.cp-header h2{font:700 12pt Arial,Helvetica,sans-serif;margin:0 0 3mm}
+.cp-header p{margin:0 0 3mm}
+.cp-items{display:grid;grid-template-rows:repeat(3,minmax(0,1fr))}
+.cp-item{min-width:0;border-top:1px solid #777;padding:4mm 0;break-inside:avoid}
+.cp-item p{margin:0 0 3mm}
+.cp-rects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8mm;margin:0 0 3mm}
+.cp-rects span{display:block;font-size:10pt;margin-bottom:1mm}
+.cp-rects svg{display:block;width:100%;height:24mm}
+.cp-counts{font-size:12pt}
+.cp-comparison{display:flex;flex-wrap:wrap;align-items:center;gap:4mm;min-height:10mm}
+.cp-box{display:inline-block;width:9mm;height:9mm;border:1px solid black}
+.cp-comparison .frac{font-size:12pt}
+@media(max-width:500px){
+ .cp-sheet{padding:12px}
+ .cp-rects{gap:12px}
+ .cp-comparison{gap:10px}
+}
+@page cpLetter{size:letter portrait;margin:12.7mm}
+@media print{
+ #ae3Practica.active{display:block!important;page:cpLetter;min-height:0!important;padding:0!important}
+ #ae3Practica .topbar{display:none!important}
+ #ae3Practica .cp-sheet{width:190mm;height:250mm;padding:0;box-shadow:none;margin:0;display:grid;grid-template-rows:25mm 225mm;font:12pt Arial,Helvetica,sans-serif;line-height:1.2}
+ #ae3Practica .cp-header h2{font-size:12pt}
+ #ae3Practica .cp-items{grid-template-rows:repeat(3,75mm)}
+ #ae3Practica .cp-item{padding:4mm 0;overflow:visible}
+ #ae3Practica .cp-rects{gap:8mm}
+ #ae3Practica .cp-rects svg{height:24mm}
+}</style>
 </head>
 <body>
 
@@ -1124,7 +1210,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="sec-card" style="--c:var(--accent2)">
     <span class="sec-tag">Aprendizaje esperado 3</span>
     <h2 id="tAe3">Comparar las fracciones propias utilizando los símbolos &lt;, &gt; o =</h2>
-    <p class="pronto">Contenido en preparación.</p>
+    <div class="sec-buttons"><button class="btn btn-big" type="button" data-go="ae3Teoria">📘 Teoría</button><button class="btn btn-big" type="button" data-go="ae3Laboratorio">🧪 Laboratorio</button><button class="btn btn-big" type="button" data-go="ae3Practica">✏️ Práctica</button></div>
   </div>
 </section>
 
@@ -1139,6 +1225,205 @@ button{font:inherit;color:inherit;cursor:pointer}
   </div>
 </section>
 
+<section class="screen section" id="ae3Teoria" aria-labelledby="tAe3Teoria">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae3">↩️ Volver</button>
+  </div>
+  <div class="sec-card" style="--c:var(--accent2)">
+    <span class="sec-tag">Aprendizaje esperado 3 · Teoría</span>
+    <h2 id="tAe3Teoria">Comparar fracciones con el método gráfico</h2>
+    <p class="cg-text">¿Cuál fracción es mayor: <strong>2/3</strong> o <strong>5/8</strong>? Vamos a representar ambas usando cuadritos del mismo tamaño.</p>
+    <ol class="cg-steps">
+      <li><strong>Dibuja dos rectángulos del mismo tamaño.</strong> Cada rectángulo representa una unidad completa.</li>
+      <li><strong>Divide cada rectángulo en 3 partes iguales en forma vertical.</strong> Así obtienes 3 columnas.</li>
+      <li><strong>Divide cada rectángulo en 8 partes iguales en forma horizontal.</strong> Así obtienes 8 filas y un total de <strong>3 × 8 = 24 cuadritos iguales</strong> en cada rectángulo.</li>
+      <li><strong>Representa las fracciones.</strong> Para 2/3 pinta 2 de las 3 columnas. Para 5/8 pinta 5 de las 8 filas.</li>
+    </ol>
+    <div class="cg-grid">
+      <figure class="cg-figure">
+        <h3><span class="frac" aria-label="dos tercios"><span>2</span><span>3</span></span> · 2 columnas pintadas</h3>
+        <svg viewBox="0 0 300 320" role="img" aria-label="Dos tercios: 16 de 24 cuadritos pintados en dos columnas."><rect x="6" y="8" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="54" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">1</text><rect x="102" y="8" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="150" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">2</text><rect x="198" y="8" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="46" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="54" y="71" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">3</text><rect x="102" y="46" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="150" y="71" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">4</text><rect x="198" y="46" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="84" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="54" y="109" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">5</text><rect x="102" y="84" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="150" y="109" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">6</text><rect x="198" y="84" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="122" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="54" y="147" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">7</text><rect x="102" y="122" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="150" y="147" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">8</text><rect x="198" y="122" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="160" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="54" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">9</text><rect x="102" y="160" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="150" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">10</text><rect x="198" y="160" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="198" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="54" y="223" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">11</text><rect x="102" y="198" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="150" y="223" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">12</text><rect x="198" y="198" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="236" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="54" y="261" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">13</text><rect x="102" y="236" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="150" y="261" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">14</text><rect x="198" y="236" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="274" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="54" y="299" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">15</text><rect x="102" y="274" width="96" height="38" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="150" y="299" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">16</text><rect x="198" y="274" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/></svg>
+        <figcaption><strong>2 × 8 = 16 cuadritos</strong><br>2/3 = 16/24</figcaption>
+      </figure>
+      <figure class="cg-figure">
+        <h3><span class="frac" aria-label="cinco octavos"><span>5</span><span>8</span></span> · 5 filas pintadas</h3>
+        <svg viewBox="0 0 300 320" role="img" aria-label="Cinco octavos: 15 de 24 cuadritos pintados en cinco filas."><rect x="6" y="8" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="54" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">1</text><rect x="102" y="8" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="150" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">2</text><rect x="198" y="8" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="246" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">3</text><rect x="6" y="46" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="54" y="71" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">4</text><rect x="102" y="46" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="150" y="71" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">5</text><rect x="198" y="46" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="246" y="71" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">6</text><rect x="6" y="84" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="54" y="109" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">7</text><rect x="102" y="84" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="150" y="109" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">8</text><rect x="198" y="84" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="246" y="109" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">9</text><rect x="6" y="122" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="54" y="147" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">10</text><rect x="102" y="122" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="150" y="147" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">11</text><rect x="198" y="122" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="246" y="147" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">12</text><rect x="6" y="160" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="54" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">13</text><rect x="102" y="160" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="150" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">14</text><rect x="198" y="160" width="96" height="38" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="246" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#3a2618">15</text><rect x="6" y="198" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="102" y="198" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="198" y="198" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="236" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="102" y="236" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="198" y="236" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="6" y="274" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="102" y="274" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="198" y="274" width="96" height="38" fill="#fff" stroke="#3a2618" stroke-width="2"/></svg>
+        <figcaption><strong>5 × 3 = 15 cuadritos</strong><br>5/8 = 15/24</figcaption>
+      </figure>
+    </div>
+    <div class="cg-conclusion">
+      <h3>Cuenta y compara</h3>
+      <p>Los cuadritos tienen el mismo tamaño. Como <strong>16 &gt; 15</strong>, la parte pintada de 2/3 es mayor que la de 5/8.</p>
+      <p class="cg-equation" aria-label="Dos tercios es mayor que cinco octavos"><span class="frac"><span>2</span><span>3</span></span> <span class="cg-symbol"><svg class="cg-croc" viewBox="0 0 140 90" aria-hidden="true">
+ <path d="M119 45 Q119 31 102 27 L14 7 Q7 6 9 16 L90 44 L12 73 Q6 78 15 83 L103 62 Q120 58 119 45Z" fill="#79bd59" stroke="#31552a" stroke-width="3" stroke-linejoin="round"/>
+ <path d="M18 18 L22 29 L29 22 L34 34 L42 27 L47 39 L55 32 L60 44 L68 37 L76 47 L88 44 L77 54 L69 49 L63 61 L55 55 L49 67 L41 61 L35 73 L27 67 L22 77" fill="#fffbea" stroke="#31552a" stroke-width="1.5" stroke-linejoin="round"/>
+ <ellipse cx="107" cy="23" rx="10" ry="13" fill="#79bd59" stroke="#31552a" stroke-width="2"/>
+ <ellipse cx="107" cy="22" rx="6" ry="9" fill="white"/><circle cx="105" cy="23" r="3" fill="#172b16"/>
+ <circle cx="18" cy="12" r="2" fill="#31552a"/>
+</svg><span aria-hidden="true">&gt;</span></span> <span class="frac"><span>5</span><span>8</span></span></p>
+      <p><strong>Se lee: dos tercios es mayor que cinco octavos.</strong></p>
+    </div>
+    <h3>¿Qué símbolo usamos?</h3>
+    <ul class="cg-steps">
+      <li><strong>&gt; Mayor que:</strong> la fracción de la izquierda ocupa más cuadritos. Ejemplo: 2/3 &gt; 5/8.</li>
+      <li><strong>&lt; Menor que:</strong> la fracción de la izquierda ocupa menos cuadritos. Ejemplo: 5/8 &lt; 2/3.</li>
+      <li><strong>= Igual a:</strong> ambas ocupan la misma cantidad de cuadritos del mismo tamaño. Ejemplo: 1/2 = 4/8.</li>
+    </ul>
+    <p class="cg-text"><strong>Recuerda:</strong> compara unidades del mismo tamaño y cuadritos iguales. La abertura de &lt; o &gt; siempre mira hacia la fracción mayor.</p>
+    <div class="sec-buttons"><button class="btn btn-big" type="button" data-go="ae3OtroEjemplo">📘 Otro ejemplo</button></div>
+  </div>
+</section>
+<section class="screen section" id="ae3OtroEjemplo" aria-labelledby="tAe3OtroEjemplo">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae3Teoria">↩️ Volver a teoría</button>
+  </div>
+  <div class="sec-card" style="--c:var(--accent2)">
+    <span class="sec-tag">Aprendizaje esperado 3 · Otro ejemplo</span>
+    <h2 id="tAe3OtroEjemplo">Comparar 2/4 y 3/4 con cuadritos</h2>
+    <p class="cg-text">¿Qué símbolo corresponde entre <strong>2/4</strong> y <strong>3/4</strong>? Usemos el mismo método gráfico.</p>
+    <ol class="cg-steps">
+      <li><strong>Dibuja dos rectángulos del mismo tamaño.</strong> Cada uno representa una unidad completa.</li>
+      <li><strong>Divide cada rectángulo en 4 partes iguales en forma vertical.</strong> Así obtienes 4 columnas.</li>
+      <li><strong>Divide cada rectángulo en 4 partes iguales en forma horizontal.</strong> Así obtienes 4 filas. En cada rectángulo hay <strong>4 × 4 = 16 cuadritos iguales</strong>.</li>
+      <li><strong>Pinta las fracciones.</strong> Para 2/4 pinta 2 de las 4 columnas; para 3/4 pinta 3 de las 4 filas. La dirección cambia, pero la fracción representada se conserva.</li>
+    </ol>
+    <div class="cg-grid">
+      <figure class="cg-figure">
+        <h3><span class="frac" aria-label="dos cuartos"><span>2</span><span>4</span></span> · 2 columnas pintadas</h3>
+        <svg viewBox="0 0 304 304" role="img" aria-label="Dos cuartos: 8 de 16 cuadritos pintados en dos columnas."><rect x="8" y="8" width="72" height="72" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="44" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">1</text><rect x="80" y="8" width="72" height="72" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="116" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">2</text><rect x="152" y="8" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="224" y="8" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="8" y="80" width="72" height="72" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="44" y="124" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">3</text><rect x="80" y="80" width="72" height="72" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="116" y="124" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">4</text><rect x="152" y="80" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="224" y="80" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="8" y="152" width="72" height="72" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="44" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">5</text><rect x="80" y="152" width="72" height="72" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="116" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">6</text><rect x="152" y="152" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="224" y="152" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="8" y="224" width="72" height="72" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="44" y="268" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">7</text><rect x="80" y="224" width="72" height="72" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="116" y="268" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">8</text><rect x="152" y="224" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="224" y="224" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/></svg>
+        <figcaption><strong>2 × 4 = 8 cuadritos</strong><br>2/4 = 8/16</figcaption>
+      </figure>
+      <figure class="cg-figure">
+        <h3><span class="frac" aria-label="tres cuartos"><span>3</span><span>4</span></span> · 3 filas pintadas</h3>
+        <svg viewBox="0 0 304 304" role="img" aria-label="Tres cuartos: 12 de 16 cuadritos pintados en tres filas."><rect x="8" y="8" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="44" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">1</text><rect x="80" y="8" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="116" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">2</text><rect x="152" y="8" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="188" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">3</text><rect x="224" y="8" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="260" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">4</text><rect x="8" y="80" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="44" y="124" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">5</text><rect x="80" y="80" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="116" y="124" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">6</text><rect x="152" y="80" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="188" y="124" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">7</text><rect x="224" y="80" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="260" y="124" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">8</text><rect x="8" y="152" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="44" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">9</text><rect x="80" y="152" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="116" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">10</text><rect x="152" y="152" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="188" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">11</text><rect x="224" y="152" width="72" height="72" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="260" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#3a2618">12</text><rect x="8" y="224" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="80" y="224" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="152" y="224" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="224" y="224" width="72" height="72" fill="#fff" stroke="#3a2618" stroke-width="2"/></svg>
+        <figcaption><strong>3 × 4 = 12 cuadritos</strong><br>3/4 = 12/16</figcaption>
+      </figure>
+    </div>
+    <div class="cg-conclusion">
+      <h3>Cuenta y compara</h3>
+      <p>Los cuadritos tienen el mismo tamaño. Como <strong>8 &lt; 12</strong>, la parte pintada de 2/4 es menor que la de 3/4.</p>
+      <p class="cg-equation" aria-label="Dos cuartos es menor que tres cuartos"><span class="frac"><span>2</span><span>4</span></span> <span class="cg-symbol"><svg class="cg-croc cg-croc-right" viewBox="0 0 140 90" aria-hidden="true">
+ <path d="M119 45 Q119 31 102 27 L14 7 Q7 6 9 16 L90 44 L12 73 Q6 78 15 83 L103 62 Q120 58 119 45Z" fill="#79bd59" stroke="#31552a" stroke-width="3" stroke-linejoin="round"/>
+ <path d="M18 18 L22 29 L29 22 L34 34 L42 27 L47 39 L55 32 L60 44 L68 37 L76 47 L88 44 L77 54 L69 49 L63 61 L55 55 L49 67 L41 61 L35 73 L27 67 L22 77" fill="#fffbea" stroke="#31552a" stroke-width="1.5" stroke-linejoin="round"/>
+ <ellipse cx="107" cy="23" rx="10" ry="13" fill="#79bd59" stroke="#31552a" stroke-width="2"/>
+ <ellipse cx="107" cy="22" rx="6" ry="9" fill="white"/><circle cx="105" cy="23" r="3" fill="#172b16"/>
+ <circle cx="18" cy="12" r="2" fill="#31552a"/>
+</svg><span aria-hidden="true">&lt;</span></span> <span class="frac"><span>3</span><span>4</span></span></p>
+      <p><strong>Se lee: dos cuartos es menor que tres cuartos.</strong></p>
+    </div>
+    <p class="cg-text"><strong>Recuerda:</strong> la abertura del símbolo mira hacia la fracción mayor: 3/4. También podemos escribir <strong>3/4 &gt; 2/4</strong>.</p>
+    <div class="sec-buttons"><button class="btn btn-big" type="button" data-go="ae3IgualEjemplo">📘 Tercer ejemplo</button><button class="btn btn-ghost" type="button" data-go="ae3Teoria">Volver al primer ejemplo</button></div>
+  </div>
+</section>
+<section class="screen section" id="ae3IgualEjemplo" aria-labelledby="tAe3IgualEjemplo">
+  <div class="topbar">
+    <button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button>
+    <button class="btn btn-ghost" type="button" data-go="ae3OtroEjemplo">↩️ Volver al segundo ejemplo</button>
+  </div>
+  <div class="sec-card" style="--c:var(--accent2)">
+    <span class="sec-tag">Aprendizaje esperado 3 · Tercer ejemplo</span>
+    <h2 id="tAe3IgualEjemplo">Comparar 3/6 y 1/2 con cuadritos</h2>
+    <p class="cg-text">¿Cuál símbolo corresponde entre <strong>3/6</strong> y <strong>1/2</strong>? Contemos cuadritos del mismo tamaño.</p>
+    <ol class="cg-steps">
+      <li><strong>Dibuja dos rectángulos del mismo tamaño.</strong> Cada rectángulo representa una unidad completa.</li>
+      <li><strong>Divide cada rectángulo en 6 partes iguales en forma vertical.</strong> Obtienes 6 columnas.</li>
+      <li><strong>Divide cada rectángulo en 2 partes iguales en forma horizontal.</strong> Obtienes 2 filas y <strong>6 × 2 = 12 cuadritos iguales</strong> en cada rectángulo.</li>
+      <li><strong>Representa las fracciones.</strong> Para 3/6 pinta 3 de las 6 columnas. Para 1/2 pinta 1 de las 2 filas.</li>
+    </ol>
+    <div class="cg-grid">
+      <figure class="cg-figure">
+        <h3><span class="frac" aria-label="tres sextos"><span>3</span><span>6</span></span> · 3 columnas pintadas</h3>
+        <svg viewBox="0 0 304 112" role="img" aria-label="Tres sextos: 6 de 12 cuadritos pintados en tres columnas."><rect x="8" y="8" width="48" height="48" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="32" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">1</text><rect x="56" y="8" width="48" height="48" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="80" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">2</text><rect x="104" y="8" width="48" height="48" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="128" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">3</text><rect x="152" y="8" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="200" y="8" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="248" y="8" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="8" y="56" width="48" height="48" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="32" y="88" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">4</text><rect x="56" y="56" width="48" height="48" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="80" y="88" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">5</text><rect x="104" y="56" width="48" height="48" fill="#d9c6f3" stroke="#3a2618" stroke-width="2"/><text x="128" y="88" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">6</text><rect x="152" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="200" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="248" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/></svg>
+        <figcaption><strong>3 × 2 = 6 cuadritos</strong><br>3/6 = 6/12</figcaption>
+      </figure>
+      <figure class="cg-figure">
+        <h3><span class="frac" aria-label="un medio"><span>1</span><span>2</span></span> · 1 fila pintada</h3>
+        <svg viewBox="0 0 304 112" role="img" aria-label="Un medio: 6 de 12 cuadritos pintados en una fila."><rect x="8" y="8" width="48" height="48" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="32" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">1</text><rect x="56" y="8" width="48" height="48" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="80" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">2</text><rect x="104" y="8" width="48" height="48" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="128" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">3</text><rect x="152" y="8" width="48" height="48" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="176" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">4</text><rect x="200" y="8" width="48" height="48" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="224" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">5</text><rect x="248" y="8" width="48" height="48" fill="#bce8d0" stroke="#3a2618" stroke-width="2"/><text x="272" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#3a2618">6</text><rect x="8" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="56" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="104" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="152" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="200" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/><rect x="248" y="56" width="48" height="48" fill="#fff" stroke="#3a2618" stroke-width="2"/></svg>
+        <figcaption><strong>1 × 6 = 6 cuadritos</strong><br>1/2 = 6/12</figcaption>
+      </figure>
+    </div>
+    <div class="cg-conclusion">
+      <h3>Cuenta y compara</h3>
+      <p>Ambas figuras tienen <strong>6 cuadritos pintados de 12</strong>. Como <strong>6 = 6</strong>, las fracciones representan la misma cantidad.</p>
+      <p class="cg-equation" aria-label="Tres sextos es igual a un medio"><span class="frac"><span>3</span><span>6</span></span> = <span class="frac"><span>1</span><span>2</span></span></p>
+      <p><strong>Se lee: tres sextos es igual a un medio.</strong></p>
+    </div>
+    <p class="cg-text"><strong>Recuerda:</strong> aunque los números y la posición de los cuadritos pintados cambien, ambas fracciones ocupan la mitad de una unidad del mismo tamaño. Son <strong>fracciones equivalentes</strong>. Aquí usamos <strong>=</strong> porque ninguna es mayor.</p>
+    <div class="sec-buttons"><button class="btn btn-big" type="button" data-go="ae3Teoria">📘 Volver al primer ejemplo</button><button class="btn btn-ghost" type="button" data-go="ae3">↩️ Volver a sección 3</button></div>
+  </div>
+</section>
+<section class="screen section" id="ae3Laboratorio" aria-labelledby="tAe3Laboratorio">
+ <div class="topbar"><button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button><button class="btn btn-ghost" type="button" data-go="ae3">↩️ Volver</button></div>
+ <div class="sec-card" style="--c:var(--accent2)">
+  <span class="sec-tag">Aprendizaje esperado 3 · Laboratorio</span>
+  <h2 id="tAe3Laboratorio">Comparar en situaciones cotidianas</h2>
+  <div class="sec-buttons" aria-label="Elegir problema">
+   <button class="btn btn-ghost" type="button" data-lc-item="0">1. Agua</button>
+   <button class="btn btn-ghost" type="button" data-lc-item="1">2. Carrera</button>
+   <button class="btn btn-ghost" type="button" data-lc-item="2">3. Receta</button>
+  </div>
+  <h3 id="lcTitle"></h3>
+  <div class="cg-conclusion" id="lcProblem"></div>
+  <p class="cg-text" id="lcUnit"></p>
+  <div class="sec-buttons labcmp-controls">
+   <button class="btn btn-big" type="button" id="lcVertical">1. Dividir verticalmente</button>
+   <button class="btn btn-big" type="button" id="lcHorizontal" disabled>2. Dividir horizontalmente</button>
+   <button class="btn btn-big" type="button" id="lcPintar" disabled>3. Pintar</button>
+  </div>
+  <p id="lcStatus" class="cg-text" role="status"></p>
+  <div class="cg-grid">
+   <figure class="cg-figure"><h3 id="lcNameA"></h3><div class="lc-board" id="lcDavid"></div><figcaption id="lcCountDavid"></figcaption></figure>
+   <figure class="cg-figure"><h3 id="lcNameB"></h3><div class="lc-board" id="lcLuisa"></div><figcaption id="lcCountLuisa"></figcaption></figure>
+  </div>
+  <label class="cg-text" for="lcSymbol"><strong>4. Selecciona el símbolo para comparar:</strong></label>
+  <div class="lc-answer"><span id="lcFractionA"></span>
+   <select id="lcSymbol" aria-label="Símbolo para comparar las fracciones"><option value="">?</option><option value=">">&gt; Mayor que</option><option value="<">&lt; Menor que</option><option value="=">= Igual a</option></select>
+   <span id="lcFractionB"></span>
+  </div>
+  <fieldset id="lcWho" class="lc-who" hidden>
+   <legend id="lcWhoQuestion">5. Selecciona tu respuesta:</legend>
+   <div class="sec-buttons">
+    <button class="btn btn-ghost" type="button" id="lcChoiceA" aria-pressed="false"></button>
+    <button class="btn btn-ghost" type="button" id="lcChoiceB" aria-pressed="false"></button>
+    <button class="btn btn-ghost" type="button" id="lcChoiceEqual" aria-pressed="false">Ambos por igual</button>
+   </div>
+  </fieldset>
+  <div class="sec-buttons"><button class="btn btn-big" type="button" id="lcCheck">Comprobar</button><button class="btn btn-ghost" type="button" id="lcReset">↻ Reiniciar</button><button class="btn btn-ghost" type="button" id="lcNext">Otro ejemplo →</button></div>
+  <div id="lcFeedback" class="lc-feedback" role="status" aria-live="polite"></div>
+ </div>
+</section>
+<section class="screen section" id="ae3Practica" aria-labelledby="tAe3Practica">
+ <div class="topbar"><button class="btn btn-ghost" type="button" data-home>🏠 Inicio</button><button class="btn btn-ghost" type="button" data-go="ae3">↩️ Volver</button><button class="btn btn-big" type="button" id="cpPrint">🖨️ Imprimir en hoja carta</button><button class="btn btn-ghost" type="button" id="cpAnother">↻ Otra práctica</button></div>
+ <p id="cpGenerated" class="no-print" role="status" aria-live="polite"></p><div class="cp-sheet">
+  <header class="cp-header">
+   <h2 id="tAe3Practica">Práctica: comparación de fracciones</h2>
+   <p>Nombre: __________________________________ Fecha: ______________</p>
+   <p>Divide y pinta los rectángulos. Cuenta los cuadritos, escribe &lt;, &gt; o = y responde.</p>
+  </header>
+  <div class="cp-items">
+   <article class="cp-item">
+    <p><strong>1. Agua después de correr.</strong> David y Luisa llevan cada uno una botella con 1000 mL de agua. David tomó 4/5 del agua de su botella y Luisa tomó 5/6 de la suya. ¿Quién tomó más agua?</p>
+    <div class="cp-rects"><div><span>Primera fracción</span><svg viewBox="0 0 240 75" role="img" aria-label="Rectángulo vacío para representar la primera fracción"><rect x="2" y="2" width="236" height="71" fill="white" stroke="black" stroke-width="2"/></svg></div><div><span>Segunda fracción</span><svg viewBox="0 0 240 75" role="img" aria-label="Rectángulo vacío para representar la segunda fracción"><rect x="2" y="2" width="236" height="71" fill="white" stroke="black" stroke-width="2"/></svg></div></div>
+    <p class="cp-counts">David: ______ cuadritos. Luisa: ______ cuadritos.</p>
+    <p class="cp-comparison"><span class="frac"><span>4</span><span>5</span></span><span class="cp-box"></span><span class="frac"><span>5</span><span>6</span></span><span>Respuesta: __________________________</span></p>
+   </article>
+   <article class="cp-item">
+    <p><strong>2. La meta del martes.</strong> Manuel y Jorge tienen una meta diaria de 4 km. El martes Manuel recorrió 2/3 de la meta y Jorge recorrió 5/8 de la misma meta. ¿Quién recorrió más kilómetros ese día?</p>
+    <div class="cp-rects"><div><span>Primera fracción</span><svg viewBox="0 0 240 75" role="img" aria-label="Rectángulo vacío para representar la primera fracción"><rect x="2" y="2" width="236" height="71" fill="white" stroke="black" stroke-width="2"/></svg></div><div><span>Segunda fracción</span><svg viewBox="0 0 240 75" role="img" aria-label="Rectángulo vacío para representar la segunda fracción"><rect x="2" y="2" width="236" height="71" fill="white" stroke="black" stroke-width="2"/></svg></div></div>
+    <p class="cp-counts">Manuel: ______ cuadritos. Jorge: ______ cuadritos.</p>
+    <p class="cp-comparison"><span class="frac"><span>2</span><span>3</span></span><span class="cp-box"></span><span class="frac"><span>5</span><span>8</span></span><span>Respuesta: __________________________</span></p>
+   </article>
+   <article class="cp-item">
+    <p><strong>3. Una receta de panqueques.</strong> Ana y Luis tienen cada uno una jarra con un litro de leche. Ana utilizó 3/6 de su litro y Luis utilizó 1/2 del suyo. ¿Quién utilizó más leche o utilizaron la misma cantidad?</p>
+    <div class="cp-rects"><div><span>Primera fracción</span><svg viewBox="0 0 240 75" role="img" aria-label="Rectángulo vacío para representar la primera fracción"><rect x="2" y="2" width="236" height="71" fill="white" stroke="black" stroke-width="2"/></svg></div><div><span>Segunda fracción</span><svg viewBox="0 0 240 75" role="img" aria-label="Rectángulo vacío para representar la segunda fracción"><rect x="2" y="2" width="236" height="71" fill="white" stroke="black" stroke-width="2"/></svg></div></div>
+    <p class="cp-counts">Ana: ______ cuadritos. Luis: ______ cuadritos.</p>
+    <p class="cp-comparison"><span class="frac"><span>3</span><span>6</span></span><span class="cp-box"></span><span class="frac"><span>1</span><span>2</span></span><span>Respuesta: __________________________</span></p>
+   </article>
+  </div>
+ </div>
+</section>
 <section class="screen section" id="problemas" aria-labelledby="tProb">
   <div class="prob">
     <div class="topbar">
@@ -2442,5 +2727,158 @@ $('#pracPrint').addEventListener('click', () => window.print());
 $('#pracPdf').addEventListener('click', () => downloadBlob(pracPDF(prIt), `Fracciones propias - Práctica ítem ${prN}.pdf`));
 renderPrac();
 </script>
-</body>
+<script>
+/* Laboratorio: comparación contextualizada y selección de personas */
+(function(){
+ const q=id=>document.getElementById(id);
+ const items=[
+  {names:['David','Luisa'],a:4,b:5,c:5,d:6,title:'¿Quién tomó más agua?',question:'¿Quién ha tomado más agua?',unit:'Cada rectángulo representa una botella completa de 1000 mililitros.',
+   problem:'David y Luisa salen a correr todos los días después de su trabajo. Cada uno lleva una botella con <strong>1000 mililitros de agua</strong>. Al final de la carrera, David consumió <strong>cuatro quintos (4/5)</strong> del agua y Luisa <strong>cinco sextos (5/6)</strong>.',
+   result:'Luisa tomó más agua.',extra:'David tomó 800 mL y Luisa aproximadamente 833,33 mL.'},
+  {names:['Manuel','Jorge'],a:2,b:3,c:5,d:8,title:'La meta del martes',question:'¿Quién recorrió más kilómetros ese día?',unit:'Cada rectángulo representa la misma meta completa: 4 kilómetros.',
+   problem:'Manuel y Jorge salen a correr después de su trabajo. Su meta diaria es recorrer <strong>cuatro kilómetros</strong>. El martes Manuel recorrió <strong>dos tercios (2/3)</strong> de la meta y Jorge <strong>cinco octavos (5/8)</strong>.',
+   result:'Manuel recorrió más kilómetros ese día.',extra:'Manuel recorrió aproximadamente 2,67 km y Jorge 2,5 km. Ambos tenían una meta de 4 km.'},
+  {names:['Ana','Luis'],a:3,b:6,c:1,d:2,title:'Una receta para compartir',question:'¿Quién utilizó más leche para preparar su receta?',unit:'Cada rectángulo representa un litro completo de leche.',
+   problem:'Ana y Luis preparan una receta de panqueques. Cada uno tiene una jarra con <strong>un litro de leche</strong>. Ana utiliza <strong>tres sextos (3/6)</strong> de su litro y Luis utiliza <strong>un medio (1/2)</strong> del suyo.',
+   result:'Ambos utilizaron la misma cantidad de leche.',extra:'Ana y Luis utilizaron medio litro de leche cada uno: 500 mL. Las fracciones 3/6 y 1/2 son equivalentes.'}
+ ];
+ let index=0,vertical=false,horizontal=false,painting=false,choice='';
+ const columns=new Set(),rows=new Set();
+ const frac=(n,d)=>'<span class="frac" aria-label="'+n+' sobre '+d+'"><span>'+n+'</span><span>'+d+'</span></span>';
+ function msg(t){q('lcFeedback').textContent=t}
+ function updateWho(){
+  const it=items[index];
+  q('lcWho').hidden=!painting;
+ }
+ function render(){
+  const it=items[index],total=it.b*it.d;
+  for(let side=0;side<2;side++){
+   const who=side?'Luisa':'David',set=side?rows:columns;
+   let svg='<svg viewBox="0 0 '+(it.b*60)+' '+(it.d*60)+'" role="img" aria-label="'+it.names[side]+': '+set.size*(side?it.b:it.d)+' cuadritos pintados de '+total+'"><rect width="100%" height="100%" fill="#fff"/>';
+   if(painting)for(let r=0;r<it.d;r++)for(let c=0;c<it.b;c++)if(set.has(side?r:c))
+    svg+='<rect class="lc-fill" x="'+c*60+'" y="'+r*60+'" width="60" height="60" fill="'+(side?'#ffb66e':'#ffe680')+'"/>';
+   if(vertical)for(let c=1;c<it.b;c++)svg+='<line pathLength="1" class="lc-gridline" x1="'+c*60+'" y1="0" x2="'+c*60+'" y2="'+it.d*60+'" stroke="#3a2618" stroke-width="2"/>';
+   if(horizontal)for(let r=1;r<it.d;r++)svg+='<line pathLength="1" class="lc-gridline" x1="0" y1="'+r*60+'" x2="'+it.b*60+'" y2="'+r*60+'" stroke="#3a2618" stroke-width="2"/>';
+   svg+='<rect x="1.5" y="1.5" width="'+(it.b*60-3)+'" height="'+(it.d*60-3)+'" fill="none" stroke="#3a2618" stroke-width="3"/></svg>';
+   let overlay='';
+   if(painting){
+    overlay='<div class="lc-overlay" style="'+(side?'grid-template-rows:repeat('+it.d+',minmax(0,1fr))':'grid-template-columns:repeat('+it.b+',minmax(0,1fr))')+'">';
+    for(let i=0;i<(side?it.d:it.b);i++)overlay+='<button class="lc-stripe" type="button" data-index="'+i+'" aria-label="'+(set.has(i)?'Quitar pintura de ':'Pintar ')+(side?'fila ':'columna ')+(i+1)+' de '+it.names[side]+'" aria-pressed="'+set.has(i)+'"></button>';
+    overlay+='</div>';
+   }
+   q('lc'+who).style.aspectRatio=(it.b/it.d<1?'1/1':it.b+'/'+it.d);
+   q('lc'+who).style.minHeight='0';
+   q('lc'+who).innerHTML=svg+overlay;
+   q('lc'+who).querySelector('svg').setAttribute('preserveAspectRatio','none');
+   let tools=q('lcTools'+who);
+   if(!tools){
+    tools=document.createElement('div');tools.id='lcTools'+who;tools.className='lc-paint-tools';
+    q('lc'+who).after(tools);
+    tools.addEventListener('click',e=>{
+     const bt=e.target.closest('button[data-index]');if(!bt||!painting)return;
+     const i=Number(bt.dataset.index),set=who==='David'?columns:rows;
+     if(set.has(i))set.delete(i);else set.add(i);
+     msg('');render();q('lcTools'+who).querySelector('[data-index="'+i+'"]').focus({preventScroll:true});
+    });
+   }
+   tools.hidden=!painting;
+   tools.innerHTML=painting?'<p>'+ (side?'Filas':'Columnas') +':</p><div class="lc-paint-buttons">'+Array.from({length:side?it.d:it.b},(_,i)=>'<button type="button" data-index="'+i+'" aria-label="'+(set.has(i)?'Quitar pintura de ':'Pintar ')+(side?'fila ':'columna ')+(i+1)+' de '+it.names[side]+'" aria-pressed="'+set.has(i)+'">'+(i+1)+'</button>').join('')+'</div>':'';
+   q('lcCount'+who).textContent=painting?set.size+' de '+(side?it.d:it.b)+' '+(side?'filas':'columnas')+' · '+set.size*(side?it.b:it.d)+' de '+total+' cuadritos pintados':'Unidad completa del mismo tamaño';
+  }
+  q('lcVertical').disabled=vertical;
+  q('lcHorizontal').disabled=!vertical||horizontal;
+  q('lcPintar').disabled=!horizontal||painting;
+  updateWho();
+ }
+ function reset(){
+  const it=items[index];
+  vertical=false;horizontal=false;painting=false;choice='';columns.clear();rows.clear();q('lcSymbol').value='';msg('');
+  q('lcTitle').textContent=it.title;
+  q('lcNext').disabled=index===items.length-1;
+  q('lcProblem').innerHTML='<p>'+it.problem+'</p><p><strong>'+it.question+'</strong></p>';
+  q('lcUnit').textContent=it.unit+' Divide y pinta para comparar.';
+  q('lcNameA').innerHTML=it.names[0]+' · '+frac(it.a,it.b);
+  q('lcNameB').innerHTML=it.names[1]+' · '+frac(it.c,it.d);
+  q('lcFractionA').innerHTML=frac(it.a,it.b);q('lcFractionB').innerHTML=frac(it.c,it.d);
+  q('lcWhoQuestion').textContent='5. '+it.question;
+  q('lcChoiceA').textContent=it.names[0];q('lcChoiceB').textContent=it.names[1];
+  for(const id of ['lcChoiceA','lcChoiceB','lcChoiceEqual'])q(id).setAttribute('aria-pressed','false');
+  document.querySelectorAll('[data-lc-item]').forEach(bt=>bt.setAttribute('aria-pressed',String(Number(bt.dataset.lcItem)===index)));
+  q('lcStatus').textContent='Empieza dividiendo ambos rectángulos en '+it.b+' columnas iguales.';
+  render();
+ }
+ q('lcVertical').addEventListener('click',()=>{vertical=true;render();q('lcStatus').textContent='Ahora hay '+items[index].b+' columnas en cada rectángulo. Divide horizontalmente para formar '+items[index].d+' filas.'});
+ q('lcHorizontal').addEventListener('click',()=>{horizontal=true;render();const it=items[index];q('lcStatus').textContent='Cada rectángulo tiene '+it.b+' × '+it.d+' = '+it.b*it.d+' cuadritos iguales. Toca Pintar.'});
+ q('lcPintar').addEventListener('click',()=>{painting=true;render();const it=items[index];q('lcStatus').textContent='Toca '+it.a+' columnas en '+it.names[0]+' y '+it.c+' filas en '+it.names[1]+'. Vertical: amarillo; horizontal: anaranjado. Cada toque agrega o quita pintura. Luego elige el símbolo y selecciona una respuesta con los nombres.'});
+ for(const who of ['David','Luisa'])q('lc'+who).addEventListener('click',e=>{
+  const bt=e.target.closest('button[data-index]');if(!bt||!painting)return;
+  const i=Number(bt.dataset.index),set=who==='David'?columns:rows;
+  if(set.has(i))set.delete(i);else set.add(i);
+  msg('');render();q('lc'+who).querySelector('[data-index="'+i+'"]').focus({preventScroll:true});
+ });
+ q('lcSymbol').addEventListener('change',()=>{msg('');updateWho()});
+ for(const [id,value] of [['lcChoiceA','A'],['lcChoiceB','B'],['lcChoiceEqual','equal']])q(id).addEventListener('click',()=>{
+  choice=value;msg('');
+  for(const [bid,bvalue] of [['lcChoiceA','A'],['lcChoiceB','B'],['lcChoiceEqual','equal']])q(bid).setAttribute('aria-pressed',String(choice===bvalue));
+ });
+ q('lcCheck').addEventListener('click',()=>{
+  const it=items[index],left=it.a*it.d,right=it.c*it.b,total=it.b*it.d;
+  const symbol=left>right?'>':left<right?'<':'=',winner=left>right?'A':left<right?'B':'equal';
+  if(!painting){msg('Primero divide vertical y horizontalmente. Luego toca Pintar.');return}
+  if(columns.size!==it.a||rows.size!==it.c){msg('Revisa la pintura: '+it.names[0]+' necesita '+it.a+' columnas y '+it.names[1]+' necesita '+it.c+' filas.');return}
+  if(!q('lcSymbol').value){msg('Elige un símbolo en el cuadro entre las fracciones.');q('lcSymbol').focus();return}
+  if(q('lcSymbol').value!==symbol){msg('Revisa el símbolo: '+it.names[0]+' tiene '+left+' cuadritos pintados y '+it.names[1]+' tiene '+right+'. Compara esas cantidades.');return}
+  if(!choice){msg('Ahora toca un nombre o selecciona Ambos por igual.');return}
+  if(choice!==winner){msg('Revisa los nombres: '+it.names[0]+' representa '+left+' cuadritos y '+it.names[1]+' representa '+right+'. '+(symbol==='='?'Las cantidades son iguales.':'Elige a quien tiene más cuadritos pintados.'));return}
+  const escaped=symbol==='<'?'&lt;':symbol==='>'?'&gt;':'=';
+  q('lcFeedback').innerHTML='<div class="cg-conclusion"><strong>¡Correcto! '+it.result+'</strong><p>'+it.names[0]+': '+it.a+' × '+it.d+' = <strong>'+left+' cuadritos</strong>. '+it.names[1]+': '+it.c+' × '+it.b+' = <strong>'+right+' cuadritos</strong>.</p><p>'+it.a+'/'+it.b+' = '+left+'/'+total+' y '+it.c+'/'+it.d+' = '+right+'/'+total+'. Por eso, <strong>'+it.a+'/'+it.b+' '+escaped+' '+it.c+'/'+it.d+'</strong>.</p><p>'+it.extra+'</p></div>';
+ });
+ q('lcReset').addEventListener('click',()=>{reset();q('lcVertical').focus()});
+ q('lcNext').addEventListener('click',()=>{if(index>=items.length-1)return;index++;reset();q('lcTitle').setAttribute('tabindex','-1');q('lcTitle').focus()});
+ document.querySelectorAll('[data-lc-item]').forEach(bt=>bt.addEventListener('click',()=>{index=Number(bt.dataset.lcItem);reset()}));
+ reset();
+})();
+</script><script>document.getElementById("cpPrint").addEventListener("click",function(){window.print();});</script><script>
+(function(){
+ const contexts=[
+  {title:'Una caminata',names:['Sofía','Diego'],story:'Sofía y Diego planean caminar 6 km cada uno. Sofía recorrió {a} de su meta y Diego {b} de la suya.',question:'¿Quién recorrió más distancia o recorrieron lo mismo?'},
+  {title:'Jugo para la merienda',names:['Elena','Pablo'],story:'Elena y Pablo tienen cada uno una botella con un litro de jugo. Elena sirvió {a} de su botella y Pablo {b} de la suya.',question:'¿Quién sirvió más jugo o sirvieron la misma cantidad?'},
+  {title:'Una receta de galletas',names:['María','José'],story:'María y José tienen cada uno una taza llena de avena. María utilizó {a} de su taza y José {b} de la suya.',question:'¿Quién utilizó más avena o utilizaron lo mismo?'},
+  {title:'Pintar un mural',names:['Laura','Andrés'],story:'Laura y Andrés pintan dos paredes del mismo tamaño. Laura pintó {a} de su pared y Andrés {b} de la suya.',question:'¿Quién pintó más superficie o pintaron lo mismo?'},
+  {title:'Preparar una ensalada',names:['Valeria','Mateo'],story:'Valeria y Mateo tienen cada uno un pepino del mismo tamaño. Valeria usó {a} de su pepino y Mateo {b} del suyo.',question:'¿Quién usó más pepino o usaron la misma cantidad?'},
+  {title:'Agua para las plantas',names:['Camila','Daniel'],story:'Camila y Daniel tienen cada uno una regadera con dos litros de agua. Camila utilizó {a} del agua y Daniel {b} de la suya.',question:'¿Quién utilizó más agua o utilizaron lo mismo?'},
+  {title:'Leer un cuento',names:['Isabel','Tomás'],story:'Isabel y Tomás leen ejemplares del mismo cuento de 24 páginas. Isabel leyó {a} del cuento y Tomás {b}.',question:'¿Quién leyó más páginas o leyeron lo mismo?'}
+ ];
+ const pairs=[
+  [[1,2],[2,3]],[[2,5],[3,4]],[[3,4],[2,3]],[[4,5],[3,5]],
+  [[5,6],[3,4]],[[2,3],[3,5]],[[1,2],[2,4]],[[2,3],[4,6]],
+  [[3,4],[6,8]],[[2,4],[3,6]],[[3,5],[2,5]],[[1,3],[1,2]]
+ ];
+ const shuffle=a=>a.map(v=>({v,r:Math.random()})).sort((a,b)=>a.r-b.r).map(o=>o.v);
+ const fractions=(x)=>'<span class="frac"><span>'+x[0]+'</span><span>'+x[1]+'</span></span>';
+ const text=x=>x[0]+'/'+x[1];
+ const originalRects=document.querySelector('#ae3Practica .cp-rects').outerHTML;
+ let previousContexts=new Set(),previousPairs=new Set();
+ document.getElementById('cpAnother').addEventListener('click',()=>{
+  const pool=contexts.map((_,i)=>i).filter(i=>!previousContexts.has(i));
+  const chosen=shuffle(pool).slice(0,3);
+  // Una comparación menor, una mayor y una igualdad en cada hoja.
+  const relation=p=>Math.sign(p[0][0]*p[1][1]-p[1][0]*p[0][1]);
+  const chosenPairs=shuffle([-1,1,0]).map(sign=>{
+   let options=pairs.map((_,i)=>i).filter(i=>relation(pairs[i])===sign&&!previousPairs.has(i));
+   if(!options.length)options=pairs.map((_,i)=>i).filter(i=>relation(pairs[i])===sign);
+   return shuffle(options)[0];
+  });
+  previousContexts=new Set(chosen);previousPairs=new Set(chosenPairs);
+  document.querySelector('#ae3Practica .cp-items').innerHTML=chosen.map((ci,i)=>{
+   const ctx=contexts[ci],[a,b]=pairs[chosenPairs[i]];
+   const story=ctx.story.replace('{a}',text(a)).replace('{b}',text(b));
+   return '<article class="cp-item"><p><strong>'+(i+1)+'. '+ctx.title+'.</strong> '+story+' '+ctx.question+'</p>'+originalRects+
+    '<p class="cp-counts">'+ctx.names[0]+': ______ cuadritos. '+ctx.names[1]+': ______ cuadritos.</p>'+
+    '<p class="cp-comparison">'+fractions(a)+'<span class="cp-box"></span>'+fractions(b)+'<span>Respuesta: __________________________</span></p></article>';
+  }).join('');
+  document.getElementById('cpGenerated').textContent='Nueva práctica lista: tres ejercicios para resolver e imprimir.';
+ });
+})();
+</script></body>
 </html>
