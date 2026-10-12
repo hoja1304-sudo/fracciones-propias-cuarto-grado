@@ -503,7 +503,45 @@ button{font:inherit;color:inherit;cursor:pointer}
  #ae3Practica .cp-rects{gap:8mm}
  #ae3Practica .cp-rects svg{height:24mm}
 }</style>
-</head>
+<style>
+#grafPractica{font-family:Arial,Helvetica,sans-serif;font-size:clamp(16px,1.2vw,19px)}
+.gp-item{margin:24px 0;padding:18px;border:1px solid var(--line);border-radius:18px;break-inside:avoid}
+.gp-item h3{font-size:1.1em;line-height:1.5;margin:0 0 16px}
+.gp-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.gp-option{position:relative;display:flex;align-items:center;gap:8px;min-height:100px;min-width:0;padding:12px;border:2px solid var(--line);border-radius:16px;background:var(--panel);cursor:pointer}
+.gp-option input{position:absolute;opacity:0;width:1px;height:1px}
+.gp-dot{flex:0 0 24px;width:24px;height:24px;border:2px solid var(--soft);border-radius:50%;display:grid;place-items:center}
+.gp-option input:checked + .gp-dot::after{content:'';width:12px;height:12px;border-radius:50%;background:var(--blue)}
+.gp-option:has(input:checked){border-color:var(--blue)}
+.gp-option:focus-within{outline:3px solid var(--gold);outline-offset:3px}
+.gp-option.is-correct{border-color:var(--accent2)}
+.gp-option.is-correct .gp-dot{border-color:var(--accent2)}
+.gp-option.is-correct .gp-dot::after{content:'✓';font-weight:bold;color:var(--accent2);background:none!important;width:auto!important;height:auto!important}
+.gp-option.is-wrong{border-color:var(--accent)}
+.gp-option.is-wrong .gp-dot::after{content:'✕';color:var(--accent);font-weight:bold;background:none!important;width:auto!important;height:auto!important}
+.gp-figure{flex:1;min-width:0;display:grid;place-items:center;gap:6px}
+.gp-figure svg{width:100%;height:110px;max-width:180px}
+.gp-result{font-weight:700;font-size:1rem;text-align:center}
+.is-correct .gp-result{color:var(--accent2)}
+.is-wrong .gp-result{color:var(--accent)}
+.gp-feedback{line-height:1.6;background:var(--panel2);padding:14px;border-radius:14px;margin-top:14px}
+@media(max-width:600px){.gp-options{grid-template-columns:1fr}.gp-figure svg{height:105px}.gp-item{padding:12px}.gp-option{min-height:130px}}
+@page gpLetter{size:letter;margin:15mm}
+@media print{
+ #grafPractica.active{display:block!important;page:gpLetter;min-height:0;padding:0}
+ #grafPractica .sec-card{width:100%;color:#000;background:#fff!important}
+ #grafPractica,#grafPractica h2,#grafPractica h3,#grafPractica p,#grafPractica strong,#grafPractica .gp-option{font-family:Arial,Helvetica,sans-serif!important;font-size:12pt!important;line-height:1.25}
+ #grafPractica .sec-tag,.gp-feedback,.gp-result,#gpScore{display:none!important}
+ .gp-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:3mm}
+ .gp-item{padding:2mm;margin:3mm 0;border-color:#777}
+ .gp-item h3{margin:0 0 2mm}
+ .gp-option{background:white!important;border:1px solid #222!important;padding:2mm;min-height:0}
+ .gp-figure svg{height:23mm;max-width:40mm}
+ .gp-dot{width:5mm;height:5mm;flex-basis:5mm;border-color:#222}
+ .gp-dot::after{display:none!important}
+}
+</style>
+<script>/* voz espanol neutro (seseo) */(function(){if(!window.SpeechSynthesisUtterance||window.__seseo)return;window.__seseo=1;function s(t){return t==null?t:(""+t).replace(/z/g,"s").replace(/Z/g,"S").replace(/c(?=[eiéíEIÉÍ])/g,"s").replace(/C(?=[eiéíEIÉÍ])/g,"S");}try{var p=SpeechSynthesisUtterance.prototype,d=Object.getOwnPropertyDescriptor(p,"text");if(d&&d.set&&d.get){Object.defineProperty(p,"text",{configurable:true,enumerable:d.enumerable,get:d.get,set:function(v){d.set.call(this,s(v));}});}}catch(e){}var O=window.SpeechSynthesisUtterance;function N(t){return arguments.length?new O(s(t)):new O();}N.prototype=O.prototype;try{window.SpeechSynthesisUtterance=N;}catch(e){}})();</script></head>
 <body>
 
 <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo oscuro">🌙</button>
@@ -930,7 +968,14 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="sec-card" style="--c:var(--blue)">
     <span class="sec-tag">Representación gráfica · Práctica</span>
     <h2 id="tGrafPra">✏️ Práctica</h2>
-    <p class="pronto">Contenido en preparación.</p>
+    <p>Selecciona una representación gráfica en cada ítem y pulsa «Revisar». Las partes coloreadas o los elementos marcados representan la fracción indicada.</p>
+    <div id="gpItems"></div>
+    <div class="sec-buttons no-print">
+      <button class="btn btn-big" type="button" id="gpReview">✓ Revisar</button>
+      <button class="btn btn-ghost" type="button" id="gpAnother">🔄 Otra práctica</button>
+      <button class="btn btn-purple" type="button" id="gpPrint">🖨️ Imprimir</button>
+      <span id="gpScore" role="status" aria-live="polite">Puntaje: —/4</span>
+    </div>
   </div>
 </section>
 <section class="screen section" id="repLiteral" aria-labelledby="trepLiteral">
@@ -2879,6 +2924,80 @@ renderPrac();
   }).join('');
   document.getElementById('cpGenerated').textContent='Nueva práctica lista: tres ejercicios para resolver e imprimir.';
  });
+})();
+</script>
+<script>
+/* Práctica gráfica: cuatro ítems y tres opciones por ítem. */
+(() => {
+  let items = [], first = true;
+  const letters = ['A','B','C'];
+  const target = document.getElementById('gpItems');
+  const score = document.getElementById('gpScore');
+  const review = document.getElementById('gpReview');
+  function graphic(a,b,type){
+    if(type==='circle'||type==='bar') return simFigHTML({tipo:type==='circle'?'circ':'rect',a,b,sel:Array.from({length:a},(_,i)=>i)});
+    let shapes = '';
+    const cols=type==='grid'&&b===9?3:Math.min(b,4), rows=Math.ceil(b/cols);
+    for(let i=0;i<b;i++){
+      const x=12+(i%cols)*42,y=12+Math.floor(i/cols)*42;
+      const fill=i<a?'#f08a3c':'#ffffff';
+      shapes+=type==='group'?`<circle cx="${x+18}" cy="${y+18}" r="15" fill="${fill}" stroke="#222" stroke-width="2"/>`:`<rect x="${x}" y="${y}" width="42" height="42" fill="${fill}" stroke="#222" stroke-width="2"/>`;
+    }
+    return `<svg viewBox="0 0 ${cols*42+24} ${rows*42+24}" role="img" aria-label="${b} ${type==='group'?'elementos':'partes iguales'}, ${a} coloreados">${shapes}</svg>`;
+  }
+  function fresh(){
+    const initial=[[2,3],[2,9],[3,4],[3,8]], types=['circle','grid','bar','group'];
+    const previous=items;
+    items=types.map((type,i)=>{
+      let a,b;
+      if(first) [a,b]=initial[i];
+      else do{b=type==='grid'?[4,6,9,12][azar(0,3)]:azar(3,10);a=azar(1,b-1);}while(previous[i]&&previous[i].a===a&&previous[i].b===b);
+      const candidates=[];
+      for(let d=3;d<=12;d++)for(let n=1;n<d;n++)if(n*b!==a*d)candidates.push([n,d]);
+      const selected=[[a,b]];
+      for(const pair of mezclar(candidates)){
+        if(selected.every(([n,d])=>n*pair[1]!==pair[0]*d))selected.push(pair);
+        if(selected.length===3)break;
+      }
+      return {a,b,type,options:mezclar(selected)};
+    });
+    first=false;
+    target.innerHTML=items.map((it,i)=>{
+      const fraction=i%2===0?lectura(it.a,it.b):rich(`[${it.a}/${it.b}]`);
+      return `<article class="gp-item" id="gpItem${i}"><h3 id="gpTitle${i}">${i+1}. ¿Cuál es la representación gráfica de ${fraction}?</h3><div class="gp-options" role="radiogroup" aria-labelledby="gpTitle${i}">${it.options.map(([a,b],j)=>`<label class="gp-option"><input type="radio" name="gp${i}" value="${j}" aria-label="Opción ${letters[j]}"><span class="gp-dot" aria-hidden="true"></span><span class="gp-figure"><strong>${letters[j]})</strong>${graphic(a,b,it.type)}</span></label>`).join('')}</div><div class="gp-feedback" hidden></div></article>`;
+    }).join('');
+    score.textContent='Puntaje: —/4';review.disabled=false;
+  }
+  review.addEventListener('click',()=>{
+    const answers=items.map((_,i)=>target.querySelector(`input[name="gp${i}"]:checked`));
+    const missing=answers.findIndex(x=>!x);
+    if(missing!==-1){score.textContent='Selecciona una opción en cada ítem antes de revisar.';target.querySelector(`input[name="gp${missing}"]`).focus();return;}
+    let correct=0;
+    items.forEach((it,i)=>{
+      const article=document.getElementById(`gpItem${i}`);
+      const key=it.options.findIndex(([a,b])=>a===it.a&&b===it.b), answer=Number(answers[i].value);
+      const labels=article.querySelectorAll('.gp-option');
+      labels[key].classList.add('is-correct');
+      const correctMark=document.createElement('span');
+      correctMark.className='gp-result';correctMark.textContent='✓ Correcta';
+      labels[key].querySelector('.gp-figure').appendChild(correctMark);
+      if(answer===key)correct++;
+      else{
+        labels[answer].classList.add('is-wrong');
+        const wrongMark=document.createElement('span');
+        wrongMark.className='gp-result';wrongMark.textContent='✕ Incorrecta';
+        labels[answer].querySelector('.gp-figure').appendChild(wrongMark);
+        const fb=article.querySelector('.gp-feedback');fb.hidden=false;
+        fb.setAttribute('role','status');
+        fb.innerHTML=`<strong>✓ La respuesta correcta es la opción ${letters[key]}.</strong><p>Explicación paso a paso:</p><ol><li><strong>Paso 1.</strong> Identifica el denominador: ${it.b}. Busca ${it.type==='group'?'un grupo de '+it.b+' elementos':'una unidad dividida en '+it.b+' partes iguales'}.</li><li><strong>Paso 2.</strong> Identifica el numerador: ${it.a}. Deben estar coloreados ${it.a} ${it.type==='group'?'elementos':'partes'}.</li><li><strong>Paso 3.</strong> Compara las opciones. La opción ${letters[key]} muestra ${it.a} de ${it.b}: ${rich(`[${it.a}/${it.b}]`)} (${lectura(it.a,it.b)}).</li></ol>`;
+      }
+      article.querySelectorAll('input').forEach(input=>input.disabled=true);
+    });
+    score.textContent=`Puntaje: ${correct}/4`;review.disabled=true;
+  });
+  document.getElementById('gpAnother').addEventListener('click',()=>{fresh();document.getElementById('tGrafPra').focus({preventScroll:true});window.scrollTo(0,0);});
+  document.getElementById('gpPrint').addEventListener('click',()=>window.print());
+  fresh();
 })();
 </script></body>
 </html>
