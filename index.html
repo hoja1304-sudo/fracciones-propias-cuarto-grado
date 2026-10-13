@@ -1853,11 +1853,10 @@ function botonInstrucciones(btn, aviso, texto){
 function decir(texto, alTerminar){
   if(!soundOn || !('speechSynthesis' in window)) return false;
   if(!voz) elegirVoz();
-  if(!voz) return false;                 // nunca leer con una voz de otro idioma
   speechSynthesis.cancel();
   if(instrActual && !alTerminar) instrActual();   // otro audio detiene las instrucciones
   const u = new SpeechSynthesisUtterance(texto);
-  u.voice = voz; u.lang = voz.lang; u.rate = .9;
+  if(voz){ u.voice = voz; u.lang = voz.lang; } else { u.lang = 'es-419'; } u.rate = .9;
   if(alTerminar){ u.onend = alTerminar; u.onerror = alTerminar; }
   speechSynthesis.speak(u);
   return true;
