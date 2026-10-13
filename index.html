@@ -312,11 +312,14 @@ button{font:inherit;color:inherit;cursor:pointer}
 .uni-figs .chip{text-align:left}
 .uni-h{margin-top:1em}
 .uni-divrow{display:flex;align-items:center;gap:10px;margin-top:12px}
-.uni-div{flex:1 1 auto}
+.uni-div{flex:1 1 auto;white-space:normal}
 .uni-mini{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px;padding:6px 10px;
   background:var(--panel);border:2px solid var(--c);border-radius:14px}
 .uni-mini-l{font-size:.72rem;font-weight:800;color:var(--soft);text-transform:uppercase;letter-spacing:.04em}
 .uni-mini .lab-frac{font-size:1.5rem}
+.uni-mini-board{position:absolute;top:34px;left:14px;z-index:2;pointer-events:none;min-width:0;padding:3px 9px;flex-direction:row;gap:6px}
+.uni-mini-board .uni-mini-l{font-size:.6rem}
+.uni-mini-board .lab-frac{font-size:1.05rem}
 .uni-tag{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.2em .8em;font-weight:800;font-size:.95rem;pointer-events:none}
 .uni-board{display:flex;align-items:center;justify-content:center;padding:44px 16px 50px}
 #uniFig{width:100%;display:flex;justify-content:center}
@@ -939,7 +942,6 @@ button{font:inherit;color:inherit;cursor:pointer}
         </div>
         <div class="uni-divrow">
           <button class="btn btn-main uni-div" id="uniDividir" type="button">✂️ Dividir la figura</button>
-          <div class="uni-mini" aria-label="Fracción solicitada"><span class="uni-mini-l">Fracción</span><span class="lab-frac" id="uniFrac2"></span></div>
         </div>
       </aside>
       <!-- 3. Representación gráfica -->
@@ -947,6 +949,7 @@ button{font:inherit;color:inherit;cursor:pointer}
         <div class="pizarra uni-board" role="group" aria-label="Pizarra: representación gráfica">
           <span class="pizarra-title">Representación gráfica</span>
           <span class="uni-tag" id="uniTag"></span>
+          <div class="uni-mini uni-mini-board" aria-label="Fracción solicitada"><span class="uni-mini-l">Fracción</span><span class="lab-frac" id="uniFrac2"></span></div>
           <div id="uniFig"></div>
         </div>
         <p class="lab-info" id="uniInfo" aria-live="polite"></p>
