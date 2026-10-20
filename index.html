@@ -1859,7 +1859,8 @@ function decir(texto, alTerminar){
   speechSynthesis.cancel();
   if(instrActual && !alTerminar) instrActual();   // otro audio detiene las instrucciones
   const u = new SpeechSynthesisUtterance(texto);
-  if(voz){ u.voice = voz; u.lang = voz.lang; } else { u.lang = 'es-419'; } u.rate = .9;
+  // Android entrega el idioma como es_US y no conoce es-419: sin un código válido lee con la voz en inglés
+  if(voz){ u.voice = voz; u.lang = /^es(-|$)/i.test(voz.lang.replace(/_/g, '-')) ? voz.lang.replace(/_/g, '-') : 'es-US'; } else { u.lang = 'es-US'; } u.rate = .9;
   if(alTerminar){ u.onend = alTerminar; u.onerror = alTerminar; }
   speechSynthesis.speak(u);
   return true;
